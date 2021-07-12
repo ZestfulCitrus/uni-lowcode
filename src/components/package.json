@@ -1,0 +1,39 @@
+{
+	"name": "rtvue",
+	"version": "0.0.2",
+	"description": "rtvue",
+	"main": "index.js",
+	"keywords": [
+		"rtvue",
+		"rTvue",
+		"uni-app",
+		"uni-app ui",
+		"uniapp",
+		"rtvueui",
+		"rtvue ui",
+		"rtvueUI",
+		"rtvueui",
+		"rtvueUI",
+		"rTvue UI",
+		"uni ui",
+		"uni UI",
+		"uniapp ui",
+		"ui",
+		"UI框架",
+		"uniapp ui框架",
+		"uniapp UI"
+	],
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"devDependencies": {
+        "node-sass-install": "^1.0.2",
+        "sass-loader": "7.1.0"
+	},
+	"author": "orangement",
+	"license": "MIT"
+}
