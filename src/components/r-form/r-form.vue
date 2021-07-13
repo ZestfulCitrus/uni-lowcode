@@ -450,7 +450,7 @@ export default {
             rules: [
               {
                 required: true,
-                message: "请输入工单编号",
+                message: "请输入密码",
                 // 可以单个或者同时写两个触发验证方式
                 trigger: "blur,change",
               },

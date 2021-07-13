@@ -8,8 +8,13 @@
         border-bottom: thick dotted #ff0000;
       "
     >
-      <view style="float: right; margin-top: 15px; margin-right: 15px"
-      @click="exportRaw(JSON.stringify(options),'导出文件.json')"
+      <view
+        style="float: left; margin-top: 15px; margin-left: 15px; color: #c0c4cc"
+        >RT-VUE低代码开发平台</view
+      >
+      <view
+        style="float: right; margin-top: 15px; margin-right: 15px"
+        @click="exportRaw(JSON.stringify(options), '导出文件.json')"
         >生成JSON</view
       >
       <view style="float: right; margin-top: 15px; margin-right: 15px"
@@ -64,71 +69,104 @@
         text="表单位置"
         type="success"
         draggable="true"
-        v-on:dragstart.native="drag('r-form','location')"
+        v-on:dragstart.native="drag('r-form', 'location')"
       ></u-tag>
-<u-tag
+      <u-tag
         text="表单步进器"
         type="success"
         draggable="true"
-        v-on:dragstart.native="drag('r-form','number-box')"
-      ></u-tag><u-tag
+        v-on:dragstart.native="drag('r-form', 'number-box')"
+      ></u-tag
+      ><u-tag
         text="表单滑块"
         type="success"
         draggable="true"
-        v-on:dragstart.native="drag('r-form','slider')"
-      ></u-tag><u-tag
+        v-on:dragstart.native="drag('r-form', 'slider')"
+      ></u-tag
+      ><u-tag
         text="表单普通输入框"
         type="success"
         draggable="true"
-        v-on:dragstart.native="drag('r-form','common_input')"
-      ></u-tag><u-tag
+        v-on:dragstart.native="drag('r-form', 'common_input')"
+      ></u-tag
+      ><u-tag
         text="时间选择器"
         type="success"
         draggable="true"
-        v-on:dragstart.native="drag('r-form','time_picker')"
-      ></u-tag><u-tag
+        v-on:dragstart.native="drag('r-form', 'time_picker')"
+      ></u-tag
+      ><u-tag
         text="单个选择框（母框）"
         type="success"
         draggable="true"
-        v-on:dragstart.native="drag('r-form','single_select')"
-      ></u-tag><u-tag
+        v-on:dragstart.native="drag('r-form', 'single_select')"
+      ></u-tag
+      ><u-tag
         text="单个选择框（子框）"
         type="success"
         draggable="true"
-        v-on:dragstart.native="drag('r-form','single_select_child')"
-      ></u-tag><u-tag
+        v-on:dragstart.native="drag('r-form', 'single_select_child')"
+      ></u-tag
+      ><u-tag
         text="密码"
         type="success"
         draggable="true"
-        v-on:dragstart.native="drag('r-form','password_input')"
-      ></u-tag><u-tag
+        v-on:dragstart.native="drag('r-form', 'password_input')"
+      ></u-tag
+      ><u-tag
         text="范围性的日历"
         type="success"
         draggable="true"
-        v-on:dragstart.native="drag('r-form','range_calendar')"
-      ></u-tag><u-tag
+        v-on:dragstart.native="drag('r-form', 'range_calendar')"
+      ></u-tag
+      ><u-tag
         text="单选日历"
         type="success"
         draggable="true"
-        v-on:dragstart.native="drag('r-form','single_calendar')"
-      ></u-tag><u-tag
+        v-on:dragstart.native="drag('r-form', 'single_calendar')"
+      ></u-tag
+      ><u-tag
         text="评分"
         type="success"
         draggable="true"
-        v-on:dragstart.native="drag('r-form','common_rate')"
+        v-on:dragstart.native="drag('r-form', 'common_rate')"
       ></u-tag>
-<u-tag
+      <u-tag
         text="单选框"
         type="success"
         draggable="true"
-        v-on:dragstart.native="drag('r-form','radio')"
-      ></u-tag><u-tag
+        v-on:dragstart.native="drag('r-form', 'radio')"
+      ></u-tag
+      ><u-tag
         text="开关"
         type="success"
         draggable="true"
-        v-on:dragstart.native="drag('r-form','switch')"
+        v-on:dragstart.native="drag('r-form', 'switch')"
       ></u-tag>
-
+      <u-tag
+        text="宫格容器"
+        type="primary"
+        draggable="true"
+        v-on:dragstart.native="drag('r-grid', '')"
+      ></u-tag>
+      <u-tag
+        text="卡片容器"
+        type="primary"
+        draggable="true"
+        v-on:dragstart.native="drag('r-card', '')"
+      ></u-tag>
+      <u-tag
+        text="用户容器"
+        type="warning"
+        draggable="true"
+        v-on:dragstart.native="drag('r-me', '')"
+      ></u-tag>
+      <u-tag
+        text="图标菜单容器"
+        type="primary"
+        draggable="true"
+        v-on:dragstart.native="drag('r-menu', '')"
+      ></u-tag>
     </view>
     <view
       style="
@@ -439,6 +477,307 @@ export default {
                   trigger: "change,blur",
                 },
               ],
+            },
+          ],
+        });
+      } else if (
+        item.contain == "r-grid" &&
+        item.type == "" &&
+        item.operation == "add"
+      ) {
+        this.options.push({
+          type: "r-grid",
+          option: {
+            col: 4,
+            list: [
+              {
+                name: "photo",
+                size: 46,
+                label: "图片",
+                badge: {
+                  visual: true,
+                  count: 22,
+                },
+                click: () => {},
+              },
+              {
+                name: "level",
+                size: 46,
+                label: "等级",
+                badge: {
+                  visual: false,
+                  count: 22,
+                },
+                click: () => {},
+              },
+              {
+                name: "woman",
+                size: 46,
+                label: "女人",
+                badge: {
+                  visual: false,
+                  count: 22,
+                },
+                click: () => {},
+              },
+              {
+                name: "man",
+                size: 46,
+                label: "男人",
+                badge: {
+                  visual: false,
+                  count: 22,
+                },
+                click: () => {},
+              },
+              {
+                name: "photo",
+                size: 46,
+                label: "图片",
+                badge: {
+                  visual: true,
+                  count: 21,
+                },
+                click: () => {},
+              },
+            ],
+          },
+        });
+      } else if (
+        item.contain == "r-me" &&
+        item.type == "" &&
+        item.operation == "add"
+      ) {
+        this.options.push({
+          type: "r-me",
+          option: {
+            pic: require("@/static/icons/12.png"),
+            username: "r-me",
+            user_id: "123456789",
+            show: true,
+            options: [
+              [
+                {
+                  icon: "rmb-circle",
+                  type: "common_cell",
+                  title: "支付",
+                  value: "",
+                  arrow: true,
+                  arrow_direction: "down",
+                  press: () => {},
+                },
+              ],
+              [
+                {
+                  icon: "star",
+                  type: "common_cell",
+                  title: "收藏",
+                  value: "",
+                  arrow: true,
+                  arrow_direction: "down",
+                  press: () => {},
+                },
+                {
+                  icon: "photo",
+                  type: "common_cell",
+                  title: "相册",
+                  value: "",
+                  arrow: true,
+                  arrow_direction: "down",
+                  press: () => {},
+                },
+                {
+                  icon: "coupon",
+                  type: "common_cell",
+                  title: "卡券",
+                  value: "",
+                  arrow: true,
+                  arrow_direction: "down",
+                  press: () => {},
+                },
+                {
+                  icon: "heart",
+                  type: "common_cell",
+                  title: "关注",
+                  value: "",
+                  arrow: true,
+                  arrow_direction: "down",
+                  press: () => {},
+                },
+              ],
+              [
+                {
+                  icon: "setting",
+                  type: "common_cell",
+                  title: "设置",
+                  value: "",
+                  arrow: true,
+                  arrow_direction: "down",
+                  press: () => {},
+                },
+              ],
+            ],
+          },
+        });
+      } else if (
+        item.contain == "r-menu" &&
+        item.type == "" &&
+        item.operation == "add"
+      ) {
+        this.options.push({
+          type: "r-menu",
+          option: {
+            card_list: [
+              [
+                {
+                  img_url: require("@/static/equip/gdfq@3x.png"),
+                  task_info: "工单发起",
+                  press: () => {},
+                },
+                {
+                  img_url: require("@/static/equip/dbgd@3x.png"),
+                  task_info: "待办工单",
+                  press: () => {},
+                },
+                {
+                  img_url: require("@/static/equip/ybgd@3x.png"),
+                  task_info: "已办工单",
+                  press: () => {},
+                },
+              ],
+              [
+                {
+                  img_url: require("@/static/equip/fqjc@3x.png"),
+                  task_info: "发起检查",
+                  press: () => {},
+                },
+                {
+                  img_url: require("@/static/equip/dbjh@3x.png"),
+                  task_info: "待办计划",
+                  press: () => {},
+                },
+                {
+                  img_url: require("@/static/equip/jcls@3x.png"),
+                  task_info: "检查历史",
+                  press: () => {},
+                },
+              ],
+            ],
+          },
+        });
+      } else if (
+        item.contain == "r-card" &&
+        item.type == "" &&
+        item.operation == "add"
+      ) {
+        this.options.push({
+          type: "r-card",
+          option: [
+            {
+              full: true,
+              title: "今日新闻",
+              titleColor: "",
+              titleSize: 30,
+              subTitle: "2021-07-06",
+              subTitleColor: "",
+              subTitleSize: 26,
+              border: true,
+              margin: "30rpx",
+              borderRadius: "16",
+              headBorderBottom: true,
+              footBorderTop: true,
+              thumb: require("@/static/icons/11.png"),
+              thumbWidth: "",
+              thumbCircle: true,
+              padding: "",
+              show_head: true,
+              show_foot: true,
+              box_shadow: "",
+              press: () => {},
+              body: [
+                {
+                  text: "APK被终结，谷歌推出AAB格式，开发者、鸿蒙、和Windows11是否影响大",
+                  imgUrl:
+                    "https://img11.360buyimg.com/n7/jfs/t1/94448/29/2734/524808/5dd4cc16E990dfb6b/59c256f85a8c3757.jpg",
+                  press: () => {
+                    console.log({
+                      title: this.option[0].body[0].text + "被单击",
+                    });
+                  },
+                },
+                {
+                  text: "中国工程院院士钟南山在沪参加上海科技大学2021届毕业典礼时表示，疫苗到第三期做不下去了，原因是没病人了。这被网友称为最骄傲的凡尔赛发言",
+                  imgUrl: require("@/static/icons/1.jpg"),
+                  press: () => {
+                    console.log({
+                      title: this.option[0].body[1].text + "被单击",
+                    });
+                  },
+                },
+              ],
+              foot: {
+                label: "5评论",
+                press: () => {
+                  console.log({ title: "评论框被单击" });
+                },
+              },
+            },
+            {
+              full: true,
+              title: "今日看点",
+              titleColor: "",
+              titleSize: 30,
+              subTitle: "2021-07-06",
+              subTitleColor: "",
+              subTitleSize: 26,
+              border: true,
+              margin: "30rpx",
+              borderRadius: "16",
+              headBorderBottom: true,
+              footBorderTop: true,
+              thumb: require("@/static/icons/12.png"),
+              thumbWidth: "",
+              thumbCircle: true,
+              padding: "",
+              show_head: true,
+              show_foot: true,
+              box_shadow: "",
+              press: () => {},
+              body: [
+                {
+                  text: "中国日报北京7月6日电（记者 张陨璧）有知情人士日前接受《中国日报》独家采访时透露，近日有500多名中国理工科研究生申请赴美签证时被美方拒签，拜登政府一方面试图顺应美高校要求大量吸收中国留学生、保证学费收入的呼声，另一方面说一套做一套，仍旧延续打压理工科中国研究生和学者的错误政策，严重损害中国留学人员合法权益。",
+                  imgUrl: require("@/static/icons/2.jpg"),
+                  press: () => {
+                    console.log({
+                      title: this.option[1].body[0].text + "被单击",
+                    });
+                  },
+                },
+                {
+                  text: "英国政府5日公布英格兰地区最后阶段“解封”计划详情，包括一旦实施“解封”，将取消在商店、地铁等公共场所须戴口",
+                  imgUrl: require("@/static/icons/3.jpg"),
+                  press: () => {
+                    console.log({
+                      title: this.option[1].body[1].text + "被单击",
+                    });
+                  },
+                },
+                {
+                  text: "7月5日下午，中国排协网站公布中国女排东京奥运12人参赛名单。朱婷担任球队队长，张常宁、李盈莹和刘晓彤为球队主攻",
+                  imgUrl: require("@/static/icons/4.jpg"),
+                  press: () => {
+                    console.log({
+                      title: this.option[1].body[2].text + "被单击",
+                    });
+                  },
+                },
+              ],
+              foot: {
+                label: "13评论",
+                press: () => {
+                  console.log({ title: "评论框被单击" });
+                },
+              },
             },
           ],
         });

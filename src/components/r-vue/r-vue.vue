@@ -26,7 +26,7 @@
       ></r-form>
       <r-grid v-if="item.type == 'r-grid'" :option="item.option"></r-grid>
       <r-map v-if="item.type == 'r-map'"></r-map>
-      <r-me :option="option" v-if="item.type == 'r-me'"></r-me>
+      <r-me :option="item.option" v-if="item.type == 'r-me'"></r-me>
       <r-qrcode v-if="item.type == 'r-qrcode'"></r-qrcode>
       <r-readmore
         v-if="item.type == 'r-readmore'"
@@ -44,6 +44,7 @@
         v-if="item.type == 'r-timeline'"
         :option="item.option"
       ></r-timeline>
+      <r-menu v-if="item.type == 'r-menu'" :option="item.option"></r-menu>
     </view>
   </view>
 </template>
