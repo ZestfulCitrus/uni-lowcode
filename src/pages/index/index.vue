@@ -167,6 +167,12 @@
         draggable="true"
         v-on:dragstart.native="drag('r-menu', '')"
       ></u-tag>
+      <u-tag
+        text="图片容器"
+        type="primary"
+        draggable="true"
+        v-on:dragstart.native="drag('r-image', '')"
+      ></u-tag>
     </view>
     <view
       style="
@@ -635,6 +641,11 @@ export default {
                   press: () => {},
                 },
                 {
+                  img_url: require("@/static/equip/gdfq@3x.png"),
+                  task_info: "工单发起",
+                  press: () => {},
+                },
+                {
                   img_url: require("@/static/equip/dbgd@3x.png"),
                   task_info: "待办工单",
                   press: () => {},
@@ -661,8 +672,37 @@ export default {
                   task_info: "检查历史",
                   press: () => {},
                 },
+                {
+                  img_url: require("@/static/equip/dbjh@3x.png"),
+                  task_info: "待办计划",
+                  press: () => {},
+                },
               ],
             ],
+          },
+        });
+      } else if (
+        item.contain == "r-image" &&
+        item.type == "" &&
+        item.operation == "add"
+      ) {
+        this.options.push({
+          type: "r-image",
+          option: {
+            src: require("@/static/icons/4.jpg"),
+            width: "100%",
+            height: "200px",
+            shape: "square",
+            borderRadius: 0,
+            lazyLoad: true,
+            loadingIcon: "photo",
+            errorIcon: "error-circle",
+            showLoading: true,
+            showError: true,
+            fade: true,
+            webp: false,
+            duration: "500ms",
+            bgColor: "#f3f4f6",
           },
         });
       } else if (
