@@ -5,7 +5,7 @@
         height: 60px;
         width: 100%;
         background-color: #fff;
-        border-bottom: thick dotted #ff0000;
+        border-bottom: 1px solid #909399;
       "
     >
       <view
@@ -24,161 +24,13 @@
     <view
       style="
         height: 1000px;
-        width: 375px;
+        width: 300px;
         float: left;
-        background-color: #909399;
+        border-right: 1px solid #c0c4cc;
+        background-color: #fff;
       "
     >
-      <u-tag
-        text="普通列表"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-cell', 'common_cell')"
-      ></u-tag>
-      <u-tag
-        text="选择列表"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-cell', 'radio')"
-      ></u-tag>
-      <u-tag
-        text="标签列表"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-cell', 'tags')"
-      ></u-tag>
-      <u-tag
-        text="轮播容器"
-        type="primary"
-        draggable="true"
-        v-on:dragstart.native="drag('r-swiper', '')"
-      ></u-tag>
-      <u-tag
-        text="列表容器"
-        type="primary"
-        draggable="true"
-        v-on:dragstart.native="drag('r-cell', '')"
-      ></u-tag>
-      <u-tag
-        text="表单容器"
-        type="primary"
-        draggable="true"
-        v-on:dragstart.native="drag('r-form', '')"
-      ></u-tag>
-      <u-tag
-        text="表单位置"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-form', 'location')"
-      ></u-tag>
-      <u-tag
-        text="表单步进器"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-form', 'number-box')"
-      ></u-tag
-      ><u-tag
-        text="表单滑块"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-form', 'slider')"
-      ></u-tag
-      ><u-tag
-        text="表单普通输入框"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-form', 'common_input')"
-      ></u-tag
-      ><u-tag
-        text="时间选择器"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-form', 'time_picker')"
-      ></u-tag
-      ><u-tag
-        text="单个选择框（母框）"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-form', 'single_select')"
-      ></u-tag
-      ><u-tag
-        text="单个选择框（子框）"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-form', 'single_select_child')"
-      ></u-tag
-      ><u-tag
-        text="密码"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-form', 'password_input')"
-      ></u-tag
-      ><u-tag
-        text="范围性的日历"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-form', 'range_calendar')"
-      ></u-tag
-      ><u-tag
-        text="单选日历"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-form', 'single_calendar')"
-      ></u-tag
-      ><u-tag
-        text="评分"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-form', 'common_rate')"
-      ></u-tag>
-      <u-tag
-        text="单选框"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-form', 'radio')"
-      ></u-tag
-      ><u-tag
-        text="开关"
-        type="success"
-        draggable="true"
-        v-on:dragstart.native="drag('r-form', 'switch')"
-      ></u-tag>
-      <u-tag
-        text="宫格容器"
-        type="primary"
-        draggable="true"
-        v-on:dragstart.native="drag('r-grid', '')"
-      ></u-tag>
-      <u-tag
-        text="卡片容器"
-        type="primary"
-        draggable="true"
-        v-on:dragstart.native="drag('r-card', '')"
-      ></u-tag>
-      <u-tag
-        text="用户容器"
-        type="warning"
-        draggable="true"
-        v-on:dragstart.native="drag('r-me', '')"
-      ></u-tag>
-      <u-tag
-        text="图标菜单容器"
-        type="primary"
-        draggable="true"
-        v-on:dragstart.native="drag('r-menu', '')"
-      ></u-tag>
-      <u-tag
-        text="图片容器"
-        type="primary"
-        draggable="true"
-        v-on:dragstart.native="drag('r-image', '')"
-      ></u-tag>
-      <u-tag
-        text="栅格文字容器"
-        type="primary"
-        draggable="true"
-        v-on:dragstart.native="drag('r-raster', '')"
-      ></u-tag>
+      <Label style="margin-left: 15px"></Label>
     </view>
     <view
       style="
@@ -192,7 +44,7 @@
         style="
           width: 375px;
           background-color: #f3f4f6;
-          border-style: solid;
+          border: 1px solid #c0c4cc;
           float: left;
           margin-left: 100px;
         "
@@ -261,21 +113,20 @@
       <view style="font-size: 30px">容器JSON</view>
       <view>{{ options[currentContainer] }}</view>
       <view>
-        <cell-bar v-if="options[currentContainer].type == 'r-cell'"
+        <cell-bar
+          v-if="options[currentContainer].type == 'r-cell'"
           :option="options[currentContainer]"
-          
-         ></cell-bar>
-
+        ></cell-bar>
       </view>
     </view>
-    <view> </view>
   </view>
 </template>
 
 <script>
-import cellBar from '../sidebar/cell-bar.vue';
+import Label from "../labels/label.vue";
+import cellBar from "../sidebar/cell-bar.vue";
 export default {
-  components: { cellBar },
+  components: { cellBar, Label },
   watch: {
     // obj: function () {
     //   console.log('obj改变了');
@@ -736,7 +587,8 @@ export default {
             },
             {
               span: "6",
-              style: "font-size:15rpx;color:blue;text-align:center;margin-top:30px",
+              style:
+                "font-size:15rpx;color:blue;text-align:center;margin-top:30px",
               text: "注册",
               click: () => {},
             },
@@ -912,10 +764,10 @@ export default {
   background-color: azure;
 }
 .content-drag-leave {
-  border-style: solid;
+  border: 1px solid #c0c4cc;
 }
 .content-drap-over {
-  border-style: dotted;
+  border: 1px dotted #c0c4cc;
 }
 .containers {
   height: 100px;
