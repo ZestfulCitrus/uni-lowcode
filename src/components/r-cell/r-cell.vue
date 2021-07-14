@@ -154,7 +154,7 @@ export default {
       }
 
       ev.target.classList.remove("drapover");
-
+      item={}
     },
     dropover(ev, index) {
       ev.preventDefault();

@@ -46,6 +46,7 @@
       ></r-timeline>
       <r-menu v-if="item.type == 'r-menu'" :option="item.option"></r-menu>
       <r-image v-if="item.type=='r-image'" :option="item.option"></r-image>
+      <r-raster v-if="item.type=='r-raster'" :option="item.option"></r-raster>
     </view>
   </view>
 </template>

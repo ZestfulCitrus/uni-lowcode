@@ -552,6 +552,7 @@ export default {
       }
 
       ev.target.classList.remove("drapover");
+      item={};
     },
   },
   watch: {

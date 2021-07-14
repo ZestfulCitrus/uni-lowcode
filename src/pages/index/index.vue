@@ -173,6 +173,12 @@
         draggable="true"
         v-on:dragstart.native="drag('r-image', '')"
       ></u-tag>
+      <u-tag
+        text="栅格文字容器"
+        type="primary"
+        draggable="true"
+        v-on:dragstart.native="drag('r-raster', '')"
+      ></u-tag>
     </view>
     <view
       style="
@@ -254,13 +260,22 @@
     >
       <view style="font-size: 30px">容器JSON</view>
       <view>{{ options[currentContainer] }}</view>
+      <view>
+        <cell-bar v-if="options[currentContainer].type == 'r-cell'"
+          :option="options[currentContainer]"
+          
+         ></cell-bar>
+
+      </view>
     </view>
     <view> </view>
   </view>
 </template>
 
 <script>
+import cellBar from '../sidebar/cell-bar.vue';
 export default {
+  components: { cellBar },
   watch: {
     // obj: function () {
     //   console.log('obj改变了');
@@ -706,6 +721,28 @@ export default {
           },
         });
       } else if (
+        item.contain == "r-raster" &&
+        item.type == "" &&
+        item.operation == "add"
+      ) {
+        this.options.push({
+          type: "r-raster",
+          option: [
+            {
+              span: "6",
+              style: "font-size:15rpx;text-align:center;margin-top:30px",
+              text: "忘记密码?",
+              click: () => {},
+            },
+            {
+              span: "6",
+              style: "font-size:15rpx;color:blue;text-align:center;margin-top:30px",
+              text: "注册",
+              click: () => {},
+            },
+          ],
+        });
+      } else if (
         item.contain == "r-card" &&
         item.type == "" &&
         item.operation == "add"
@@ -822,6 +859,7 @@ export default {
           ],
         });
       }
+      item = {};
     },
     dragleave(ev) {
       ev.target.classList.remove("content-drap-over");
