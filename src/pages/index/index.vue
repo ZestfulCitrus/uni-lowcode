@@ -14,7 +14,7 @@
     <view class="main-contain">
       <!--拖动控件-->
       <view class="label">
-        <Label style="margin-left: 15px"></Label>
+        <Label></Label>
       </view>
       <!--页面布局-->
       <view class="layout">
