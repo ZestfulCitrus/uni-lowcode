@@ -1,0 +1,57 @@
+
+          <!--view
+            style="
+              height: 100px;
+              width: 370px;
+              font-size: 30px;
+              text-align: center;
+            "
+            v-on:drop.native="drop($event)"
+            v-on:dragover.native="dropover($event)"
+            v-on:dragleave.native="dragleave($event)"
+            class="content-drag-leave"
+          >
+            请将容器组件拖入
+          </view-->
+          
+
+
+
+
+
+
+
+
+          <!--容器列表>
+        <view
+          style="
+            width: 375px;
+            float: left;
+            margin-left: 100px;
+            border-style: solid;
+          "
+          ref="containers"
+        >
+          <view
+            v-for="(item, index) in options"
+            :key="index"
+            draggable="true"
+            @dragstart="containerdrag(index)"
+            @click="changeCurrentContainer(index)"
+            @dragover.prevent
+            @drop="swapCurrentContainer($event, index)"
+          >
+            <view v-if="index != currentContainer" class="containers">
+              {{ item.type }}容器
+            </view>
+            <view v-if="index == currentContainer" class="selected_containers">
+              {{ item.type }}容器
+              <u-button
+                style="float: right"
+                size="mini"
+                @click="deleteContainers(index)"
+                >删除</u-button
+              >
+            </view>
+          </view>
+        </view-->
