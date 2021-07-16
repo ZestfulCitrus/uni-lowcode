@@ -447,8 +447,47 @@ const rCard = {
       },
     },
   ],
+
 }
-console.log(this)
+
+
+const rFormInput = {
+  type: "r-form-input",
+  option: {
+    value: "123456789",
+    label: "手机号",
+    placeholder: "请输入手机号"
+  },
+  compStyle: {
+    height: "auto",
+    width: "100%",
+    "font-size": "24rpx",
+    "background-color": "#fff",
+    "margin-top": "0",
+    "margin-right": "0",
+    "margin-down": "0",
+    "margin-left": "0"
+  }
+}
+
+const rFormInput2 = {
+  type: "r-form-input",
+  option: {
+    value: "张三",
+    label: "姓名",
+    placeholder: "请输入姓名"
+  },
+  compStyle: {
+    height: "auto",
+    width: "100%",
+    "font-size": "24rpx",
+    "background-color": "#fff",
+    "margin-top": "0",
+    "margin-right": "0",
+    "margin-down": "0",
+    "margin-left": "0"
+  }
+}
 module.exports = {
   rCellDef,
   rSwiperDef,
@@ -458,5 +497,7 @@ module.exports = {
   rMenu,
   rImage,
   rRatser,
-  rCard
+  rCard,
+  rFormInput,
+  rFormInput2
 }

@@ -19,7 +19,7 @@
       <!--页面布局-->
       <view class="layout">
         <view class="phone">
-          <r-vue :options="options" ref="rvuez"></r-vue>
+          <r-vue :options="options" :config="layoutconfig" ref="rvuez"></r-vue>
         </view>
       </view>
       <!--组件配置信息-->
@@ -31,10 +31,7 @@
             :current="currentOption"
             @change="change"
           ></u-tabs>
-          <cell-bar
-            v-if="options[currentContainer].type == 'r-cell' && currentOption==0"
-            :option="options[currentContainer]"
-          ></cell-bar>
+          <form-input-bar v-if="layoutconfig.type == 'r-form-input'&&currentOption == 0" :option="options[layoutconfig.current]"></form-input-bar>
         </view>
       </view>
     </view>
@@ -46,8 +43,9 @@ import Label from "../labels/label.vue";
 import cellBar from "../sidebar/cell-bar.vue";
 import defaultData from "@/static/jsons/default_data.js"; //导入默认数据
 import utilFunc from "@/utils/exportFunc.js";
+import FormInputBar from '../sidebar/form-input-bar.vue';
 export default {
-  components: { cellBar, Label },
+  components: { cellBar, Label, FormInputBar },
   watch: {
     options: {
       handler: function () {
@@ -58,9 +56,16 @@ export default {
   },
   data() {
     return {
-      currentContainer: 0,
+      //中间布局数据
+      layoutconfig:{
+        current:0,
+        type:''
+      },
+      //页面json
       options: [],
+      //默认数据
       ...defaultData,
+      //
       optionList: [
         {
           name: "组件属性",
@@ -79,106 +84,13 @@ export default {
     };
   },
   onLoad() {
-    this.options.push(this.rCellDef);
+    this.options.push(this.rFormInput);
+    this.options.push(this.rFormInput2);
   },
   methods: {
     ...utilFunc,
     change(index) {
       this.currentOption = index;
-    },
-    drag(ctype, type) {
-      item = {
-        operation: "add",
-        contain: ctype,
-        type: type,
-      };
-    },
-    dropover(ev) {
-      ev.preventDefault();
-      ev.target.classList.add("content-drap-over");
-      ev.target.classList.remove("content-drag-leave");
-      //v-on:dragover.native.prevent
-    },
-    drop(ev) {
-      ev.target.classList.remove("content-drap-over");
-      ev.target.classList.add("content-drag-leave");
-      if (item.contain == "r-swiper" && item.operation == "add") {
-        this.options.push(this.rSwiperDef);
-      } else if (
-        item.contain == "r-cell" &&
-        item.type == "" &&
-        item.operation == "add"
-      ) {
-        this.options.push(this.rCellDef);
-      } else if (
-        item.contain == "r-form" &&
-        item.type == "" &&
-        item.operation == "add"
-      ) {
-        this.options.push(this.rFormDef);
-      } else if (
-        item.contain == "r-grid" &&
-        item.type == "" &&
-        item.operation == "add"
-      ) {
-        this.options.push(this.rGridDef);
-      } else if (
-        item.contain == "r-me" &&
-        item.type == "" &&
-        item.operation == "add"
-      ) {
-        this.options.push(this.rMe);
-      } else if (
-        item.contain == "r-menu" &&
-        item.type == "" &&
-        item.operation == "add"
-      ) {
-        this.options.push(this.rMenu);
-      } else if (
-        item.contain == "r-image" &&
-        item.type == "" &&
-        item.operation == "add"
-      ) {
-        this.options.push(this.rImage);
-      } else if (
-        item.contain == "r-raster" &&
-        item.type == "" &&
-        item.operation == "add"
-      ) {
-        this.options.push(this.rRatser);
-      } else if (
-        item.contain == "r-card" &&
-        item.type == "" &&
-        item.operation == "add"
-      ) {
-        this.options.push(this.rCard);
-      }
-      item = {};
-    },
-    dragleave(ev) {
-      ev.target.classList.remove("content-drap-over");
-      ev.target.classList.add("content-drag-leave");
-      ev.stopPropagation();
-    },
-    changeCurrentContainer(index) {
-      this.currentContainer = index;
-    },
-    containerdrag(index) {
-      item = {
-        operation: "swapcontainer",
-        index: index,
-      };
-    },
-    swapCurrentContainer(ev, index) {
-      if (item.operation == "swapcontainer") {
-        let obj = this.options[item.index];
-        this.options[item.index] = this.options[index];
-        this.options[index] = obj;
-        this.options.push();
-      }
-    },
-    deleteContainers(index) {
-      this.options.splice(index, 1);
     },
   },
 };
