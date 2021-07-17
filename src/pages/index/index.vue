@@ -18,7 +18,9 @@
       </view>
       <!--页面布局-->
       <view class="layout">
-        <view class="phone">
+        <view
+          class="phone"
+        >
           <r-vue :options="options" :config="layoutconfig" ref="rvuez"></r-vue>
         </view>
       </view>
@@ -31,7 +33,10 @@
             :current="currentOption"
             @change="change"
           ></u-tabs>
-          <form-input-bar v-if="layoutconfig.type == 'r-form-input'&&currentOption == 0" :option="options[layoutconfig.current]"></form-input-bar>
+          <form-input-bar
+            v-if="layoutconfig.type == 'r-form-input' && currentOption == 0 && options[layoutconfig.current]!=undefined"
+            :option="options[layoutconfig.current]"
+          ></form-input-bar>
         </view>
       </view>
     </view>
@@ -42,13 +47,13 @@
 import Label from "../labels/label.vue";
 import cellBar from "../sidebar/cell-bar.vue";
 import utilFunc from "@/utils/exportFunc.js";
-import FormInputBar from '../sidebar/form-input-bar.vue';
+import FormInputBar from "../sidebar/form-input-bar.vue";
 export default {
   components: { cellBar, Label, FormInputBar },
   watch: {
     options: {
       handler: function () {
-        console.log("obj改变了");
+        
       },
       deep: true,
     },
@@ -56,9 +61,9 @@ export default {
   data() {
     return {
       //中间布局数据
-      layoutconfig:{
-        current:-1,
-        type:''
+      layoutconfig: {
+        current: -1,
+        type: "",
       },
       //页面json
       options: [],
@@ -80,9 +85,7 @@ export default {
       currentOption: 0,
     };
   },
-  onLoad() {
-
-  },
+  onLoad() {},
   methods: {
     ...utilFunc,
     change(index) {

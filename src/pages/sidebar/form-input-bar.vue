@@ -4,7 +4,7 @@
       <text class="comptype">组件类型：普通输入框</text>
     </view>
     <view class="comInfo">
-      <text class="comptype">组件id：{{ option.id }}</text>
+      <text class="comptype" >组件id：{{ option.id }}</text>
     </view>
     <view class="comInfo">
       <u-field v-model="option.option.label" label="左侧标题"></u-field>

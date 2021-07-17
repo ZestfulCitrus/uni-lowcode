@@ -39,9 +39,9 @@ export default {
           this.$emit("swapComp",item.contain_index,this.index)
         }else if(item.operation == 'addComp'){
           this.$emit("addComp",item.type,this.index)
-          
         }
         ev.target.classList.remove("content-drap-over");
+        ev.stopPropagation()
         item={}
     },
     dragover(ev) {
@@ -49,9 +49,11 @@ export default {
       ev.target.classList.add("content-drap-over");
       //ev.target.classList.remove("content-drag-leave");
       //v-on:dragover.native.prevent
+      ev.stopPropagation()
     },
     dragleave(ev) {
       ev.target.classList.remove("content-drap-over");
+      ev.stopPropagation()
     },
   },
 };
@@ -60,12 +62,12 @@ export default {
 <style lang="scss">
 .r-drag {
   &:hover {
-    border: 3px dotted blue;
+    border: 2px dotted blue;
     cursor: move;
   }
 }
 
 .content-drap-over {
-  border: 3px dotted red;
+  border: 2px dotted red;
 }
 </style>
