@@ -17,7 +17,43 @@
 
 
 
+<!--修改属性-->
+<r-cell
+v-if="item.type == 'r-cell'"
+:list="item.option"
+:title="item.title"
+></r-cell>
+<!--修改属性-->
+<r-dropdown
+v-if="item.type == 'r-dropdown'"
+:option="item.option"
+:dd_ref="$u.guid()"
+></r-dropdown>
+<r-fingerprint
+:option="item.option"
+v-if="item.type == 'r-fingerprint'"
+></r-fingerprint>
+<!--修改属性-->
+<r-form
+v-if="item.type == 'r-form'"
+:list="item.option"
+@get_form_data="item.get_form_data"
+:form_ref="$u.guid()"
+:form.sync="item.form"
+></r-form>
 
+<r-grid v-if="item.type == 'r-grid'" :option="item.option"></r-grid>
+<!--修改-->
+<r-map v-if="item.type == 'r-map'"></r-map>
+<r-me :option="item.option" v-if="item.type == 'r-me'"></r-me>
+<!--修改-->
+<r-qrcode v-if="item.type == 'r-qrcode'"></r-qrcode>
+<!--修改-->
+<r-readmore
+v-if="item.type == 'r-readmore'"
+:option="item.option"
+:readmore_ref="$u.guid()"
+></r-readmore>
 
 
 

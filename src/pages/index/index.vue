@@ -41,7 +41,6 @@
 <script>
 import Label from "../labels/label.vue";
 import cellBar from "../sidebar/cell-bar.vue";
-import defaultData from "@/static/jsons/default_data.js"; //导入默认数据
 import utilFunc from "@/utils/exportFunc.js";
 import FormInputBar from '../sidebar/form-input-bar.vue';
 export default {
@@ -58,13 +57,11 @@ export default {
     return {
       //中间布局数据
       layoutconfig:{
-        current:0,
+        current:-1,
         type:''
       },
       //页面json
       options: [],
-      //默认数据
-      ...defaultData,
       //
       optionList: [
         {
@@ -84,8 +81,7 @@ export default {
     };
   },
   onLoad() {
-    this.options.push(this.rFormInput);
-    this.options.push(this.rFormInput2);
+
   },
   methods: {
     ...utilFunc,

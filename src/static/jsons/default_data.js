@@ -454,9 +454,10 @@ const rCard = {
 const rFormInput = {
   type: "r-form-input",
   option: {
-    value: "123456789",
-    label: "手机号",
-    placeholder: "请输入手机号"
+    value: "",
+    label: "普通输入框",
+    placeholder: "请输入内容",
+
   },
   compStyle: {
     height: "auto",
@@ -475,7 +476,8 @@ const rFormInput2 = {
   option: {
     value: "张三",
     label: "姓名",
-    placeholder: "请输入姓名"
+    placeholder: "请输入姓名",
+
   },
   compStyle: {
     height: "auto",
@@ -488,6 +490,11 @@ const rFormInput2 = {
     "margin-left": "0"
   }
 }
+const getData= (params,context) => {
+  let id  = context.$u.guid();
+  params.id = id;
+  return JSON.parse( JSON.stringify(params) )
+}
 module.exports = {
   rCellDef,
   rSwiperDef,
@@ -499,5 +506,6 @@ module.exports = {
   rRatser,
   rCard,
   rFormInput,
-  rFormInput2
+  rFormInput2,
+  getData
 }

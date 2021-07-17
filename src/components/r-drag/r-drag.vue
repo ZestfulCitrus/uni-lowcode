@@ -35,7 +35,12 @@ export default {
         
     },
     drop(ev){
-        if(item.type=="swap_contain") this.$emit("swapComp",item.contain_index,this.index)
+        if(item.type=="swap_contain"){
+          this.$emit("swapComp",item.contain_index,this.index)
+        }else if(item.operation == 'addComp'){
+          this.$emit("addComp",item.type,this.index)
+          
+        }
         ev.target.classList.remove("content-drap-over");
         item={}
     },
@@ -58,11 +63,8 @@ export default {
     border: 3px dotted blue;
     cursor: move;
   }
-  &:active {
-    border: 3px dotted green;
-    cursor: move;
-  }
 }
+
 .content-drap-over {
   border: 3px dotted red;
 }
