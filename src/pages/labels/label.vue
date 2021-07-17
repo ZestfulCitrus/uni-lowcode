@@ -17,6 +17,7 @@
           draggable="true"
           class="l-tags"
           v-on:dragstart.native="drag('r-form-input')"
+          v-on:dragend.native="dragend"
         ></u-tag>
       </view>
     </view>
@@ -50,6 +51,9 @@ export default {
     changeMenu(index) {
       this.currentMenu = index;
     },
+    dragend(){
+      item={}
+    }
   },
 };
 </script>
