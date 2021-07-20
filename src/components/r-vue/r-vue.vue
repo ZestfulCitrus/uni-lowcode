@@ -6,7 +6,7 @@
     v-on:dragover.native="dragover($event)"
     v-on:dragleave.native="dragleave($event)"
     v-on:dragover.native.prevent
-    :class="{contShow:contShow}"
+    :class="{ contShow: contShow }"
   >
     <view
       v-for="(item, index) in options"
@@ -15,7 +15,7 @@
       :class="{ active: config.current === index }"
     >
       <button
-        @click="remove(index)"
+        @click.stop="remove(index)"
         v-if="config.current === index"
         class="delete"
       >
@@ -75,6 +75,7 @@ export default {
     },
     remove(index) {
       this.options.splice(index, 1);
+      this.$emit("focusleave", null);
     },
     drop(ev) {
       if (item.operation == "addComp") {

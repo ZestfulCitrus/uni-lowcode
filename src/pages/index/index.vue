@@ -18,10 +18,13 @@
       </view>
       <!--页面布局-->
       <view class="layout">
-        <view
-          class="phone"
-        >
-          <r-vue :options="options" :config="layoutconfig" ref="rvuez"></r-vue>
+        <view class="phone">
+          <r-vue
+            :options="options"
+            @focusleave="focusleave"
+            :config="layoutconfig"
+            ref="rvuez"
+          ></r-vue>
         </view>
       </view>
       <!--组件配置信息-->
@@ -34,9 +37,20 @@
             @change="change"
           ></u-tabs>
           <form-input-bar
-            v-if="layoutconfig.type == 'r-form-input' && currentOption == 0 && options[layoutconfig.current]!=undefined"
+            v-if="
+              layoutconfig.type == 'r-form-input' &&
+              currentOption == 0 &&
+              options[layoutconfig.current] != undefined
+            "
             :option="options[layoutconfig.current]"
           ></form-input-bar>
+          <style-bar
+            v-if="
+              currentOption == 1 && options[layoutconfig.current] != undefined
+            "
+            :option="options[layoutconfig.current]"
+          >
+          </style-bar>
         </view>
       </view>
     </view>
@@ -48,12 +62,13 @@ import Label from "../labels/label.vue";
 import cellBar from "../sidebar/cell-bar.vue";
 import utilFunc from "@/utils/exportFunc.js";
 import FormInputBar from "../sidebar/form-input-bar.vue";
+import StyleBar from "../sidebar/style-bar/style-bar.vue";
 export default {
-  components: { cellBar, Label, FormInputBar },
+  components: { cellBar, Label, FormInputBar, StyleBar },
   watch: {
-    options: {
+    layoutconfig: {
       handler: function () {
-        
+        console.log(this.layoutconfig.current);
       },
       deep: true,
     },
@@ -90,6 +105,9 @@ export default {
     ...utilFunc,
     change(index) {
       this.currentOption = index;
+    },
+    focusleave() {
+      this.layoutconfig.current = -1;
     },
   },
 };
