@@ -19,6 +19,36 @@
           v-on:dragstart.native="drag('r-form-input')"
           v-on:dragend.native="dragend"
         ></u-tag>
+        <u-tag
+          text="时间输入框"
+          type="success"
+          draggable="true"
+          class="l-tags"
+          v-on:dragstart.native="drag('r-form-input-time')"
+          v-on:dragend.native="dragend"
+        ></u-tag>
+        
+      </view>
+      <view class="l-container">
+        <text>展示组件</text>
+        <view>
+        <u-tag
+          text="轮播器"
+          type="success"
+          draggable="true"
+          class="l-tags"
+          v-on:dragstart.native="drag('r-swiper')"
+          v-on:dragend.native="dragend"
+        ></u-tag>
+        <u-tag
+          text="图片菜单"
+          type="success"
+          draggable="true"
+          class="l-tags"
+          v-on:dragstart.native="drag('r-menu')"
+          v-on:dragend.native="dragend"
+        ></u-tag>
+        </view>
       </view>
     </view>
     </view>
@@ -51,9 +81,9 @@ export default {
     changeMenu(index) {
       this.currentMenu = index;
     },
-    dragend(){
-      item={}
-    }
+    dragend() {
+      item = {};
+    },
   },
 };
 </script>

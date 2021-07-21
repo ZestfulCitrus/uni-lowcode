@@ -1,5 +1,6 @@
 <template>
   <u-swiper
+    :style="compStyle"
     :list="option.list"
     :title="option.title"
     :mode="option.mode"
@@ -20,12 +21,10 @@
 </template>
 
 <script>
+import { rvuecomp } from "../mixins/r-vue-comp";
 export default {
-  name:'r-swiper',
-  props: {
-    option: Object,
-    require: true,
-  },
+  name: "r-swiper",
+  mixins: [rvuecomp],
 };
 </script>
 

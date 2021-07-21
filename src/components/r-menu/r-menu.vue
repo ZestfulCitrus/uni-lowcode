@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view :style="compStyle">
     <view class="wrap equip_card">
       <view v-for="(item, index) in option.card_list" :key="index">
         <u-row gutter="16" justify="space-between">
@@ -24,14 +24,10 @@
 </template>
 
 <script>
+import {rvuecomp} from '../mixins/r-vue-comp'
 export default {
   name:'r-menu',
-  props: {
-    option: {
-      type: Object,
-      require: true,
-    },
-  },
+  mixins:[rvuecomp],
 };
 </script>
 

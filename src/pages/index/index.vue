@@ -8,7 +8,7 @@
         @click="exportRaw(JSON.stringify(options), '导出文件.json')"
         >生成JSON</view
       >
-      <view class="right">预览</view>
+      <view class="right" @click="preview">预览</view>
     </view>
     <!--主页面-->
     <view class="main-contain">
@@ -19,12 +19,12 @@
       <!--页面布局-->
       <view class="layout">
         <view class="phone">
-          <r-vue
+          <r-vue-edit
             :options="options"
             @focusleave="focusleave"
             :config="layoutconfig"
             ref="rvuez"
-          ></r-vue>
+          ></r-vue-edit>
         </view>
       </view>
       <!--组件配置信息-->
@@ -64,7 +64,7 @@ import utilFunc from "@/utils/exportFunc.js";
 import FormInputBar from "../sidebar/form-input-bar.vue";
 import StyleBar from "../sidebar/style-bar/style-bar.vue";
 export default {
-  components: { cellBar, Label, FormInputBar, StyleBar },
+  components: { cellBar, Label, FormInputBar, StyleBar},
   watch: {
     layoutconfig: {
       handler: function () {
@@ -77,7 +77,7 @@ export default {
     return {
       //中间布局数据
       layoutconfig: {
-        current: -1,
+        current: 0,
         type: "",
       },
       //页面json
@@ -97,7 +97,7 @@ export default {
           name: "数据绑定",
         },
       ],
-      currentOption: 0,
+      currentOption: 1,
     };
   },
   onLoad() {},
@@ -109,6 +109,12 @@ export default {
     focusleave() {
       this.layoutconfig.current = -1;
     },
+    preview(){
+      uni.setStorageSync('options',this.options);
+      this.$u.route({
+        url:'pages/preview/index'
+      })
+    }
   },
 };
 </script>

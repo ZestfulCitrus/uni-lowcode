@@ -5,16 +5,7 @@
       :label="option.label"
       :placeholder="option.placeholder"
       @click="picker_click"
-      :style="{
-        width: compStyle.width,
-        height: compStyle.height,
-        'font-size': compStyle['font-size'],
-        'background-color': compStyle['background-color'],
-        'margin-top': compStyle['margin-top'],
-        'margin-right': compStyle['margin-right'],
-        'margin-down': compStyle['margin-down'],
-        'margin-left': compStyle['margin-left'],
-      }"
+      :style="compStyle"
     >
     </u-field>
     <view class="position-sticky fixed-bottom ">
@@ -30,18 +21,10 @@
 </template>
 
 <script>
+import {rvuecomp} from '../mixins/r-vue-comp'
 export default {
   name: "r-form-input-time",
-  props: {
-    option: {
-      type: Object,
-      require: true,
-    },
-    compStyle: {
-      type: Object,
-      require: true,
-    },
-  },
+  mixins:[rvuecomp],
   methods: {
     picker_click() {
       this.option.show = true;

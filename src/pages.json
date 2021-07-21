@@ -6,6 +6,10 @@
 		{
 			"path": "pages/index/index",
 			"style": {}
+		},
+		{
+			"path": "pages/preview/index",
+			"style": {}
 		}
 	],
 	"globalStyle": {

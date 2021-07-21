@@ -33,9 +33,10 @@
 </template>
 
 <script>
-import defaultData from "@/static/jsons/default_data.js"; //导入默认数据
+import { redit } from "../mixins/r-vue-edit.js";
 export default {
-  name: "r-vue",
+  name: "r-vue-edit",
+  mixins: [redit],
   props: {
     options: {
       type: Array,
@@ -45,15 +46,6 @@ export default {
       type: Object,
       require: true,
     },
-  },
-  data() {
-    return {
-      ...defaultData,
-      contShow: false,
-    };
-  },
-  beforeMount() {
-    this.options.push(this.getData(this.rFormInput, this));
   },
   methods: {
     swapComp(first, second) {
@@ -65,13 +57,6 @@ export default {
     focus(index, type) {
       this.config.current = index;
       this.config.type = type;
-    },
-    addComp(type, index) {
-      switch (type) {
-        case "r-form-input":
-          this.options.splice(index, 0, this.getData(this.rFormInput, this));
-          break;
-      }
     },
     remove(index) {
       this.options.splice(index, 1);
@@ -96,11 +81,11 @@ export default {
 
 <style>
 .active {
-  border: 3px dotted green;
+  border: 2px dotted green;
   cursor: move;
 }
 .contShow {
-  border: 2px dotted red;
+  border: 1px dotted red;
   cursor: move;
 }
 .delete {

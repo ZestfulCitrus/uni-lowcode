@@ -1,5 +1,5 @@
 <template>
-  <view class="r-slot-content">
+  <view class="r-slot-content" :style="compStyle">
     <u-dropdown v-if="option.type === 'common'" :ref="ref">
       <u-dropdown-item
         v-model="item.value"
@@ -8,6 +8,7 @@
         :title="item.title"
         :options="item.options"
       >
+      
         <view
           class="slot-content"
           style="background-color: #ffffff"

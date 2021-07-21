@@ -59,6 +59,9 @@ const rCellDef = {
 
 const rSwiperDef = {
   type: "r-swiper",
+  compStyle: {
+    width:'100%'
+  },
   option: {
     title: true, //	是否显示标题文字，需要配合list参数，见上方说明	Boolean	false	true
     mode: "round", ////	指示器模式，见上方说明	String	round	rect / dot / number / none
@@ -251,6 +254,9 @@ const rMe = {
 }
 const rMenu = {
   type: "r-menu",
+  compStyle:{
+    width:'100%'
+  },
   option: {
     card_list: [
       [
@@ -318,6 +324,9 @@ const rImage = {
     duration: "500ms",
     bgColor: "#f3f4f6",
   },
+  compStyle:{
+    width:'100%'
+  }
 }
 const rRatser = {
   type: "r-raster",
@@ -457,7 +466,6 @@ const rFormInput = {
     value: "",
     label: "普通输入框",
     placeholder: "请输入内容",
-
   },
   compStyle: {
     height: "auto",
@@ -467,7 +475,7 @@ const rFormInput = {
     "margin-top": "0",
     "margin-right": "0",
     "margin-down": "0",
-    "margin-left": "0"
+    "margin-left": "0",
   }
 }
 
@@ -483,17 +491,37 @@ const rFormInput2 = {
     height: "auto",
     width: "100%",
     "font-size": "24rpx",
-    "background-color": "#fff",
     "margin-top": "0",
     "margin-right": "0",
     "margin-down": "0",
     "margin-left": "0"
   }
 }
-const getData= (params,context) => {
-  let id  = context.$u.guid();
+
+const rFormInputTime = {
+  type: "r-form-input-time",
+  compStyle: {
+  },
+  option: {
+    label: "时间选择",
+    value: "",
+    placeholder: "请选择时间",
+    show: false,
+    params: {
+      year: true,
+      month: true,
+      day: true,
+      hour: true,
+      minute: true,
+      second: true,
+    },
+  },
+}
+
+const getData = (params, context) => {
+  let id = context.$u.guid();
   params.id = id;
-  return JSON.parse( JSON.stringify(params) )
+  return JSON.parse(JSON.stringify(params))
 }
 module.exports = {
   rCellDef,
@@ -507,5 +535,6 @@ module.exports = {
   rCard,
   rFormInput,
   rFormInput2,
+  rFormInputTime,
   getData
 }
