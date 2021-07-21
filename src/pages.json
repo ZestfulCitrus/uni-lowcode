@@ -1,6 +1,10 @@
 {
 	"easycom": {
-		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+		"autoscan": true,
+		"custom": {
+			"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue",
+			"^option-(.*)": "@/pages/sidebar/option-bar/option-$1.vue"
+		}
 	},
 	"pages": [
 		{
@@ -17,9 +21,9 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
-		"navigationStyle":"custom",
-		"app-plus":{
-			"titleView":false
+		"navigationStyle": "custom",
+		"app-plus": {
+			"titleView": false
 		}
 	}
 }

@@ -1,7 +1,7 @@
 <template>
   <view style="margin-top: 12px; margin-left: 6px; border: 1px dotted #000">
     <view class="comInfo">
-      <text class="comptype">组件类型：普通输入框</text>
+      <text class="comptype">组件类型：时间输入框</text>
     </view>
     <view class="comInfo">
       <text class="comptype" >组件id：{{ option.id }}</text>
@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "form-input-bar",
+  name:'option-r-form-input-time-bar',
   props: {
     option: {
       type: Object,

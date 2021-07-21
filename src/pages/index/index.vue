@@ -36,14 +36,15 @@
             :current="currentOption"
             @change="change"
           ></u-tabs>
-          <form-input-bar
+          <!--组件配置-->
+          <component
+            :is="CompentToOptionMap[layoutconfig.type]"
             v-if="
-              layoutconfig.type == 'r-form-input' &&
-              currentOption == 0 &&
-              options[layoutconfig.current] != undefined
+              currentOption == 0 && options[layoutconfig.current] != undefined
             "
             :option="options[layoutconfig.current]"
-          ></form-input-bar>
+          ></component>
+
           <style-bar
             v-if="
               currentOption == 1 && options[layoutconfig.current] != undefined
@@ -61,10 +62,9 @@
 import Label from "../labels/label.vue";
 import cellBar from "../sidebar/cell-bar.vue";
 import utilFunc from "@/utils/exportFunc.js";
-import FormInputBar from "../sidebar/form-input-bar.vue";
 import StyleBar from "../sidebar/style-bar/style-bar.vue";
 export default {
-  components: { cellBar, Label, FormInputBar, StyleBar},
+  components: { cellBar, Label, StyleBar },
   watch: {
     layoutconfig: {
       handler: function () {
@@ -78,7 +78,7 @@ export default {
       //中间布局数据
       layoutconfig: {
         current: 0,
-        type: "",
+        type: "r-form-input",
       },
       //页面json
       options: [],
@@ -97,10 +97,14 @@ export default {
           name: "数据绑定",
         },
       ],
-      currentOption: 1,
+      currentOption: 0,
+      //mapping compnent to option
+      CompentToOptionMap: {},
     };
   },
-  onLoad() {},
+  onLoad() {
+    this.CompentToOptionMap = this.GetMapFromCompToOption();
+  },
   methods: {
     ...utilFunc,
     change(index) {
@@ -109,12 +113,12 @@ export default {
     focusleave() {
       this.layoutconfig.current = -1;
     },
-    preview(){
-      uni.setStorageSync('options',this.options);
+    preview() {
+      uni.setStorageSync("options", this.options);
       this.$u.route({
-        url:'pages/preview/index'
-      })
-    }
+        url: "pages/preview/index",
+      });
+    },
   },
 };
 </script>
