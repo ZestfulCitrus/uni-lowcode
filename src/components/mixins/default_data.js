@@ -125,6 +125,9 @@ const rFormDef = {
 
 const rGridDef = {
   type: "r-grid",
+  compStyle:{
+
+  },
   option: {
     col: 4,
     list: [
@@ -309,9 +312,9 @@ const rMenu = {
 const rImage = {
   type: "r-image",
   option: {
-    src: require("@/static/icons/4.jpg"),
+    src: require("@/static/icons/4.png"),
     width: "100%",
-    height: "200px",
+    height: "100px",
     shape: "square",
     borderRadius: 0,
     lazyLoad: true,
@@ -466,6 +469,12 @@ const rFormInput = {
     value: "",
     label: "普通输入框",
     placeholder: "请输入内容",
+    btn:{
+      getCode:()=>{
+
+      },
+      codeText:'单击'
+    }
   },
   compStyle: {
     height: "auto",
@@ -501,6 +510,13 @@ const rFormInput2 = {
 const rFormInputTime = {
   type: "r-form-input-time",
   compStyle: {
+    height: "auto",
+    width: "100%",
+    "font-size": "24rpx",
+    "margin-top": "0px",
+    "margin-right": "0px",
+    "margin-bottom": "0px",
+    "margin-left": "0px"
   },
   option: {
     label: "时间选择",
@@ -516,6 +532,45 @@ const rFormInputTime = {
       second: true,
     },
   },
+}
+
+const rFormRate = {
+  type: "r-form-rate",
+  compStyle: {
+    height: "90rpx",
+    width: "100%",
+    "font-size": "24rpx",
+    "margin-top": "0px",
+    "margin-right": "0px",
+    "margin-bottom": "0px",
+    "margin-left": "0px",
+    "padding":'24rpx',
+    "border-bottom":"1px solid #f4f4f5"
+  },
+  option: {
+    label: "评分选择",
+    value: "",
+    count: 5
+  },
+}
+
+const rFormSwitch = {
+  type:'r-form-switch',
+  compStyle:{
+    height: "90rpx",
+    width: "100%",
+    "font-size": "24rpx",
+    "margin-top": "0px",
+    "margin-right": "0px",
+    "margin-bottom": "0px",
+    "margin-left": "0px",
+    "padding":'24rpx',
+    "border-bottom":"1px solid #f4f4f5"
+  },
+  option:{
+    label:"选择开关",
+    value:true
+  }
 }
 
 const getData = (params, context) => {
@@ -536,5 +591,7 @@ module.exports = {
   rFormInput,
   rFormInput2,
   rFormInputTime,
+  rFormRate,
+  rFormSwitch,
   getData
 }

@@ -2,6 +2,7 @@
   <u-image
     :style="compStyle"
     :width="option.width"
+     mode="scaleToFill"
     :height="option.height"
     :src="option.src"
     :shape="option.shape"

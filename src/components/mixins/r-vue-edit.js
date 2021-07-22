@@ -1,4 +1,4 @@
-import defaultData from "@/static/jsons/default_data.js"; //导入默认数据
+import defaultData from "./default_data.js"; //导入默认数据
 export const redit = {
     data() {
         return {
@@ -24,6 +24,18 @@ export const redit = {
                     break;
                 case "r-menu":
                     this.options.splice(index,0,this.getData(this.rMenu, this))
+                    break;
+                case "r-image":
+                    this.options.splice(index,0,this.getData(this.rImage,this));
+                    break;
+                case "r-grid":
+                    this.options.splice(index,0,this.getData(this.rGridDef,this));
+                    break;
+                case "r-form-rate":
+                    this.options.splice(index,0,this.getData(this.rFormRate,this));
+                    break;
+                case "r-form-switch":
+                    this.options.splice(index,0,this.getData(this.rFormSwitch,this));
                     break;
             }
         },

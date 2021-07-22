@@ -6,6 +6,7 @@
       :placeholder="option.placeholder"
       :style="compStyle"
     >
+    <u-button v-if="option.btn" size="mini" slot="right" type="success" @click="option.btn.getCode">{{option.btn.codeText}}</u-button>
     </u-field>
   </view>
 </template>

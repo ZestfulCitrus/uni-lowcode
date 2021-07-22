@@ -4,6 +4,9 @@ import App from './App'
 import uView from "uview-ui";
 import rtvue from "./components"
 import rtvueOption from "./pages/sidebar/option-bar"
+
+
+
 Vue.use(uView);
 Vue.use(rtvue)
 Vue.config.productionTip = false

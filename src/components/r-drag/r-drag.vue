@@ -32,7 +32,6 @@ export default {
             contain_index:this.index,
             type:"swap_contain",
         }
-        
     },
     drop(ev){
         if(item.type=="swap_contain"){

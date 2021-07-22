@@ -1,5 +1,5 @@
 <template>
-  <u-grid :col="option.col">
+  <u-grid :col="option.col" :style="compStyle">
     <u-grid-item v-for="(item, index) in option.list" :key="index" @click="item.click">
       <u-badge v-if="item.badge.visual" :count="item.badge.count" :offset="[20, 20]"></u-badge>
       <u-icon :name="item.name" :size="item.size"></u-icon>
@@ -8,15 +8,10 @@
   </u-grid>
 </template>
 <script>
+import {rvuecomp} from '../mixins/r-vue-comp'
 export default {
   name:'r-grid',
-  props: {
-    option: {
-      type: Object,
-      required: true,
-    },
-    
-  },
+  mixins:[rvuecomp],
   data() {
     return {
       

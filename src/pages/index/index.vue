@@ -36,7 +36,7 @@
             :current="currentOption"
             @change="change"
           ></u-tabs>
-          <!--组件配置-->
+          <!--组件属性-->
           <component
             :is="CompentToOptionMap[layoutconfig.type]"
             v-if="
@@ -44,7 +44,7 @@
             "
             :option="options[layoutconfig.current]"
           ></component>
-
+          <!--基础属性-->
           <style-bar
             v-if="
               currentOption == 1 && options[layoutconfig.current] != undefined
