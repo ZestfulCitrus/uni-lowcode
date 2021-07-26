@@ -37,21 +37,48 @@
             @change="change"
           ></u-tabs>
           <!--组件属性-->
-          <component
-            :is="CompentToOptionMap[layoutconfig.type]"
+          <view
+            style="height: 600px"
             v-if="
               currentOption == 0 && options[layoutconfig.current] != undefined
             "
-            :option="options[layoutconfig.current]"
-          ></component>
+          >
+            <component
+              :is="CompentToOptionMap[layoutconfig.type]"
+              :option="options[layoutconfig.current]"
+            ></component>
+          </view>
+          <vue-json-editor
+            style="margin-left: 5px; margin-right: 5px"
+            v-if="
+              currentOption == 0 && options[layoutconfig.current] != undefined
+            "
+            v-model="options[layoutconfig.current].option"
+            mode="code"
+            :show-btns="false"
+            :expandedOnStart="true"
+            @json-change="onJsonChange"
+          ></vue-json-editor>
           <!--基础属性-->
           <style-bar
+            style="height: 600px"
             v-if="
               currentOption == 1 && options[layoutconfig.current] != undefined
             "
             :option="options[layoutconfig.current]"
           >
           </style-bar>
+          <vue-json-editor
+            style="margin-left: 5px; margin-right: 5px"
+            v-if="
+              currentOption == 1 && options[layoutconfig.current] != undefined
+            "
+            v-model="options[layoutconfig.current].compStyle"
+            mode="code"
+            :show-btns="false"
+            :expandedOnStart="true"
+            @json-change="onJsonChange"
+          ></vue-json-editor>
         </view>
       </view>
     </view>
@@ -63,8 +90,9 @@ import Label from "../labels/label.vue";
 import cellBar from "../sidebar/cell-bar.vue";
 import utilFunc from "@/utils/exportFunc.js";
 import StyleBar from "../sidebar/style-bar/style-bar.vue";
+import vueJsonEditor from "../sidebar/jsoneditor/vue-json-editor.vue";
 export default {
-  components: { cellBar, Label, StyleBar },
+  components: { cellBar, Label, StyleBar, vueJsonEditor },
   watch: {
     layoutconfig: {
       handler: function () {
@@ -113,6 +141,7 @@ export default {
     focusleave() {
       this.layoutconfig.current = -1;
     },
+    onJsonChange() {},
     preview() {
       uni.setStorageSync("options", this.options);
       this.$u.route({

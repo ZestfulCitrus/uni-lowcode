@@ -37,6 +37,27 @@ export const redit = {
                 case "r-form-switch":
                     this.options.splice(index,0,this.getData(this.rFormSwitch,this));
                     break;
+                case "r-button":
+                    this.options.splice(index,0,this.getData(this.rButton,this));
+                    break;
+                case "r-form-input-password":
+                    this.options.splice(index,0,this.getData(this.rFormPasswordInput,this));
+                    break;
+                case "r-form-numberbox":
+                    this.options.splice(index,0,this.getData(this.rFormNumberBox,this));
+                    break;
+                case "r-form-textarea-input":
+                    this.options.splice(index,0,this.getData(this.rFormTextAreaInput,this));
+                    break;
+                case "r-form-input-map":
+                    this.options.splice(index,0,this.getData(this.rFormInputMap,this));
+                    break;
+                case "r-form-radio":
+                    this.options.splice(index,0,this.getData(this.rFormInputRadio,this));
+                    break;
+                case "r-form-checkboxes":
+                    this.options.splice(index,0,this.getData(this.rFormCheckboxes,this));
+                    break;
             }
         },
         

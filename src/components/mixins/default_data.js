@@ -474,7 +474,8 @@ const rFormInput = {
 
       },
       codeText:'单击'
-    }
+    },
+    password:false
   },
   compStyle: {
     height: "auto",
@@ -485,6 +486,45 @@ const rFormInput = {
     "margin-right": "0",
     "margin-down": "0",
     "margin-left": "0",
+  }
+}
+
+const rFormPasswordInput = {
+  type: "r-form-input",
+  option: {
+    value: "",
+    label: "密码输入框",
+    placeholder: "请输入密码",
+    password:true
+  },
+  compStyle: {
+    height: "auto",
+    width: "100%",
+    "font-size": "24rpx",
+    "background-color": "#fff",
+    "margin-top": "0",
+    "margin-right": "0",
+    "margin-down": "0",
+    "margin-left": "0",
+  }
+}
+
+const rFormTextAreaInput = {
+  type:"r-form-input",
+  option:{
+    value:"",
+    label:"多行输入",
+    type:"textarea"
+  },
+  compStyle:{
+    "height": "auto",
+    "width": "100%",
+    "font-size": "24rpx",
+    "background-color": "#fff",
+    "margin-top": "0",
+    "margin-right": "0",
+    "margin-down": "0",
+    "margin-left": "0"
   }
 }
 
@@ -506,6 +546,8 @@ const rFormInput2 = {
     "margin-left": "0"
   }
 }
+
+
 
 const rFormInputTime = {
   type: "r-form-input-time",
@@ -572,6 +614,130 @@ const rFormSwitch = {
     value:true
   }
 }
+const rButton = {
+  type:'r-button',
+  compStyle:{
+    height: "90rpx",
+    width: "100%",
+    "font-size": "24rpx",
+    "margin-top": "0px",
+    "margin-right": "0px",
+    "margin-bottom": "0px",
+    "margin-left": "0px",
+    "padding":'24rpx',
+    "border-bottom":"1px solid #f4f4f5"
+  },
+  option:{
+    label:"确定",
+  }
+}
+
+const rFormNumberBox ={
+  type:'r-form-numberbox',
+  compStyle:{
+    height: "90rpx",
+    width: "100%",
+    "font-size": "24rpx",
+    "margin-top": "0px",
+    "margin-right": "0px",
+    "margin-bottom": "0px",
+    "margin-left": "0px",
+    "padding":'24rpx',
+    "border-bottom":"1px solid #f4f4f5",
+    "display":"flex"
+  },
+  option:{
+    label:"确定",
+    value:6
+  }
+}
+
+const rFormInputMap ={
+  type:'r-form-input-map',
+  compStyle:{
+    height: "90rpx",
+    width: "100%",
+    "font-size": "24rpx",
+    "margin-top": "0px",
+    "margin-right": "0px",
+    "margin-bottom": "0px",
+    "margin-left": "0px",
+    "padding":'24rpx',
+    "border-bottom":"1px solid #f4f4f5",
+  },
+  option:{
+    label:"请选择位置",
+    placeholder:"请单击选择位置",
+    value:""
+  }
+}
+
+const rFormCheckboxes = {
+  type:"r-form-checkboxes",
+  compStyle:{
+    width: "100%",
+    "font-size": "24rpx",
+    "margin-top": "0px",
+    "margin-right": "0px",
+    "margin-bottom": "0px",
+    "margin-left": "0px",
+    "padding":'24rpx',
+    "border-bottom":"1px solid #f4f4f5",
+  },
+  option:{
+    label:"请选择水果",
+    list:[
+      {
+        name: 'apple',
+        checked: false,
+        disabled: false
+      },
+      {
+        name: 'banner',
+        checked: false,
+        disabled: false
+      },
+      {
+        name: 'orange',
+        checked: false,
+        disabled: false
+      }
+    ]
+  }
+}
+
+const rFormInputRadio ={
+  type:"r-form-radio",
+  compStyle:{
+    width: "100%",
+    "font-size": "24rpx",
+    "margin-top": "0px",
+    "margin-right": "0px",
+    "margin-bottom": "0px",
+    "margin-left": "0px",
+    "padding":'24rpx',
+    "border-bottom":"1px solid #f4f4f5",
+  },
+  option:{
+    label:"请选择水果",
+    value:"",
+    list: [
+      {
+        name: 'apple',
+        disabled: false
+      },
+      {
+        name: 'banner',
+        disabled: false
+      },
+      {
+        name: 'orange',
+        disabled: false
+      }
+    ],
+  }
+}
+
 
 const getData = (params, context) => {
   let id = context.$u.guid();
@@ -593,5 +759,12 @@ module.exports = {
   rFormInputTime,
   rFormRate,
   rFormSwitch,
+  rButton,
+  rFormPasswordInput,
+  rFormNumberBox,
+  rFormTextAreaInput,
+  rFormInputMap,
+  rFormInputRadio,
+  rFormCheckboxes,
   getData
 }

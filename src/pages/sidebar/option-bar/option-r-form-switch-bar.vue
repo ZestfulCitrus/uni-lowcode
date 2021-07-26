@@ -14,7 +14,6 @@
           <u-button slot="right" size="mini" @click="option.option.value=!option.option.value">开/关</u-button>
       </u-field>
     </view>
-    {{ option }}
   </view>
 </template>
 

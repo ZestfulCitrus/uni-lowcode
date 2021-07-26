@@ -19,7 +19,7 @@
           class="l-tags"
           v-on:dragstart.native="drag(tag.type)"
           v-on:dragend.native="dragend"
-        >{{tag.text}}</view>
+        ><u-icon :name="tag.icon" style="margin-right:2px"></u-icon>{{tag.text}}</view>
       </view>
       </view>
     </view>
@@ -47,19 +47,26 @@ export default {
           {
             text: "表单组件",
             tags: [
-              { text: "普通输入框", type: "r-form-input" },
-              { text: "时间输入框", type: "r-form-input-time" },
-              { text: "评分输入框", type: "r-form-rate" },
-              { text: "开关选择框", type: "r-form-switch" },
+              {icon:"list", text: "普通输入框", type: "r-form-input" },
+              {icon:"list-dot", text: "多行输入框", type: "r-form-textarea-input" },
+              {icon:"lock", text: "密码输入框", type: "r-form-input-password" },
+              {icon:"clock", text: "时间输入框", type: "r-form-input-time" },
+              {icon:"star", text: "评分输入框", type: "r-form-rate" },
+              {icon:"checkmark", text: "开关选择框", type: "r-form-switch" },
+              {icon:"info", text: "计数器", type: "r-form-numberbox" },
+              {icon:"map",text:"位置选择器",type:"r-form-input-map"},
+              {icon:"checkmark", text: "单选框", type: "r-form-radio" },
+              {icon:"checkmark",text:"多选框",type:"r-form-checkboxes"}
             ],
           },
           {
             text: "基本组件",
             tags: [
-              { text: "轮播器", type: "r-swiper" },
-              { text: "图片菜单", type: "r-menu" },
-              { text: "图片", type: "r-image" },
-              { text: "宫格按钮", type: "r-grid" },
+              {icon:"photo-fill", text: "轮播器", type: "r-swiper" },
+              {icon:"order", text: "图片菜单", type: "r-menu" },
+              {icon:"photo", text: "图片", type: "r-image" },
+              {icon:"grid-fill",text: "宫格按钮", type: "r-grid" },
+              {icon:"plus", text: "按钮", type: "r-button" },
             ],
           },
         ],
@@ -121,26 +128,29 @@ export default {
       }
     }
     .active {
-      background-color: blue;
+      color: blue;
     }
   }
   .l-right {
     width: 80%;
     .l-container {
+      color: gray;
+      margin-bottom: 15px;
       .l-tags-container {
         display: flex;
         flex-flow: wrap;
       }
       .l-tags {
+        color: black;
         width: 120px;
         margin-top: 8px;
         margin-left: 5px;
         padding: 3px;
-        border: 1px solid #c0c4cc; //#c0c4cc
+        //border: 1px solid #c0c4cc; //#c0c4cc
         background-color: #f4f4f5;
         &:hover {
           width: 120px;
-          border: 2px dotted;
+          border: 1px dotted;
           cursor: move;
           margin-top: 8px;
           margin-left: 5px;

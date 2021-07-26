@@ -24,27 +24,14 @@
         ></u-field>
       </view>
     </view>
-    <!--MonacoEditor
-      height="600"
-      language="javascript"
-      :code="code"
-      :editorOptions="options"
-      @mounted="onMounted"
-      @codeChange="onCodeChange"
-    >
-    </MonacoEditor-->
-    <vue-json-editor  v-model="option.option" mode="code" :show-btns="false" :expandedOnStart="true" @json-change="onJsonChange"></vue-json-editor>
+   
   </view>
 </template>
 
 <script>
-import vueJsonEditor from '../jsoneditor/vue-json-editor.vue';
 
 export default {
   name: "option-r-form-input-bar",
-  components: {
-    vueJsonEditor
-  },
   props: {
     option: {
       type: Object,

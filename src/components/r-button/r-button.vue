@@ -1,5 +1,6 @@
-<template>
+<template >
   <u-button
+  :style="compStyle"
     :type="option.type"
     :shape="option.shape"
     :size="option.size"

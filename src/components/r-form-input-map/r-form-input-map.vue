@@ -4,11 +4,10 @@
       v-model="option.value"
       :label="option.label"
       :placeholder="option.placeholder"
+      @click="picker_click"
       :style="compStyle"
-      :type="option.type"
-      :password="option.password"
+      :disabled="true"
     >
-    <u-button v-if="option.btn" size="mini" slot="right" type="success" @click="option.btn.getCode">{{option.btn.codeText}}</u-button>
     </u-field>
   </view>
 </template>
@@ -16,10 +15,20 @@
 <script>
 import {rvuecomp} from '../mixins/r-vue-comp'
 export default {
-  name: "r-form-input",
-  mixins:[rvuecomp]
+  name: "r-form-input-map",
+  mixins:[rvuecomp],
+  methods: {
+    picker_click() {
+      uni.chooseLocation({
+        success:(res)=> {
+         this.option.value=res.name + res.address;
+        },
+      });
+    },
+  },
 };
 </script>
 
 <style lang="scss">
+
 </style>

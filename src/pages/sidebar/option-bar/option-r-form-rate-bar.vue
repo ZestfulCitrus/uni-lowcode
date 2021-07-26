@@ -20,8 +20,7 @@
           </view>
       </u-field>
     </view>
-    
-    {{ option }}
+
   </view>
 </template>
 
