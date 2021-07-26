@@ -15,11 +15,12 @@
     <view class="comInfo">
       <u-field v-model="option.option.placeholder" label="提示文字"></u-field>
     </view>
-    {{ option }}
+    <vue-json-editor  v-model="option.option" mode="code" :show-btns="false" :expandedOnStart="true" @json-change="onJsonChange"></vue-json-editor>
   </view>
 </template>
 
 <script>
+import sidebar from '@/pages/sidebar/sidebar.js'
 export default {
   name:'option-r-form-input-time-bar',
   props: {
@@ -28,6 +29,7 @@ export default {
       require: true,
     },
   },
+  mixins:[sidebar]
 };
 </script>
 

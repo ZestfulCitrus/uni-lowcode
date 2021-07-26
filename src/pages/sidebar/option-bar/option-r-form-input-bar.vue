@@ -13,9 +13,6 @@
       <u-field v-model="option.option.value" label="默认数值"></u-field>
     </view>
     <view class="comInfo">
-      <u-field v-model="option.option.rFormRate" label="星星数量"></u-field>
-    </view>
-    <view class="comInfo">
       <text class="comptype">是否有按钮</text
       ><u-switch v-model="btnChecked"></u-switch>
     </view>
@@ -27,13 +24,27 @@
         ></u-field>
       </view>
     </view>
-    {{ option }}
+    <!--MonacoEditor
+      height="600"
+      language="javascript"
+      :code="code"
+      :editorOptions="options"
+      @mounted="onMounted"
+      @codeChange="onCodeChange"
+    >
+    </MonacoEditor-->
+    <vue-json-editor  v-model="option.option" mode="code" :show-btns="false" :expandedOnStart="true" @json-change="onJsonChange"></vue-json-editor>
   </view>
 </template>
 
 <script>
+import vueJsonEditor from '../jsoneditor/vue-json-editor.vue';
+
 export default {
   name: "option-r-form-input-bar",
+  components: {
+    vueJsonEditor
+  },
   props: {
     option: {
       type: Object,
@@ -43,9 +54,25 @@ export default {
   beforeMount() {
     if (this.option.option.btn != undefined) this.btnChecked = true;
   },
+  computed: {
+    code() {
+      return JSON.stringify(this.option);
+    },
+  },
   data() {
     return {
       btnChecked: false,
+      options: {
+        selectOnLineNumbers: false,
+        foldingStrategy: "indentation", // 代码可分小段折叠
+        automaticLayout: true, // 自适应布局
+        overviewRulerBorder: false, // 不要滚动条的边框
+        autoClosingBrackets: true,
+        tabSize: 2, // tab 缩进长度
+        minimap: {
+          enabled: false, // 不要小地图
+        },
+      },
     };
   },
   watch: {
@@ -58,10 +85,22 @@ export default {
       else this.$delete(this.option.option, "btn");
     },
   },
+  methods: {
+    onMounted(editor) {
+      this.editor = editor;
+    },
+     onJsonChange (value) {
+        console.log('value:', value)
+      },
+    onCodeChange(editor) {
+      console.log(editor.getValue());
+    },
+  },
 };
 </script>
 
 <style lang="scss">
+
 .comInfo {
   border: 1px dashed #606266;
   font-size: 14px;
