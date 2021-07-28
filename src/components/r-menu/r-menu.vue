@@ -1,34 +1,24 @@
 <template>
   <view :style="compStyle">
     <view class="wrap equip_card">
-      <view v-for="(item, index) in option.card_list" :key="index">
-        <u-row gutter="16" justify="space-between">
-          <u-col
-            span="3"
-            v-for="(img_card, img_index) in item"
-            :key="img_index"
-            @click="img_card.press"
-          >
-            <u-image
-              class="card"
-              :src="img_card.img_url"
-              mode="widthFix"
-            ></u-image>
-            <p class="equip_card_font_size">{{ img_card.task_info }}</p>
-            <view class="br" v-if="index != option.card_list.length - 1"></view>
-          </u-col>
-        </u-row>
-      </view>
+      <u-row gutter="16">
+        <u-col span="3" v-for="(item, index) in option.card_list" :key="index">
+          <view>
+            <u-image class="card" :src="item.img_url" mode="widthFix"></u-image>
+            <p class="equip_card_font_size">{{ item.task_info }}</p>
+          </view>
+        </u-col>
+      </u-row>
     </view>
   </view>
 </template>
 
 <script>
-import {rvuecomp} from '../mixins/r-vue-comp'
+import { rvuecomp } from '../mixins/r-vue-comp'
 export default {
-  name:'r-menu',
-  mixins:[rvuecomp],
-};
+  name: 'r-menu',
+  mixins: [rvuecomp],
+}
 </script>
 
 <style lang="scss">
@@ -43,8 +33,8 @@ export default {
     text-align: center;
     font-size: 15rpx;
   }
-  .br{
-      height: 10px;
+  .br {
+    height: 10px;
   }
 }
 </style>

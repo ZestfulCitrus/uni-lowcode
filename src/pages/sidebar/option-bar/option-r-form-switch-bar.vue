@@ -11,7 +11,12 @@
     </view>
     <view class="comInfo">
       <u-field v-model="option.option.value" label="默认数值" :disabled="true">
-          <u-button slot="right" size="mini" @click="option.option.value=!option.option.value">开/关</u-button>
+        <u-button
+          slot="right"
+          size="mini"
+          @click="option.option.value = !option.option.value"
+          >开/关</u-button
+        >
       </u-field>
     </view>
   </view>
@@ -19,14 +24,14 @@
 
 <script>
 export default {
-  name: "option-r-form-switch-bar",
+  name: 'option-r-form-switch-bar',
   props: {
     option: {
       type: Object,
       require: true,
     },
   },
-};
+}
 </script>
 
 <style lang="scss">
