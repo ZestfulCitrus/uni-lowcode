@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="jsoneditor-vue"></div>
+  <div style="border:thin solid #f5f5f4">
+    <div class="jsoneditor-vue" style="height:100vh;"></div>
     <div class="jsoneditor-btns" v-if="showBtns!==false">
       <button
         class="json-save-btn"

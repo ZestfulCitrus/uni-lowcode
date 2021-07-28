@@ -706,6 +706,26 @@ const rFormCheckboxes = {
   }
 }
 
+const rFormSlider ={
+  type:"r-form-slider",
+  compStyle:{
+    height: "90rpx",
+    width: "100%",
+    "font-size": "24rpx",
+    "margin-top": "0px",
+    "margin-right": "0px",
+    "margin-bottom": "0px",
+    "margin-left": "0px",
+    "padding":'24rpx',
+    "border-bottom":"1px solid #f4f4f5",
+    "display":"flex",
+  },
+  option:{
+    label:"滑动滑块",
+    value:"10"
+  }
+}
+
 const rFormInputRadio ={
   type:"r-form-radio",
   compStyle:{
@@ -766,5 +786,6 @@ module.exports = {
   rFormInputMap,
   rFormInputRadio,
   rFormCheckboxes,
+  rFormSlider,
   getData
 }

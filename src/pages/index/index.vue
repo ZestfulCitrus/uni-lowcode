@@ -1,14 +1,36 @@
 <template>
   <view class="content">
+    <u-popup v-model="preview" width="50%" mode="center">
+      <view
+        style="display: flex; background-color: gray; justify-content: center"
+      >
+        <view class="phone">
+          <r-vue-page :options="options"></r-vue-page>
+        </view>
+      </view>
+    </u-popup>
+
+    <u-popup v-model="show" width="50%" mode="right">
+      <view
+        ><vue-json-editor
+          style="margin-left: 5px; margin-right: 5px; height: 600px"
+          v-model="options"
+          mode="code"
+          :show-btns="false"
+          :expandedOnStart="true"
+        ></vue-json-editor
+      ></view>
+    </u-popup>
     <!--导航栏-->
     <view class="rtnav">
       <view class="left">RT-VUE低代码开发平台</view>
-      <view
+      <view class="right" @click="show = true">JSON预览</view>
+      <!--view
         class="right"
         @click="exportRaw(JSON.stringify(options), '导出文件.json')"
         >生成JSON</view
-      >
-      <view class="right" @click="preview">预览</view>
+      -->
+      <view class="right" @click="preview = true">预览</view>
     </view>
     <!--主页面-->
     <view class="main-contain">
@@ -49,7 +71,7 @@
             ></component>
           </view>
           <vue-json-editor
-            style="margin-left: 5px; margin-right: 5px"
+            style="margin-left: 5px; margin-right: 5px; height: 200px"
             v-if="
               currentOption == 0 && options[layoutconfig.current] != undefined
             "
@@ -79,6 +101,14 @@
             :expandedOnStart="true"
             @json-change="onJsonChange"
           ></vue-json-editor>
+          <!--数据绑定-->
+          <view
+            v-if="
+              currentOption == 3 && options[layoutconfig.current] != undefined
+            "
+          >
+            <data-bar></data-bar>
+          </view>
         </view>
       </view>
     </view>
@@ -91,8 +121,9 @@ import cellBar from "../sidebar/cell-bar.vue";
 import utilFunc from "@/utils/exportFunc.js";
 import StyleBar from "../sidebar/style-bar/style-bar.vue";
 import vueJsonEditor from "../sidebar/jsoneditor/vue-json-editor.vue";
+import DataBar from "../sidebar/data-bar/data-bar.vue";
 export default {
-  components: { cellBar, Label, StyleBar, vueJsonEditor },
+  components: { cellBar, Label, StyleBar, vueJsonEditor, DataBar },
   watch: {
     layoutconfig: {
       handler: function () {
@@ -103,6 +134,8 @@ export default {
   },
   data() {
     return {
+      show: false,
+      preview: false,
       //中间布局数据
       layoutconfig: {
         current: 0,
@@ -142,12 +175,13 @@ export default {
       this.layoutconfig.current = -1;
     },
     onJsonChange() {},
+    /*
     preview() {
       uni.setStorageSync("options", this.options);
       this.$u.route({
         url: "pages/preview/index",
       });
-    },
+    },*/
   },
 };
 </script>

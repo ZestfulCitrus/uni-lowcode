@@ -58,6 +58,9 @@ export const redit = {
                 case "r-form-checkboxes":
                     this.options.splice(index,0,this.getData(this.rFormCheckboxes,this));
                     break;
+                case "r-form-slider":
+                    this.options.splice(index,0,this.getData(this.rFormSlider,this));
+                    break;
             }
         },
         

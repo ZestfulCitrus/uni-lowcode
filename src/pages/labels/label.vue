@@ -56,7 +56,8 @@ export default {
               {icon:"info", text: "计数器", type: "r-form-numberbox" },
               {icon:"map",text:"位置选择器",type:"r-form-input-map"},
               {icon:"checkmark", text: "单选框", type: "r-form-radio" },
-              {icon:"checkmark",text:"多选框",type:"r-form-checkboxes"}
+              {icon:"checkmark",text:"多选框",type:"r-form-checkboxes"},
+              {icon:"plus", text: "滑动输入框", type: "r-form-slider" },
             ],
           },
           {
