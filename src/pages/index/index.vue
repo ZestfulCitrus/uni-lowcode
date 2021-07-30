@@ -1,15 +1,37 @@
 <template>
   <view class="content">
+    <!--弹出层-->
+    <!--页面预览-->
     <u-popup v-model="preview" width="50%" mode="center">
+      <view style="display:flex;margin:10px;">
+      <u-field  required v-model="pageName" :error-message="saveError" label="页面名称"></u-field>
+      <button @click="save()" >新增</button>
+      </view>
       <view
         style="display: flex; background-color: gray; justify-content: center"
       >
         <view class="phone">
           <r-vue-page :options="options"></r-vue-page>
         </view>
+
       </view>
     </u-popup>
-
+    <!--页面导入-->
+    <u-popup v-model="importRawPop" width="50%" mode="right">
+      <view style="width: 40%; margin: 20px; border: 1px solid #000">
+        <u-cell-group>
+          <u-cell-item
+            :title="item.formName"
+            :arrow="false"
+            v-for="(item, index) in existForm"
+            :key="index"
+            @click="changeOption(item)"
+            >表单ID：{{ item.id }}</u-cell-item
+          >
+        </u-cell-group>
+      </view>
+    </u-popup>
+    <!--页面json编辑-->
     <u-popup v-model="show" width="50%" mode="right">
       <view
         ><vue-json-editor
@@ -30,7 +52,8 @@
         @click="exportRaw(JSON.stringify(options), '导出文件.json')"
         >生成JSON</view
       -->
-      <view class="right" @click="preview = true">预览</view>
+      <view class="right" @click="preview = true">预览&&新增</view>
+      <view class="right" @click="importRaw">页面导入</view>
     </view>
     <!--主页面-->
     <view class="main-contain">
@@ -136,6 +159,8 @@ export default {
     return {
       show: false,
       preview: false,
+      pageName:'',
+      saveError:"",
       //中间布局数据
       layoutconfig: {
         current: 0,
@@ -143,6 +168,7 @@ export default {
       },
       //页面json
       options: [],
+      importRawPop: false,
       //
       optionList: [
         {
@@ -155,12 +181,13 @@ export default {
           name: "动画效果",
         },
         {
-          name: "数据绑定",
+          name: "字段关联",
         },
       ],
       currentOption: 0,
       //mapping compnent to option
       CompentToOptionMap: {},
+      existForm: [],
     };
   },
   onLoad() {
@@ -175,13 +202,19 @@ export default {
       this.layoutconfig.current = -1;
     },
     onJsonChange() {},
-    /*
-    preview() {
-      uni.setStorageSync("options", this.options);
-      this.$u.route({
-        url: "pages/preview/index",
-      });
-    },*/
+    importRaw() {
+      this.importRawV1(this);
+      this.importRawPop = true;
+    },
+    changeOption(item){
+      this.changeOptionV1(this,item);
+    },
+    save(){
+      if(this.pageName === ""){
+        this.saveError="必须填写页面名字"
+      }
+      else this.savePage(this.pageName,this.options,this);
+    }
   },
 };
 </script>

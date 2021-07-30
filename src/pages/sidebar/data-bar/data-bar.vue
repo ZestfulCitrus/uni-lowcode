@@ -1,6 +1,7 @@
 <template>
   <view>
     <vue-json-editor
+    style="margin-top:20px"
             v-model="docs['definitions']"
             mode="code"
             :show-btns="false"
@@ -20,6 +21,7 @@ export default {
     };
   },
   mounted() {
+    /*
     uni.request({
       url: "http://localhost:8080/api/v2/api-docs", //仅为示例，并非真实接口地址。
       data: {},
@@ -27,7 +29,7 @@ export default {
       success: (res) => {
         this.docs = res.data;
       },
-    });
+    });*/
   },
 };
 </script>

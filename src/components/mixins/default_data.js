@@ -754,6 +754,11 @@ const getData = (params, context) => {
   params.id = id
   return JSON.parse(JSON.stringify(params))
 }
+
+const cloneData = (params)=>{
+  return JSON.parse(JSON.stringify(params))
+}
+
 module.exports = {
   rCellDef,
   rSwiperDef,
@@ -777,5 +782,6 @@ module.exports = {
   rFormInputRadio,
   rFormCheckboxes,
   rFormSlider,
+  cloneData,
   getData
 }
