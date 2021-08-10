@@ -12,6 +12,10 @@
 			"style": {}
 		},
 		{
+			"path": "pages/index/design",
+			"style": {}
+		},
+		{
 			"path": "pages/preview/index",
 			"style": {}
 		}

@@ -103,7 +103,7 @@ export default {
     align-items: center;
     border-right: 1px solid #000;
     width: 20%;
-    height: 890px;
+    height: 100vh;
     float: left;
     .l-menu {
       height: 60px;

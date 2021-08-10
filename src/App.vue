@@ -14,6 +14,8 @@
 
 <style lang="scss">
 @import "uview-ui/index.scss";
-
+uni-page-body{
+	height: 100vh;
+}
 
 </style>
