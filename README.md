@@ -4,7 +4,7 @@ rtvue-lowcode是一款基于uniapp框架和uview组件库开发的app可视化�
 希望大家能给我们个小小的star，每个star对我们来说都很珍贵，希望能激励我们团队将项目认认真真地做完。
 
 动画演示：
-![image](https://raw.githubusercontent.com/GodofOrange/rtvue-lowcode/master/docsimgs/preview.gif)
+![image](./docsimgs/preview.gif)
 
 
 目前项目正在开发中，完整版本还未发布。项目预览地址 [Project Preview Address](https://rtvue-lowcode.upsilon.press/#/)
