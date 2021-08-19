@@ -19,7 +19,7 @@ yarn install && yarn serve
 
 # 自定义组件开发步骤
 
-准备自定义组件开发之前，需要将rtvue-form项目克隆到本地。
+准备自定义组件开发之前，需要将rtvue-lowcode项目克隆到本地。
 组件开发分为3个步骤：
 
 1. 定义组件
