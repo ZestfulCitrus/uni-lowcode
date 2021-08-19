@@ -1,4 +1,5 @@
 # rtvue-lowcode
+rtvue-lowcode是一款基于uniapp框架和uview组件库开发的app可视化拖拽项目，适用于app、小程序等项目开发，真正做到了开箱即用！
 
 
 
