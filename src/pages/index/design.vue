@@ -155,6 +155,7 @@ export default {
       deep: true,
     },
   },
+
   data() {
     return {
       show: false,
@@ -191,7 +192,8 @@ export default {
     };
   },
   onLoad() {
-    this.CompentToOptionMap = this.GetMapFromCompToOption();
+    this.CompentToOptionMap = this.GetMapFromCompToOption()
+    this.options = options
   },
   methods: {
     ...utilFunc,

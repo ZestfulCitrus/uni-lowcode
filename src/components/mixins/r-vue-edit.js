@@ -7,6 +7,7 @@ export const redit = {
         };
     },
     beforeMount() {
+        if(this.options.length==0)
         this.options.push(this.getData(this.rFormInput, this));
     },
     methods: {
