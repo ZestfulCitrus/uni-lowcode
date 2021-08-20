@@ -3,9 +3,14 @@
     <!--弹出层-->
     <!--页面预览-->
     <u-popup v-model="preview" width="50%" mode="center">
-      <view style="display:flex;margin:10px;">
-      <u-field  required v-model="pageName" :error-message="saveError" label="页面名称"></u-field>
-      <button @click="save()" >新增</button>
+      <view style="display: flex; margin: 10px">
+        <u-field
+          required
+          v-model="pageName"
+          :error-message="saveError"
+          label="页面名称"
+        ></u-field>
+        <button @click="save()">新增</button>
       </view>
       <view
         style="display: flex; background-color: gray; justify-content: center"
@@ -13,7 +18,6 @@
         <view class="phone">
           <r-vue-page :options="options"></r-vue-page>
         </view>
-
       </view>
     </u-popup>
     <!--页面导入-->
@@ -53,7 +57,7 @@
         >生成JSON</view
       -->
       <view class="right" @click="preview = true">页面调试</view>
-      <view class="right" @click="importRaw">页面导入</view>
+      <view class="right" @click="catchImage">页面导入</view>
     </view>
     <!--主页面-->
     <view class="main-contain">
@@ -63,7 +67,7 @@
       </view>
       <!--页面布局-->
       <view class="layout">
-        <view class="phone">
+        <view class="phone" id="phone">
           <r-vue-edit
             :options="options"
             @focusleave="focusleave"
@@ -145,6 +149,7 @@ import utilFunc from "@/utils/exportFunc.js";
 import StyleBar from "../sidebar/style-bar/style-bar.vue";
 import vueJsonEditor from "../sidebar/jsoneditor/vue-json-editor.vue";
 import DataBar from "../sidebar/data-bar/data-bar.vue";
+import html2canvas from "html2canvas";
 export default {
   components: { cellBar, Label, StyleBar, vueJsonEditor, DataBar },
   watch: {
@@ -160,8 +165,8 @@ export default {
     return {
       show: false,
       preview: false,
-      pageName:'',
-      saveError:"",
+      pageName: "",
+      saveError: "",
       //中间布局数据
       layoutconfig: {
         current: 0,
@@ -192,11 +197,17 @@ export default {
     };
   },
   onLoad() {
-    this.CompentToOptionMap = this.GetMapFromCompToOption()
-    this.options = options
+    this.CompentToOptionMap = this.GetMapFromCompToOption();
+    this.options = options;
   },
   methods: {
     ...utilFunc,
+    catchImage() {
+      html2canvas(document.getElementById("phone")).then(function (canvas) {
+        let base64url = canvas.toDataURL('image/jpeg', 1.0 );
+        console.log(base64url)
+      });
+    },
     change(index) {
       this.currentOption = index;
     },
@@ -208,15 +219,14 @@ export default {
       this.importRawV1(this);
       this.importRawPop = true;
     },
-    changeOption(item){
-      this.changeOptionV1(this,item);
+    changeOption(item) {
+      this.changeOptionV1(this, item);
     },
-    save(){
-      if(this.pageName === ""){
-        this.saveError="必须填写页面名字"
-      }
-      else this.savePage(this.pageName,this.options,this);
-    }
+    save() {
+      if (this.pageName === "") {
+        this.saveError = "必须填写页面名字";
+      } else this.savePage(this.pageName, this.options, this);
+    },
   },
 };
 </script>
