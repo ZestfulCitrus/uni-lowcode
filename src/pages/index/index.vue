@@ -13,34 +13,66 @@
         <view class="right">登录</view>
         <view class="right">保存数据到缓存中</view>
       </view>
+      <u-popup v-model="exportPage" mode="center" width="70%" height="80%">
+        <view style="display: flex; height: 100%">
+          <view style="width: 50%"
+            >
+            <vue-json-editor
+            style="margin-left: 5px; margin-right: 5px"
+            v-model=" apps[currentApp].pages[currentPage].options"
+            mode="code"
+            :show-btns="false"
+            :expandedOnStart="true"
+            @json-change="onJsonChange"
+          ></vue-json-editor>
+            {{ }}
+          </view>
+          <view style="padding: 10px">
+            <view
+              style="
+                margin-left:auto;
+                width: 375px;
+                background-color: #f3f4f6;
+                border: 1px solid #c0c4cc;
+                overflow: auto;
+                height: 812px;
+              "
+            >
+              <r-vue-page
+                :options="apps[currentApp].pages[currentPage].options"
+              ></r-vue-page>
+            </view>
+          </view>
+        </view>
+      </u-popup>
       <u-popup v-model="showCreatePage" mode="center" width="50%" height="80%">
         <view style="padding: 10px">
           <view style="display: flex; justify-content: center">
             <h1>新建页面</h1>
           </view>
-          <view style="display: flex;margin-top:20px">
+          <view style="display: flex; margin-top: 20px">
             <view style="flex: 1">
               <view>
-              <u-field
-                label-width="240"
-                v-model="newPage.name"
-                style="margin-top: 10px"
-                label="页面名称："
-                placeholder="输入页面名称"
-                :border-top="true"
-              ></u-field>
-              <u-field
-                label-width="240"
-                v-model="newPage.path"
-                style="margin-top: 10px"
-                label="页面路径："
-                placeholder="输入页面路径"
-                :border-top="true"
-              ></u-field>
-              <u-button @click="createNewPage">创建页面</u-button>
+                <u-field
+                  label-width="240"
+                  v-model="newPage.name"
+                  style="margin-top: 10px"
+                  label="页面名称："
+                  placeholder="输入页面名称"
+                  :border-top="true"
+                ></u-field>
+                <u-field
+                  label-width="240"
+                  v-model="newPage.path"
+                  style="margin-top: 10px"
+                  label="页面路径："
+                  placeholder="输入页面路径"
+                  :border-top="true"
+                ></u-field>
+                <u-button @click="createNewPage">创建页面</u-button>
               </view>
             </view>
-            <view style="flex: 1;margin-left:30px">
+            <view style="flex: 1; margin-left: 30px">
               <view style="">当前APP:{{ apps[currentApp].name }}</view>
             </view>
           </view>
@@ -127,21 +159,30 @@
               </view>
               <view
                 class="card"
-                style="background-color:#fff"
+                style="background-color: #fff"
                 v-for="(item, index) in apps[currentApp].pages"
                 :key="index"
               >
-              <view style="display:flex;justify-content:center;height:100%">
-                <view>
-                <view> 页面名称：{{ item.name }} </view>
-                <view> 页面路径：{{ item.path }} </view>
-                <view> <button @click="toDesign(index)">编辑</button> </view>
-                <view> <button>设置</button> </view>
-                <view> <button>导出页面</button> </view>
+                <view
+                  style="display: flex; justify-content: center; height: 100%"
+                >
+                  <view>
+                    <view> 页面名称：{{ item.name }} </view>
+                    <view> 页面路径：{{ item.path }} </view>
+                    <view>
+                      <button @click="toDesign(index)">编辑</button>
+                    </view>
+                    <view> <button>设置</button> </view>
+                    <view>
+                      <button @click="exportPage = true">导出页面</button>
+                    </view>
+                  </view>
+                  <u-image
+                    :src="item.imagebase64"
+                    style="padding: 3px; height: 100%; width: 50%"
+                    mode="aspectFit"
+                  ></u-image>
                 </view>
-                <u-image :src="item.imagebase64" style="padding:3px;height:100%;width:50%" mode="aspectFit"></u-image>
-              </view>
-                
               </view>
             </view>
           </view>
@@ -152,25 +193,25 @@
 </template>
 
 <script>
+import vueJsonEditor from "../sidebar/jsoneditor/vue-json-editor.vue";
 export default {
-  onLoad(){
-    this.loadDefaultData()
+  components:{vueJsonEditor},
+  onLoad() {
+    this.loadDefaultData();
   },
-  mounted(){
-    
-  },
+  mounted() {},
   methods: {
-    loadDefaultData(){
-      let obj = require('@/mock/default.json')
-      this.apps[0].pages[0].imagebase64 = obj.BASE64
+    loadDefaultData() {
+      let obj = require("@/mock/default.json");
+      this.apps[0].pages[0].imagebase64 = obj.BASE64;
     },
-    createNewPage(){
+    createNewPage() {
       this.apps[this.currentApp].pages.push({
         name: this.newPage.name,
         path: this.newPage.path,
         options: [],
-      })
-      this.showCreatePage = false
+      });
+      this.showCreatePage = false;
       this.$refs.uToast.show({
         title: "页面创建成功",
         type: "success",
@@ -215,13 +256,19 @@ export default {
     sectionChange(i) {
       this.pageCurrent = i;
     },
+    changeApp() {
+      this.vueTemplate = ``;
+    },
   },
   data() {
     return {
+      exportPage: false,
+      vueTemplate: ``,
       showCreatePage: false,
       show: true,
-      pageCurrent: 0,
+      pageCurrent: 1,
       currentApp: 0,
+      currentPage: 0,
       newPage: {
         name: "新建页面",
         path: "/path/index/1",
@@ -253,8 +300,32 @@ export default {
             {
               name: "测试页面",
               path: "/path/index",
-              options: [],
-              imagebase64:''
+              options: [
+                {
+                  type: "r-form-input",
+                  option: {
+                    value: "",
+                    label: "普通输入框",
+                    placeholder: "请输入内容",
+                    btn: {
+                      codeText: "单击",
+                    },
+                    password: false,
+                  },
+                  compStyle: {
+                    height: "auto",
+                    width: "100%",
+                    "font-size": "24rpx",
+                    "background-color": "#fff",
+                    "margin-top": "0",
+                    "margin-right": "0",
+                    "margin-down": "0",
+                    "margin-left": "0",
+                  },
+                  id: "uP5zVC7CCW45WAe0a2lXTs9Wlx3DObhX",
+                },
+              ],
+              imagebase64: "",
             },
           ],
         },

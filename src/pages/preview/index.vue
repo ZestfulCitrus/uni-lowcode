@@ -4,14 +4,20 @@
 
 <script>
 export default {
+  name:'',
+  components:{},
+  props:{},
   data() {
     return {
       options: []
     };
   },
-  onLoad(){
-      this.options = uni.getStorageSync('options')
-  }
+  computed:{},
+  watch:{},
+  created(){},
+  mounted(){},
+  onLoad(){},
+  methods(){}
 };
 </script>
 
