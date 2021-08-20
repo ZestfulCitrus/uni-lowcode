@@ -1,8 +1,11 @@
 <template>
+<view>
+  <view class="nopc">😎请使用PC端加载应用获得更好的体验哦！</view>
   <view class="content">
-    <u-toast ref="uToast"/>
+    <u-toast ref="uToast" />
     <view class="rtnav">
-      <view class="left">RT-VUE低代码开发平台</view>      <!--view
+      <view class="left">RT-VUE低代码开发平台</view>
+      <!--view
         class="right"
         @click="exportRaw(JSON.stringify(options), '导出文件.json')"
         >生成JSON</view
@@ -19,7 +22,7 @@
           <view style="display: flex; justify-content: center">
             <view style="width: 80%">
               <u-field
-              label-width="240"
+                label-width="240"
                 v-model="newApp.name"
                 style="margin-top: 10px"
                 label="App名称："
@@ -27,7 +30,7 @@
                 :border-top="true"
               ></u-field>
               <u-field
-              label-width="240"
+                label-width="240"
                 v-model="newApp.description"
                 type="textarea"
                 style="margin-top: 10px"
@@ -36,14 +39,14 @@
                 :border-top="true"
               ></u-field>
               <u-field
-              label-width="240"
+                label-width="240"
                 v-model="newApp.createName"
                 style="margin-top: 10px"
                 label="作者名称"
                 placeholder="作者名字"
                 :border-top="true"
               ></u-field>
-              <u-button @click="createNewApp" >创建app</u-button>
+              <u-button @click="createNewApp">创建app</u-button>
             </view>
           </view>
         </view>
@@ -51,9 +54,13 @@
     </u-popup>
     <view class="main-contain">
       <view class="label" style="text-align: center">
-        <h1 style="margin: 10px; padding: 20px"> App列表 </h1>
+        <h1 style="margin: 10px; padding: 20px">App列表</h1>
         <button @click="show = true">新建APP</button>
-        <button v-for="(item, index) in apps" :key="index" @click="currentApp=index">
+        <button
+          v-for="(item, index) in apps"
+          :key="index"
+          @click="currentApp = index"
+        >
           {{ item.name }}
         </button>
       </view>
@@ -67,10 +74,8 @@
           ></u-subsection>
         </view>
         <view>
-          <view
-            v-if="pageCurrent === 0"
-          >
-          {{apps[currentApp]}}
+          <view v-if="pageCurrent === 0">
+            {{ apps[currentApp] }}
           </view>
           <view
             v-if="pageCurrent === 1"
@@ -83,7 +88,7 @@
             "
           >
             <view class="card">
-              <view> <u-button >新建页面</u-button> </view>
+              <view> <u-button>新建页面</u-button> </view>
             </view>
             <view
               class="card"
@@ -100,43 +105,40 @@
       </view>
     </view>
   </view>
+</view>
 </template>
 
 <script>
 export default {
   methods: {
-    save(){
-
-    },
+    save() {},
     showToast() {
-				this.$refs.uToast.show({
-					title: '创建成功',
-					type: 'success',
-          position:"top"
-				})
-		},
-    createNewApp(){
-      this.show=false
-      var time = new Date().toLocaleString( );;
+      this.$refs.uToast.show({
+        title: "创建成功",
+        type: "success",
+        position: "top",
+      });
+    },
+    createNewApp() {
+      this.show = false;
+      var time = new Date().toLocaleString();
       this.apps.push({
-          name: this.newApp.name,
-          description:this.newApp.description,
-          createName:this.newApp.createName,
-          createTime:time,
-          pages: [
-            {
-              name: "测试页面",
-              path: "111",
-              options: [
-
-              ], 
-            }
-          ],
-        })
-      this.showToast()
+        name: this.newApp.name,
+        description: this.newApp.description,
+        createName: this.newApp.createName,
+        createTime: time,
+        pages: [
+          {
+            name: "测试页面",
+            path: "111",
+            options: [],
+          },
+        ],
+      });
+      this.showToast();
     },
     toDesign(index) {
-      options = this.apps[this.currentApp].pages[index].options
+      options = this.apps[this.currentApp].pages[index].options;
       uni.navigateTo({
         url: "/pages/index/design",
       });
@@ -149,11 +151,11 @@ export default {
     return {
       show: true,
       pageCurrent: 0,
-      currentApp:0,
-      newApp:{
-        name:'这是一个全新的APP',
-        description:'',
-        createName:''
+      currentApp: 0,
+      newApp: {
+        name: "这是一个全新的APP",
+        description: "",
+        createName: "",
       },
       indexlist: [
         {
@@ -177,7 +179,7 @@ export default {
               name: "测试页面",
               path: "/path/index",
               options: [],
-            }
+            },
           ],
         },
       ],
@@ -188,6 +190,20 @@ export default {
 
 <style lang="scss" scoped>
 @import "../scss/indexStyle.scss";
+.nopc {
+    display: none;
+}
+@media screen and (max-width: 812px) {
+  .content {
+    display: none;
+  }
+  .nopc {
+    display: block;
+    text-align: center;
+    margin-top: 30%;
+  }
+}
+
 .label {
   background-color: #fff;
   flex: 2;
