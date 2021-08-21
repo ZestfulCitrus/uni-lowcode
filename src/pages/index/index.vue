@@ -209,6 +209,7 @@ export default {
       this.apps[this.currentApp].pages.push({
         name: this.newPage.name,
         path: this.newPage.path,
+        imagebase64:'',
         options: [],
       });
       this.showCreatePage = false;
@@ -242,13 +243,14 @@ export default {
             name: "测试页面",
             path: "111",
             options: [],
+            imagebase64:''
           },
         ],
       });
       this.showToast();
     },
     toDesign(index) {
-      options = this.apps[this.currentApp].pages[index].options;
+      this.$store.commit('changePage',this.apps[this.currentApp].pages[index])
       uni.navigateTo({
         url: "/pages/index/design",
       });

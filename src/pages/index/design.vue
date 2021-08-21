@@ -1,5 +1,6 @@
 <template>
   <view class="content">
+    <u-toast ref="uToast" />
     <!--弹出层-->
     <!--页面预览-->
     <u-popup v-model="preview" width="50%" mode="center">
@@ -66,14 +67,35 @@
         <Label></Label>
       </view>
       <!--页面布局-->
+
       <view class="layout">
-        <view class="phone" id="phone">
-          <r-vue-edit
-            :options="options"
-            @focusleave="focusleave"
-            :config="layoutconfig"
-            ref="rvuez"
-          ></r-vue-edit>
+        <view style="width: 100%">
+          <view
+            style="
+              height: 40px;
+              width: 100%;
+              border: 1px solid #000;
+              padding: 5px;
+            "
+          >
+            <u-button
+              @click="savePageAndCatch"
+              style="float: right"
+              size="mini"
+              type="primary"
+              >保存页面</u-button
+            >
+          </view>
+          <view style="display: flex; justify-content: center">
+            <view class="phone" id="phone">
+              <r-vue-edit
+                :options="options"
+                @focusleave="focusleave"
+                :config="layoutconfig"
+                ref="rvuez"
+              ></r-vue-edit>
+            </view>
+          </view>
         </view>
       </view>
       <!--组件配置信息-->
@@ -198,14 +220,27 @@ export default {
   },
   onLoad() {
     this.CompentToOptionMap = this.GetMapFromCompToOption();
-    this.options = options;
+    this.options = this.$store.state.page.options;
   },
   methods: {
     ...utilFunc,
+    savePageAndCatch() {
+      let that = this;
+      html2canvas(document.getElementById("phone")).then(function (canvas) {
+        let base64url = canvas.toDataURL("image/jpeg", 1.0);
+        that.$store.commit("saveImage", base64url);
+        that.$refs.uToast.show({
+          title: "保存成功",
+          type: "success",
+          position: "top",
+          url: "/pages/index/index",
+        });
+      });
+    },
     catchImage() {
       html2canvas(document.getElementById("phone")).then(function (canvas) {
-        let base64url = canvas.toDataURL('image/jpeg', 1.0 );
-        console.log(base64url)
+        let base64url = canvas.toDataURL("image/jpeg", 1.0);
+        console.log(base64url);
       });
     },
     change(index) {
