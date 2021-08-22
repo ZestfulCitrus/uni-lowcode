@@ -11,26 +11,25 @@
         >生成JSON</view
       -->
         <view class="right">登录</view>
-        <view class="right">保存数据到缓存中</view>
+        <view class="right" @click="saveApps">保存数据到缓存中</view>
       </view>
       <u-popup v-model="exportPage" mode="center" width="70%" height="80%">
         <view style="display: flex; height: 100%">
-          <view style="width: 50%"
-            >
+          <view style="width: 50%">
             <vue-json-editor
-            style="margin-left: 5px; margin-right: 5px"
-            v-model=" apps[currentApp].pages[currentPage].options"
-            mode="code"
-            :show-btns="false"
-            :expandedOnStart="true"
-            @json-change="onJsonChange"
-          ></vue-json-editor>
-            {{ }}
+              style="margin-left: 5px; margin-right: 5px"
+              v-model="apps[currentApp].pages[currentPage].options"
+              mode="code"
+              :show-btns="false"
+              :expandedOnStart="true"
+              @json-change="onJsonChange"
+            ></vue-json-editor>
+            {{}}
           </view>
           <view style="padding: 10px">
             <view
               style="
-                margin-left:auto;
+                margin-left: auto;
                 width: 375px;
                 background-color: #f3f4f6;
                 border: 1px solid #c0c4cc;
@@ -195,29 +194,77 @@
 <script>
 import vueJsonEditor from "../sidebar/jsoneditor/vue-json-editor.vue";
 export default {
-  components:{vueJsonEditor},
+  components: { vueJsonEditor },
   onLoad() {
     this.loadDefaultData();
   },
   mounted() {},
   methods: {
+    saveApps() {
+      uni.setStorage({
+        key: "apps",
+        data: this.apps,
+        success: () => {
+          this.$refs.uToast.show({
+            title: "数据保存成功",
+            type: "success",
+            position: "top",
+          });
+        },
+        fail: () => {
+          this.$refs.uToast.show({
+            title: "数据保存失败，数据量过大，请连接服务器保存！",
+            type: "error",
+            position: "top",
+          });
+        },
+      });
+    },
     loadDefaultData() {
-      let obj = require("@/mock/default.json");
-      this.apps[0].pages[0].imagebase64 = obj.BASE64;
+      uni.getStorage({
+        key: "apps",
+        success: (res) => {
+          this.apps = res.data;
+        },
+        fail: () => {
+          let obj = require("@/mock/default.json");
+          this.apps[0].pages[0].imagebase64 = obj.BASE64;
+          this.$refs.uToast.show({
+            title: "检测到无数据缓存！已为您加载默认数据！",
+            type: "success",
+            position: "top",
+          });
+        },
+      });
     },
     createNewPage() {
-      this.apps[this.currentApp].pages.push({
-        name: this.newPage.name,
-        path: this.newPage.path,
-        imagebase64:'',
-        options: [],
+      let flag = 0;
+      this.apps[this.currentApp].pages.some((e) => {
+        if (e.path === this.newPage.path) {
+          flag = 1;
+          return true;
+        }
       });
-      this.showCreatePage = false;
-      this.$refs.uToast.show({
-        title: "页面创建成功",
-        type: "success",
-        position: "top",
-      });
+      if (flag == 0) {
+        this.apps[this.currentApp].pages.push({
+          name: this.newPage.name,
+          path: this.newPage.path,
+          imagebase64: "",
+          options: [],
+        });
+        this.showCreatePage = false;
+        this.$refs.uToast.show({
+          title: "页面创建成功",
+          type: "success",
+          position: "top",
+        });
+      } else {
+        this.$refs.uToast.show({
+          title: "页面路径不能重复",
+          type: "error",
+          position: "top",
+        });
+      }
     },
     addNewPage() {
       this.showCreatePage = true;
@@ -240,17 +287,17 @@ export default {
         createTime: time,
         pages: [
           {
-            name: "测试页面",
-            path: "111",
+            name: "测试首页面",
+            path: "/pages/index/index",
             options: [],
-            imagebase64:''
+            imagebase64: "",
           },
         ],
       });
       this.showToast();
     },
     toDesign(index) {
-      this.$store.commit('changePage',this.apps[this.currentApp].pages[index])
+      this.$store.commit("changePage", this.apps[this.currentApp].pages[index]);
       uni.navigateTo({
         url: "/pages/index/design",
       });

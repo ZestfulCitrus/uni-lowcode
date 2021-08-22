@@ -749,6 +749,23 @@ const rFormInputRadio ={
   },
 }
 
+const rChartLineDef ={
+  type:"r-chart-line",
+  compStyle:{
+    width: "100%",
+    "font-size": "24rpx",
+    "margin-top": "0px",
+    "margin-right": "0px",
+    "margin-bottom": "0px",
+    "margin-left": "0px",
+    "padding":'24rpx',
+    "border-bottom":"1px solid #f4f4f5",
+  },
+  option:{
+    
+  },
+}
+
 const getData = (params, context) => {
   let id = context.$u.guid()
   params.id = id
@@ -779,6 +796,7 @@ module.exports = {
   rFormNumberBox,
   rFormTextAreaInput,
   rFormInputMap,
+  rChartLineDef,
   rFormInputRadio,
   rFormCheckboxes,
   rFormSlider,

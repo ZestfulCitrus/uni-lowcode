@@ -71,8 +71,17 @@ export default {
             ],
           },
         ],
-        {},
-        {},
+        [
+          
+        ],
+        [
+          {
+            text:"基础图表",
+            tags:[
+              {icon:"list", text: "折线图", type: "r-chart-line" },
+            ]
+          }
+        ],
         {},
       ],
     };

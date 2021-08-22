@@ -62,6 +62,9 @@ export const redit = {
                 case "r-form-slider":
                     this.options.splice(index,0,this.getData(this.rFormSlider,this));
                     break;
+                case "r-chart-line":
+                    this.options.splice(index,0,this.getData(this.rChartLineDef,this));
+                    break;
             }
         },
         
