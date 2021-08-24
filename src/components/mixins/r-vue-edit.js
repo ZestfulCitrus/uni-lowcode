@@ -67,6 +67,10 @@ export const redit = {
                     break;
                 case "r-form":
                     this.options.splice(index,0,this.getData(this.rFormCommonDef,this))
+                    break;
+                case "r-chart-pie":
+                    this.options.splice(index,0,this.getData(this.rChartPieDef,this));
+                    break;
             }
         },
         

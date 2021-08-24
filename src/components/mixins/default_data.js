@@ -765,10 +765,9 @@ const rChartLineDef = {
 
   },
 }
-
-const rFormCommonDef = {
-  type: "r-form",
-  compStyle: {
+const rChartPieDef ={
+  type:'r-chart-pie',
+  compStyle:{
     width: "100%",
     "font-size": "24rpx",
     "margin-top": "0px",
@@ -778,7 +777,14 @@ const rFormCommonDef = {
     "padding": '24rpx',
     "border-bottom": "1px solid #f4f4f5",
   },
-  option: {
+  option:{
+
+  }
+}
+const rFormCommonDef = {
+  type: "r-form",
+  compStyle: {},
+  option:{
     form_ref: "rFormCommonDefref",
     button_title: "提交",
     formRef: "",
@@ -1060,6 +1066,8 @@ const deepClone = target => {
   // 返回最终结果
   return result;
 }
+   
+
 const getData = (params, context) => {
   let id = context.$u.guid()
   params.id = id
@@ -1090,11 +1098,13 @@ module.exports = {
   rFormNumberBox,
   rFormTextAreaInput,
   rFormInputMap,
-  rChartLineDef,
   rFormInputRadio,
   rFormCheckboxes,
   rFormSlider,
   rFormCommonDef,
+  //图表
+  rChartLineDef,
+  rChartPieDef,
   cloneData,
   getData
 }
