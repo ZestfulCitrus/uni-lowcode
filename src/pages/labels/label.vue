@@ -42,7 +42,9 @@ export default {
       ],
       currentMenu: 1,
       compTags: [
-        [],
+        [
+          
+        ],
         [
           {
             text: "表单组件",
@@ -72,7 +74,12 @@ export default {
           },
         ],
         [
-          
+          {
+            text:"自定义表单",
+            tags:[
+              {icon:"list",text:"自定义表单（测试）",type:"r-form"}
+            ]
+          }
         ],
         [
           {
@@ -82,7 +89,9 @@ export default {
             ]
           }
         ],
-        {},
+        [
+          
+        ],
       ],
     };
   },

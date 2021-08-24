@@ -7,7 +7,7 @@ const rCellDef = {
       value: '数值',
       arrow: true,
       arrow_direction: 'down',
-      press: () => {},
+      press: () => { },
     },
     {
       type: 'tags',
@@ -26,7 +26,7 @@ const rCellDef = {
           mode: 'light',
         },
       ],
-      press: () => {},
+      press: () => { },
     },
     {
       type: 'radio',
@@ -52,7 +52,7 @@ const rCellDef = {
           disabled: true,
         },
       ],
-      press: () => {},
+      press: () => { },
     },
   ],
 }
@@ -98,7 +98,7 @@ const rSwiperDef = {
 const rFormDef = {
   type: 'r-form',
   form: {},
-  get_form_data: () => {},
+  get_form_data: () => { },
   option: [
     {
       type: 'common_input',
@@ -137,7 +137,7 @@ const rGridDef = {
           visual: true,
           count: 22,
         },
-        click: () => {},
+        click: () => { },
       },
       {
         name: 'level',
@@ -147,7 +147,7 @@ const rGridDef = {
           visual: false,
           count: 22,
         },
-        click: () => {},
+        click: () => { },
       },
       {
         name: 'woman',
@@ -157,7 +157,7 @@ const rGridDef = {
           visual: false,
           count: 22,
         },
-        click: () => {},
+        click: () => { },
       },
       {
         name: 'man',
@@ -167,7 +167,7 @@ const rGridDef = {
           visual: false,
           count: 22,
         },
-        click: () => {},
+        click: () => { },
       },
       {
         name: 'photo',
@@ -177,7 +177,7 @@ const rGridDef = {
           visual: true,
           count: 21,
         },
-        click: () => {},
+        click: () => { },
       },
     ],
   },
@@ -198,7 +198,7 @@ const rMe = {
           value: '',
           arrow: true,
           arrow_direction: 'down',
-          press: () => {},
+          press: () => { },
         },
       ],
       [
@@ -209,7 +209,7 @@ const rMe = {
           value: '',
           arrow: true,
           arrow_direction: 'down',
-          press: () => {},
+          press: () => { },
         },
         {
           icon: 'photo',
@@ -218,7 +218,7 @@ const rMe = {
           value: '',
           arrow: true,
           arrow_direction: 'down',
-          press: () => {},
+          press: () => { },
         },
         {
           icon: 'coupon',
@@ -227,7 +227,7 @@ const rMe = {
           value: '',
           arrow: true,
           arrow_direction: 'down',
-          press: () => {},
+          press: () => { },
         },
         {
           icon: 'heart',
@@ -236,7 +236,7 @@ const rMe = {
           value: '',
           arrow: true,
           arrow_direction: 'down',
-          press: () => {},
+          press: () => { },
         },
       ],
       [
@@ -247,7 +247,7 @@ const rMe = {
           value: '',
           arrow: true,
           arrow_direction: 'down',
-          press: () => {},
+          press: () => { },
         },
       ],
     ],
@@ -263,42 +263,42 @@ const rMenu = {
       {
         img_url: require('@/static/equip/gdfq@3x.png'),
         task_info: '工单发起',
-        press: () => {},
+        press: () => { },
       },
       {
         img_url: require('@/static/equip/gdfq@3x.png'),
         task_info: '工单发起',
-        press: () => {},
+        press: () => { },
       },
       {
         img_url: require('@/static/equip/dbgd@3x.png'),
         task_info: '待办工单',
-        press: () => {},
+        press: () => { },
       },
       {
         img_url: require('@/static/equip/ybgd@3x.png'),
         task_info: '已办工单',
-        press: () => {},
+        press: () => { },
       },
       {
         img_url: require('@/static/equip/fqjc@3x.png'),
         task_info: '发起检查',
-        press: () => {},
+        press: () => { },
       },
       {
         img_url: require('@/static/equip/dbjh@3x.png'),
         task_info: '待办计划',
-        press: () => {},
+        press: () => { },
       },
       {
         img_url: require('@/static/equip/jcls@3x.png'),
         task_info: '检查历史',
-        press: () => {},
+        press: () => { },
       },
       {
         img_url: require('@/static/equip/dbjh@3x.png'),
         task_info: '待办计划',
-        press: () => {},
+        press: () => { },
       },
     ],
   },
@@ -332,13 +332,13 @@ const rRatser = {
       span: '6',
       style: 'font-size:15rpx;text-align:center;margin-top:30px',
       text: '忘记密码?',
-      click: () => {},
+      click: () => { },
     },
     {
       span: '6',
       style: 'font-size:15rpx;color:blue;text-align:center;margin-top:30px',
       text: '注册',
-      click: () => {},
+      click: () => { },
     },
   ],
 }
@@ -365,7 +365,7 @@ const rCard = {
       show_head: true,
       show_foot: true,
       box_shadow: '',
-      press: () => {},
+      press: () => { },
       body: [
         {
           text:
@@ -416,7 +416,7 @@ const rCard = {
       show_head: true,
       show_foot: true,
       box_shadow: '',
-      press: () => {},
+      press: () => { },
       body: [
         {
           text:
@@ -466,7 +466,7 @@ const rFormInput = {
     label: '普通输入框',
     placeholder: '请输入内容',
     btn: {
-      getCode: () => {},
+      getCode: () => { },
       codeText: '单击',
     },
     password: false,
@@ -697,9 +697,9 @@ const rFormCheckboxes = {
   },
 }
 
-const rFormSlider ={
-  type:"r-form-slider",
-  compStyle:{
+const rFormSlider = {
+  type: "r-form-slider",
+  compStyle: {
     height: "90rpx",
     width: "100%",
     "font-size": "24rpx",
@@ -707,31 +707,31 @@ const rFormSlider ={
     "margin-right": "0px",
     "margin-bottom": "0px",
     "margin-left": "0px",
-    "padding":'24rpx',
-    "border-bottom":"1px solid #f4f4f5",
-    "display":"flex",
+    "padding": '24rpx',
+    "border-bottom": "1px solid #f4f4f5",
+    "display": "flex",
   },
-  option:{
-    label:"滑动滑块",
-    value:"10"
+  option: {
+    label: "滑动滑块",
+    value: "10"
   }
 }
 
-const rFormInputRadio ={
-  type:"r-form-radio",
-  compStyle:{
+const rFormInputRadio = {
+  type: "r-form-radio",
+  compStyle: {
     width: "100%",
     "font-size": "24rpx",
     "margin-top": "0px",
     "margin-right": "0px",
     "margin-bottom": "0px",
     "margin-left": "0px",
-    "padding":'24rpx',
-    "border-bottom":"1px solid #f4f4f5",
+    "padding": '24rpx',
+    "border-bottom": "1px solid #f4f4f5",
   },
-  option:{
-    label:"请选择水果",
-    value:"",
+  option: {
+    label: "请选择水果",
+    value: "",
     list: [
       {
         name: 'apple',
@@ -749,30 +749,324 @@ const rFormInputRadio ={
   },
 }
 
-const rChartLineDef ={
-  type:"r-chart-line",
-  compStyle:{
+const rChartLineDef = {
+  type: "r-chart-line",
+  compStyle: {
     width: "100%",
     "font-size": "24rpx",
     "margin-top": "0px",
     "margin-right": "0px",
     "margin-bottom": "0px",
     "margin-left": "0px",
-    "padding":'24rpx',
-    "border-bottom":"1px solid #f4f4f5",
+    "padding": '24rpx',
+    "border-bottom": "1px solid #f4f4f5",
   },
-  option:{
-    
+  option: {
+
   },
 }
 
+const rFormCommonDef = {
+  type: "r-form",
+  compStyle: {
+    width: "100%",
+    "font-size": "24rpx",
+    "margin-top": "0px",
+    "margin-right": "0px",
+    "margin-bottom": "0px",
+    "margin-left": "0px",
+    "padding": '24rpx',
+    "border-bottom": "1px solid #f4f4f5",
+  },
+  option: {
+    form_ref: "rFormCommonDefref",
+    button_title: "提交",
+    formRef: "",
+    list: [{
+      type: "location",
+      label: "位置选择",
+      name: "my-location",
+      value: "",
+    },
+    {
+      type: "number-box",
+      label: "数字",
+      name: "my-number-box",
+      value: 25,
+    },
+    {
+      type: "slider",
+      label: "滑块：",
+      max: "100",
+      min: "0",
+      step: "20",
+      name: "my-slider",
+      value: 0,
+    },
+    {
+      type: "common_input",
+      label: "普通输入框",
+      name: "number",
+      value: "",
+      placeholder: "请输入普通输入框",
+      rules: [
+        {
+          required: true,
+          message: "请输普通输入框",
+          // 可以单个或者同时写两个触发验证方式
+          trigger: "blur,change",
+        },
+        {
+          min: 5,
+          message: "普通输入框不能少于5个字",
+          trigger: "change,blur",
+        },
+      ],
+    },
+    {
+      type: "time_picker",
+      label: "时间选择器",
+      name: "createTime",
+      placeholder: "单击开始时间选择器",
+      value: "",
+      rules: [
+        {
+          required: true,
+          message: "请输入时间",
+          // 可以单个或者同时写两个触发验证方式
+          trigger: "blur,change",
+        },
+      ],
+    },
+    {
+      type: "single_select",
+      label: "单个选择框（母框）",
+      name: "type",
+      select_list: [
+        {
+          value: "0",
+          label: "第一个对象",
+        },
+        {
+          value: "1",
+          label: "第二个对象",
+        },
+      ],
+      placeholder: "单击选择设备类型",
+      value: "",
+      rules: [
+        {
+          required: true,
+          message: "请选择设备类型",
+          // 可以单个或者同时写两个触发验证方式
+          trigger: "blur,change",
+        },
+      ],
+    },
+    {
+      type: "single_select_child",
+      label: "单个选择框（子框）",
+      name: "equipmentNum_name",
+      parentName: "type",
+      // context:子组件上下文
+      // obj:母选择器值
+      //单击时触发：callback :回调函数携带返回一个obj对象
+      request_func: (context, obj, callback) => {
+        let list = [];
+        console.log(obj);
+        setTimeout(() => {
+          for (let i in [1, 2, 3, 4, 5]) {
+            let obj2 = {
+              label: obj + "的子对象",
+              value: obj + "的子对象",
+            };
+            list.push(obj2);
+          }
+          callback(list);
+        }, 500);
+      },
+      select_list: [],
+      placeholder: "单击选择设备",
+      value: "",
+      rules: [
+        {
+          required: true,
+          message: "请选择设备",
+          // 可以单个或者同时写两个触发验证方式
+          trigger: "blur,change",
+        },
+      ],
+    },
+    {
+      type: "single_button",
+      label: "简单的按钮",
+      name: "select_component",
+      click_func: (context) => {
+        context.$refs.Form_Toast.show({
+          title: "这是单击事件",
+        });
+      },
+      btn_name: "单击简单的按钮",
+    },
+    {
+      type: "password_input",
+      label: "密码",
+      name: "password_input",
+      value: "",
+      placeholder: "请输入密码",
+      rules: [
+        {
+          required: true,
+          message: "请输入工单编号",
+          // 可以单个或者同时写两个触发验证方式
+          trigger: "blur,change",
+        },
+        {
+          min: 5,
+          message: "密码不能少于5个字",
+          trigger: "change,blur",
+        },
+      ],
+      passwordIcon: true, //是否显示查看密码
+    },
+    {
+      type: "common_input",
+      label: "姓名",
+      name: "login_name",
+      value: "",
+      placeholder: "请输入姓名",
+      rules: [
+        {
+          required: true,
+          message: "请输入姓名",
+          // 可以单个或者同时写两个触发验证方式
+          trigger: "blur,change",
+        },
+        {
+          min: 2,
+          message: "姓名不能少于2个字",
+          trigger: "change,blur",
+        },
+      ],
+    },
+    {
+      type: "range_calendar",
+      label: "范围性的日历",
+      name: "rangeCalendar",
+      value: "",
+      placeholder: "请输入日历起始与截止时间",
+      rules: [
+        {
+          required: true,
+          message: "请输入日历起始与截止时间",
+          // 可以单个或者同时写两个触发验证方式
+          trigger: "blur,change",
+        },
+      ],
+    },
+    {
+      type: "single_calendar",
+      label: "单选日历",
+      name: "singleCalendar",
+      value: "",
+      placeholder: "请输入日历",
+      rules: [
+        {
+          required: true,
+          message: "请输入时间",
+          // 可以单个或者同时写两个触发验证方式
+          trigger: "blur,change",
+        },
+      ],
+    },
+    {
+      type: "common_rate",
+      label: "评分",
+      name: "common_rate",
+      count: 12,
+      value: 6,
+    },
+    {
+      type: "radio",
+      label: "单选框",
+      name: "my-radio",
+      value: "apple",
+      list: [
+        {
+          name: "apple",
+          disabled: true,
+        },
+        {
+          name: "banner",
+          disabled: false,
+        },
+        {
+          name: "orange",
+          disabled: false,
+        },
+        {
+          name: "watermelon",
+          disabled: false,
+        },
+        {
+          name: "peach",
+          disabled: false,
+        },
+        {
+          name: "admin",
+          disabled: false,
+        },
+      ],
+    },
+    {
+      type: "switch",
+      label: "开关",
+      name: "my-switch",
+      value: true,
+    }]
+  }
+}
+
+
+const deepClone = target => {
+  // 定义一个变量
+  let result;
+  // 如果当前需要深拷贝的是一个对象的话
+  if (typeof target === 'object') {
+    // 如果是一个数组的话
+    if (Array.isArray(target)) {
+      result = []; // 将result赋值为一个数组，并且执行遍历
+      for (let i in target) {
+        // 递归克隆数组中的每一项
+        result.push(deepClone(target[i]))
+      }
+      // 判断如果当前的值是null的话；直接赋值为null
+    } else if (target === null) {
+      result = null;
+      // 判断如果当前的值是一个RegExp对象的话，直接赋值    
+    } else if (target.constructor === RegExp) {
+      result = target;
+    } else {
+      // 否则是普通对象，直接for in循环，递归赋值对象的所有值
+      result = {};
+      for (let i in target) {
+        result[i] = deepClone(target[i]);
+      }
+    }
+    // 如果不是对象的话，就是基本数据类型，那么直接赋值
+  } else {
+    result = target;
+  }
+  // 返回最终结果
+  return result;
+}
 const getData = (params, context) => {
   let id = context.$u.guid()
   params.id = id
-  return JSON.parse(JSON.stringify(params))
+  return deepClone(params)
 }
+const cloneData = (params) => {
 
-const cloneData = (params)=>{
   return JSON.parse(JSON.stringify(params))
 }
 
@@ -800,6 +1094,7 @@ module.exports = {
   rFormInputRadio,
   rFormCheckboxes,
   rFormSlider,
+  rFormCommonDef,
   cloneData,
   getData
 }

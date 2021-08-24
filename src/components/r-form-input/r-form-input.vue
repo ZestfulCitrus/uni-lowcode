@@ -1,10 +1,10 @@
 <template>
-  <view>
+  <view :style="compStyle">
     <u-field
       v-model="option.value"
       :label="option.label"
       :placeholder="option.placeholder"
-      :style="compStyle"
+      
       :type="option.type"
       :password="option.password"
     >

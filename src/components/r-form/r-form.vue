@@ -1,10 +1,10 @@
 <template>
-  <view>
-    <u-form :model="form" :ref="form_ref" :rules="rules">
+  <view :style="compStyle">
+    <u-form :model="form" :ref="option.form_ref" :rules="rules">
       <u-form-item
         label-width="auto"
         :label="item.label"
-        v-for="(item, index) in list"
+        v-for="(item, index) in option.list"
         :key="index"
         :prop="item.name"
       >
@@ -102,7 +102,7 @@
         ></u-number-box>
       </u-form-item>
     </u-form>
-    <u-button @click="button_click">{{ button_title }}</u-button>
+    <u-button @click="button_click">{{ option.button_title }}</u-button>
     <!--跨度日历-->
     <u-calendar
       v-model="range_calendar"
@@ -152,25 +152,12 @@
  * rule:[]
  * }
  */
+import {rvuecomp} from '../mixins/r-vue-comp'
 export default {
   name: "r-form",
-  props: {
-    list: {
-      type: Array,
-      required: true,
-    },
-    form_ref: {
-      type: String,
-      required: true,
-    },
-    button_title: {
-      type: String,
-      require: false,
-      default: "提交",
-    },
-  },
+  mixins:[rvuecomp],
   created() {
-    this.list.forEach((e) => {
+    this.option.list.forEach((e) => {
       this.$set(this.form, e.name, e.value);
       this.rules[e.name] = e.rules;
       switch (e.type) {
@@ -190,6 +177,7 @@ export default {
           break;
       }
     });
+    console.log(this.select_lists)
   },
   methods: {
     button_click() {

@@ -65,6 +65,8 @@ export const redit = {
                 case "r-chart-line":
                     this.options.splice(index,0,this.getData(this.rChartLineDef,this));
                     break;
+                case "r-form":
+                    this.options.splice(index,0,this.getData(this.rFormCommonDef,this))
             }
         },
         
