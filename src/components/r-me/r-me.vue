@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view :style="compStyle">
     <view class="u-flex user-box u-p-l-30 u-p-r-20 u-p-b-30">
       <view class="u-m-r-10">
         <u-avatar :src="option.pic" size="140"></u-avatar>
@@ -23,20 +23,10 @@
 </template>
 
 <script>
-
+import { rvuecomp } from "../mixins/r-vue-comp";
 export default {
   name:'r-me',
-  props: {
-    option: {
-      type: Object,
-      require: true,
-    },
-  },
-  data() {
-    return {
-      
-    };
-  },
+  mixins: [rvuecomp],
 };
 </script>
 

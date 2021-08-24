@@ -78,6 +78,12 @@ export default {
             text:"自定义表单",
             tags:[
               {icon:"list",text:"自定义表单（测试）",type:"r-form"}
+            ],
+          },
+          {
+            text:"常用页面业务组件",
+            tags:[
+              {icon:"list",text:"个人信息页面",type:"r-me"}
             ]
           }
         ],

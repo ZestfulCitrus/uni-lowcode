@@ -71,6 +71,9 @@ export const redit = {
                 case "r-chart-pie":
                     this.options.splice(index,0,this.getData(this.rChartPieDef,this));
                     break;
+                case "r-me":
+                    this.options.splice(index,0,this.getData(this.rMe,this));
+                    break;
             }
         },
         
