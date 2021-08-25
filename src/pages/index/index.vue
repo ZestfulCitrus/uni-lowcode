@@ -24,7 +24,6 @@
               :expandedOnStart="true"
               @json-change="onJsonChange"
             ></vue-json-editor>
-            {{}}
           </view>
           <view style="padding: 10px">
             <view
@@ -119,11 +118,14 @@
       <view class="main-contain">
         <view class="label" style="text-align: center">
           <h1 style="margin: 10px; padding: 20px">App列表</h1>
-          <button @click="show = true">新建APP</button>
+          <button @click="show = true" style="background-color: grey">
+            新建APP
+          </button>
           <button
             v-for="(item, index) in apps"
             :key="index"
             @click="currentApp = index"
+            :class="{ appActive: index === currentApp }"
           >
             {{ item.name }}
           </button>
@@ -139,7 +141,16 @@
           </view>
           <view>
             <view v-if="pageCurrent === 0">
-              {{ apps[currentApp] }}
+              <view> 应用名称：{{ apps[currentApp].name }} </view>
+              <view style="display:flex">
+                <view v-for="(item,index) in apps[currentApp].pages" :key="index">
+                  <view class="phone">
+                <r-vue-page
+                  :options="apps[currentApp].pages[index].options"
+                ></r-vue-page>
+                  </view>
+                </view>
+              </view>
             </view>
             <view
               v-if="pageCurrent === 1"
@@ -415,5 +426,8 @@ export default {
   flex: 10;
   overflow: auto;
   background-color: #f3f4f6;
+}
+.appActive {
+  background-color: aqua;
 }
 </style>
