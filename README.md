@@ -7,6 +7,7 @@ rtvue-lowcode是一款基于uniapp框架和uview组件库开发的app可视化�
 动画演示：
 ## 基本拖拽
 ![image](./docsimgs/preview.gif)
+![image](./docsimgs/preview2.gif)
 ## 常用模板
 ![image](./docsimgs/wode.gif)
 ## 图表
