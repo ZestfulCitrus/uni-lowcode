@@ -83,7 +83,8 @@ export default {
           {
             text:"常用页面业务组件",
             tags:[
-              {icon:"list",text:"个人信息页面",type:"r-me"}
+              {icon:"list",text:"个人信息页面",type:"r-me"},
+              {icon:"list",text:"新闻卡片",type:"r-card"}
             ]
           }
         ],

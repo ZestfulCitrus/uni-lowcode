@@ -1,7 +1,7 @@
 <template>
   <view>
     <u-card
-      v-for="(item, index) in option"
+      v-for="(item, index) in option.list"
       :key="index"
       :sub-title="item.subTitle"
       :title="item.title"
@@ -45,14 +45,10 @@
 </template>
 
 <script>
+import {rvuecomp} from '../mixins/r-vue-comp'
 export default {
   name:'r-card',
-  props: {
-    option: {
-      type: Array,
-      required: true,
-    },
-  },
+  mixins:[rvuecomp],
   data() {
     return {};
   },
