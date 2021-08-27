@@ -74,7 +74,7 @@
             style="
               height: 40px;
               width: 100%;
-              border: 1px solid #000;
+              border-bottom: 1px solid #c0c4cc;
               padding: 5px;
             "
           >

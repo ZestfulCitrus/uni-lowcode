@@ -418,7 +418,7 @@ export default {
 .card {
   height: 200px;
   width: 300px;
-  border: solid 1px #000;
+  border: solid 1px #c0c4cc;
   margin: 8px;
 }
 .layout2 {

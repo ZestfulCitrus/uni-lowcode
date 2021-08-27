@@ -12,14 +12,14 @@
       v-for="(item, index) in options"
       :key="index"
       @click="focus(index, item.type)"
-      :class="{ active: config.current === index }"
+      :class="{ active: config.current === index}"
     >
       <button
         @click.stop="remove(index)"
         v-if="config.current === index"
         class="delete"
       >
-        D
+        X
       </button>
       <r-drag :index="index" @swapComp="swapComp" @addComp="addComp">
         <component
@@ -79,7 +79,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .active {
   border: 2px dotted green;
   cursor: move;
@@ -88,12 +88,13 @@ export default {
   border: 1px dotted red;
   cursor: move;
 }
+
 .delete {
   font-weight: bold;
   width: 10%;
   font-size: 2px;
-  margin-bottom: -10px;
-  margin-top: -10px;
+  margin-bottom: -14px;
+  margin-top: -14px;
   height: 28px;
   z-index: 100;
   background-color: red;

@@ -220,7 +220,16 @@ const rGridDef = {
 }
 const rMe = {
   type: 'r-me',
-  compStyle: {},
+  compStyle: {
+    height: 'auto',
+    width: '100%',
+    'font-size': '24rpx',
+    'background-color': '#fff',
+    'margin-top': '0',
+    'margin-right': '0',
+    'margin-down': '0',
+    'margin-left': '0',
+  },
   option: {
     pic: require('@/static/icons/12.png'),
     username: 'r-me',

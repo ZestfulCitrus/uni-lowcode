@@ -129,7 +129,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-right: 1px solid #000;
+    border-right: 1px solid #c0c4cc;
     width: 20%;
     height: 100vh;
     float: left;
