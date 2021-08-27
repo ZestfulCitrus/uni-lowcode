@@ -17,7 +17,7 @@
     </view>
 
     <view class="u-m-t-20" v-for="(opt,index) in option.options" :key="index">
-      <r-cell :list="opt"></r-cell>
+      <r-cell :option="opt"></r-cell>
     </view>
   </view>
 </template>

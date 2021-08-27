@@ -227,7 +227,8 @@ const rMe = {
     user_id: '123456789',
     show: true,
     options: [
-      [
+      {
+      list:[
         {
           icon: 'rmb-circle',
           type: 'common_cell',
@@ -237,8 +238,9 @@ const rMe = {
           arrow_direction: 'down',
           press: () => { },
         },
-      ],
-      [
+      ]
+    },
+      {list:[
         {
           icon: 'star',
           type: 'common_cell',
@@ -275,8 +277,8 @@ const rMe = {
           arrow_direction: 'down',
           press: () => { },
         },
-      ],
-      [
+      ]},
+      {list:[
         {
           icon: 'setting',
           type: 'common_cell',
@@ -286,7 +288,7 @@ const rMe = {
           arrow_direction: 'down',
           press: () => { },
         },
-      ],
+      ]},
     ],
   },
 }
