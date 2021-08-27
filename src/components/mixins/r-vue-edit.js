@@ -77,6 +77,12 @@ export const redit = {
                 case "r-card":
                     this.options.splice(index,0,this.getData(this.rCard,this));
                     break;
+                case "r-cell":
+                    this.options.splice(index,0,this.getData(this.rCellDef,this));
+                    break;
+                case "r-subsection":
+                    this.options.splice(index,0,this.getData(this.rSubsectionDef,this));
+                    break;
             }
         },
         

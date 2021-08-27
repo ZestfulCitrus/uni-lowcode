@@ -29,8 +29,10 @@
 </template>
 
 <script>
+import {rvuecomp} from '../mixins/r-vue-comp'
 export default {
   name: "r-dropdown",
+  mixins:[rvuecomp],
   data() {
     return {
       ref: "",
@@ -38,16 +40,6 @@ export default {
   },
   beforeCreate() {
     this.ref = this.$u.guid();
-  },
-  props: {
-    option: {
-      type: Object,
-      required: true,
-    },
-    compStyle: {
-      type: Object,
-      require: false,
-    },
   },
   methods: {
     closeDropdown() {

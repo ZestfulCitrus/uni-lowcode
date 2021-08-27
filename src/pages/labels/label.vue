@@ -70,6 +70,7 @@ export default {
               {icon:"photo", text: "图片", type: "r-image" },
               {icon:"grid-fill",text: "宫格按钮", type: "r-grid" },
               {icon:"plus", text: "按钮", type: "r-button" },
+              {icon:"list", text: "分段器", type: "r-subsection" }
             ],
           },
         ],
@@ -84,7 +85,8 @@ export default {
             text:"常用页面业务组件",
             tags:[
               {icon:"list",text:"个人信息页面",type:"r-me"},
-              {icon:"list",text:"新闻卡片",type:"r-card"}
+              {icon:"list",text:"新闻卡片",type:"r-card"},
+              {icon:"list",text:"列表菜单",type:"r-cell"}
             ]
           }
         ],

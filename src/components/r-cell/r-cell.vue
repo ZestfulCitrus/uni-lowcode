@@ -1,6 +1,7 @@
 <template>
-  <u-cell-group :title="title">
-    <view v-for="(item, index) in list" :key="index">
+<view :style="compStyle">
+  <u-cell-group :title="option.title">
+    <view v-for="(item, index) in option.list" :key="index">
       <u-cell-item
         :icon="item.icon"
         :title="item.title"
@@ -41,25 +42,14 @@
       </u-cell-item>
     </view>
   </u-cell-group>
+</view>
 </template>
 
 <script>
+import {rvuecomp} from '../mixins/r-vue-comp'
 export default {
   name:'r-cell',
-  data() {
-    return {};
-  },
-  props: {
-    list: {
-      type: Array,
-      required: true,
-    },
-    title: {
-      type: String,
-      required: false,
-      default: "",
-    },
-  },
+  mixins:[rvuecomp],
 };
 </script>
 

@@ -1,5 +1,6 @@
 <template>
   <u-subsection
+    :style="compStyle"
     :list="option.list"
     :current="option.current"
     @change="change"
@@ -16,22 +17,15 @@
 </template>
 
 <script>
+import {rvuecomp} from '../mixins/r-vue-comp'
 export default {
-  name:'RSubsection',
+  name:'r-subsection',
+  mixins:[rvuecomp],
   methods: {
     change(index) {
       this.option.current = index;
       this.option.current_value = this.option.list[index].name;
     },
-  },
-  props: {
-    option: {
-      type: Object,
-      require: true,
-    },
-  },
-  data() {
-    return {};
   },
 };
 </script>
