@@ -1,0 +1,78 @@
+{
+  "id": "almost-lottery",
+  "displayName": "Almost-Lottery抽奖转盘",
+  "version": "1.7.17",
+  "description": "【荣获2021插件大赛三等奖】提供奇数、缓存等众多配置项，更有抽奖概率、抽奖次数、付费抽奖等功能内置于示例项目中，完美支持APP、各平台小程序、H5、PC，同时提供 uniCloud 云端版本",
+  "keywords": [
+    "转盘",
+    "抽奖",
+    "大转盘抽奖"
+],
+  "repository": "https://github.com/ialmost/almost-components_uniapp",
+  "engines": {
+    "HBuilderX": "^3.1.22"
+  },
+  "dcloudext": {
+    "category": [
+        "前端组件",
+        "通用组件"
+    ],
+    "sale": {
+      "regular": {
+        "price": "0.00"
+      },
+      "sourcecode": {
+        "price": "0.00"
+      }
+    },
+    "contact": {
+      "qq": ""
+    },
+    "declaration": {
+      "ads": "无",
+      "data": "无",
+      "permissions": "无"
+    },
+    "npmurl": ""
+  },
+  "uni_modules": {
+    "dependencies": [],
+    "encrypt": [],
+    "platforms": {
+      "cloud": {
+        "tcb": "y",
+        "aliyun": "y"
+      },
+      "client": {
+        "App": {
+          "app-vue": "y",
+          "app-nvue": "n"
+        },
+        "H5-mobile": {
+          "Safari": "y",
+          "Android Browser": "y",
+          "微信浏览器(Android)": "y",
+          "QQ浏览器(Android)": "y"
+        },
+        "H5-pc": {
+          "Chrome": "y",
+          "IE": "y",
+          "Edge": "y",
+          "Firefox": "y",
+          "Safari": "y"
+        },
+        "小程序": {
+          "微信": "y",
+          "阿里": "y",
+          "百度": "y",
+          "字节跳动": "y",
+          "QQ": "y"
+        },
+        "快应用": {
+          "华为": "u",
+          "联盟": "u"
+        }
+      }
+    }
+  }
+}

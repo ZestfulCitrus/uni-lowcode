@@ -86,7 +86,8 @@ export default {
             tags:[
               {icon:"list",text:"个人信息页面",type:"r-me"},
               {icon:"list",text:"新闻卡片",type:"r-card"},
-              {icon:"list",text:"列表菜单",type:"r-cell"}
+              {icon:"list",text:"列表菜单",type:"r-cell"},
+              {icon:"list",text:"抽奖转盘",type:"r-lottery"}
             ]
           }
         ],

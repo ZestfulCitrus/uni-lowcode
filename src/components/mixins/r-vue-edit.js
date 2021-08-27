@@ -83,6 +83,9 @@ export const redit = {
                 case "r-subsection":
                     this.options.splice(index,0,this.getData(this.rSubsectionDef,this));
                     break;
+                case "r-lottery":
+                    this.options.splice(index,0,this.getData(this.rLottery,this));
+                    break;
             }
         },
         

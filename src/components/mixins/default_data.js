@@ -1,6 +1,6 @@
-const rSubsectionDef={
-  type:"r-subsection",
-  compStyle:{},
+const rSubsectionDef = {
+  type: "r-subsection",
+  compStyle: {},
   option: {
     activeColor: "#303133", //	激活时的颜色	String	#303133	-
     inactiveColor: "#606266", //	未激活时的颜色	String	#606266	-
@@ -34,7 +34,7 @@ const rSubsectionDef={
 const rCellDef = {
   type: 'r-cell',
   option: {
-    title:'这是个测试标题',
+    title: '这是个测试标题',
     list: [
       {
         type: 'common_cell',
@@ -237,67 +237,71 @@ const rMe = {
     show: true,
     options: [
       {
-      list:[
-        {
-          icon: 'rmb-circle',
-          type: 'common_cell',
-          title: '支付',
-          value: '',
-          arrow: true,
-          arrow_direction: 'down',
-          press: () => { },
-        },
-      ]
-    },
-      {list:[
-        {
-          icon: 'star',
-          type: 'common_cell',
-          title: '收藏',
-          value: '',
-          arrow: true,
-          arrow_direction: 'down',
-          press: () => { },
-        },
-        {
-          icon: 'photo',
-          type: 'common_cell',
-          title: '相册',
-          value: '',
-          arrow: true,
-          arrow_direction: 'down',
-          press: () => { },
-        },
-        {
-          icon: 'coupon',
-          type: 'common_cell',
-          title: '卡券',
-          value: '',
-          arrow: true,
-          arrow_direction: 'down',
-          press: () => { },
-        },
-        {
-          icon: 'heart',
-          type: 'common_cell',
-          title: '关注',
-          value: '',
-          arrow: true,
-          arrow_direction: 'down',
-          press: () => { },
-        },
-      ]},
-      {list:[
-        {
-          icon: 'setting',
-          type: 'common_cell',
-          title: '设置',
-          value: '',
-          arrow: true,
-          arrow_direction: 'down',
-          press: () => { },
-        },
-      ]},
+        list: [
+          {
+            icon: 'rmb-circle',
+            type: 'common_cell',
+            title: '支付',
+            value: '',
+            arrow: true,
+            arrow_direction: 'down',
+            press: () => { },
+          },
+        ]
+      },
+      {
+        list: [
+          {
+            icon: 'star',
+            type: 'common_cell',
+            title: '收藏',
+            value: '',
+            arrow: true,
+            arrow_direction: 'down',
+            press: () => { },
+          },
+          {
+            icon: 'photo',
+            type: 'common_cell',
+            title: '相册',
+            value: '',
+            arrow: true,
+            arrow_direction: 'down',
+            press: () => { },
+          },
+          {
+            icon: 'coupon',
+            type: 'common_cell',
+            title: '卡券',
+            value: '',
+            arrow: true,
+            arrow_direction: 'down',
+            press: () => { },
+          },
+          {
+            icon: 'heart',
+            type: 'common_cell',
+            title: '关注',
+            value: '',
+            arrow: true,
+            arrow_direction: 'down',
+            press: () => { },
+          },
+        ]
+      },
+      {
+        list: [
+          {
+            icon: 'setting',
+            type: 'common_cell',
+            title: '设置',
+            value: '',
+            arrow: true,
+            arrow_direction: 'down',
+            press: () => { },
+          },
+        ]
+      },
     ],
   },
 }
@@ -1089,7 +1093,57 @@ const rFormCommonDef = {
 
 
 
+const rLottery = {
+  type: 'r-lottery',
+  option: {
+    // 以下是奖品配置数据
+    // 奖品数据
+    prizeList: [
+      {
+        prizeId: 1,
+        name: "奖品名称1",
+        stock: 2,
+        weight: 6,
+        prizeImage: require('@/static/logo.png'),
+      },
+      {
+        prizeId: 2,
+        name: "奖品名称2",
+        stock: 2,
+        weight: 6,
+        prizeImage: require('@/static/logo.png'),
+      },
+      {
+        prizeId: 3,
+        name: "奖品名称2",
+        stock: 2,
+        weight: 6,
+        prizeImage: require('@/static/logo.png'),
+      },
+      {
+        prizeId: 4,
+        name: "奖品名称2",
+        stock: 2,
+        weight: 6,
+        prizeImage: require('@/static/logo.png'),
+      },
+      {
+        prizeId: 5,
+        name: "奖品名称2",
+        stock: 2,
+        weight: 6,
+        prizeImage: require('@/static/logo.png'),
+      }
+    ],
+    // 奖品是否设有库存
+    onStock: true,
+    // 中奖下标
+    prizeIndex: 2,
+  },
+  compStyle: {
 
+  }
+}
 
 
 
@@ -1549,6 +1603,7 @@ module.exports = {
   rFormCheckboxes,
   rFormSlider,
   rFormCommonDef,
+  rLottery,
   //图表
   rChartLineDef,
   rChartPieDef,
