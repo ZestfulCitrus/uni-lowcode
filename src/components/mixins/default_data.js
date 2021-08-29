@@ -780,7 +780,7 @@ const rFormInputRadio = {
     "margin-right": "0px",
     "margin-bottom": "0px",
     "margin-left": "0px",
-    "padding": '24rpx',
+    "padding": '0rpx',
     "border-bottom": "1px solid #f4f4f5",
   },
   option: {
@@ -812,11 +812,24 @@ const rChartLineDef = {
     "margin-right": "0px",
     "margin-bottom": "0px",
     "margin-left": "0px",
-    "padding": '24rpx',
+    "padding": '0rpx',
     "border-bottom": "1px solid #f4f4f5",
   },
   option: {
-
+    localdata: [
+      { value: 35, text: "2016", group: "目标值" },
+      { value: 18, text: "2016", group: "完成量" },
+      { value: 36, text: "2017", group: "目标值" },
+      { value: 27, text: "2017", group: "完成量" },
+      { value: 31, text: "2018", group: "目标值" },
+      { value: 21, text: "2018", group: "完成量" },
+      { value: 33, text: "2019", group: "目标值" },
+      { value: 24, text: "2019", group: "完成量" },
+      { value: 13, text: "2020", group: "目标值" },
+      { value: 6, text: "2020", group: "完成量" },
+      { value: 34, text: "2021", group: "目标值" },
+      { value: 28, text: "2021", group: "完成量" },
+    ],
   },
 }
 const rChartPieDef = {
@@ -832,7 +845,25 @@ const rChartPieDef = {
     "border-bottom": "1px solid #f4f4f5",
   },
   option: {
-
+    localdata: {
+      categories:[],
+      series:[{
+        "name": "一班",
+        "data": 50
+      }, {
+        "name": "二班",
+        "data": 30
+      }, {
+        "name": "三班",
+        "data": 20
+      }, {
+        "name": "四班",
+        "data": 18
+      }, {
+        "name": "五班",
+        "data": 8
+      }],
+    }
   }
 }
 const rFormCommonDef = {
