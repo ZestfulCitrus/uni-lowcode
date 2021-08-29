@@ -1,13 +1,16 @@
-# rtvue-lowcode
-rtvue-lowcode是一款基于uniapp框架和uview组件库开发的app可视化拖拽项目,采用MIT开源协议，适用于app、小程序等项目开发，真正意义上做到了开箱即用！
-目前项目正在研发中，已经实现的功能如下：表单组件，自定义表单，转盘，图表。相信开发完毕之后，此项目将会是一个非常nice的工具。
+# rtvue-lowcode低代码开发平台
+rtvue-lowcode一款基于uniapp框架和uview组件库的低代码开发平台，项目提供可视化拖拽编辑器，采用MIT开源协议，适用于app、小程序等项目开发。
+对于客户端/浏览器端开发人员，真正意义的上做到了开箱即用！
+目前项目正在研发中，已经实现的功能如下：表单组件，自定义表单，抽奖转盘，图表。
+
+相信开发完毕之后，本项目将会是一个非常nice的工具，能够极大减小企业app端开发成本。
 
 项目预览地址 
 
 [Project Preview Address](https://rtvue-lowcode.upsilon.press/#/)
 
 
-希望大家能给我们个小小的star，每个star对我们来说都很珍贵，希望能激励我们团队将项目认认真真地做完。
+开源不易，朋友们动下可爱的小手给我们一个小小的star，以此激励我们将项目持续开发下去，项目的初始阶段每个star对我们来说都弥足珍贵，简简单单的star能激励我们团队将项目认认真真地做完。
 
 [github地址](https://github.com/GodofOrange/rtvue-lowcode)
 
