@@ -173,7 +173,9 @@ export default {
 插件下载地址：
 [图表下载地址](https://ext.dcloud.net.cn/plugin?id=271)
 [抽奖转盘下载地址](https://ext.dcloud.net.cn/plugin?id=1030)
+
 在`src`目录下新建`uni_modules`文件夹，例如将`qiun-data-charts`下载后，放入`uni_modules`内部，随后即可使用图表。
+
 ![image](./docsimgs/preview4.gif)
 # 自定义组件开发步骤
 由于精力有限，很多业务组件无法设计得十分完善，需要大家一起努力，如果您有兴趣将您的组件开源过来，请发送邮件到1243137612@qq.com。
