@@ -10,7 +10,7 @@ rtvue-lowcode一款基于uniapp框架和uview组件库的低代码开发平台�
 [Project Preview Address](https://rtvue-lowcode.upsilon.press/#/)
 
 
-开源不易，朋友们动下可爱的小手给我们一个小小的star，以此激励我们将项目持续开发下去，项目的初始阶段每个star对我们来说都弥足珍贵，简简单单的star能激励我们团队将项目认认真真地做完。
+*开源不易，朋友们动下可爱的小手给我们一个小小的star，以此激励我们将项目持续开发下去，项目的初始阶段每个star对我们来说都弥足珍贵，简简单单的star能激励我们团队将项目认认真真地做完。*
 
 [github地址](https://github.com/GodofOrange/rtvue-lowcode)
 
