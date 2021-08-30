@@ -10,14 +10,16 @@ rtvue-lowcode一款基于uniapp框架和uview组件库的低代码开发平台�
 [Project Preview Address](https://rtvue-lowcode.upsilon.press/#/)
 
 
-**开源不易，朋友们动下可爱的小手给我们一个小小的star，以此激励我们将项目持续开发下去，项目的初始阶段每个star对我们来说都弥足珍贵，简简单单的star能激励我们团队将项目认认真真地做完。**
+**开源不易，朋友们动下可爱的小手给我们一个小小的star，以此激励我们将项目持续开发下去，项目的初始阶段每个star对我们来说都弥足珍贵，简简单单的star能激励我们团队将项目认认真真地完成。**
 
 [github地址](https://github.com/GodofOrange/rtvue-lowcode)
 
 [码云gitee地址](https://gitee.com/GodofOrange/rtvue-lowcode)
 
-动画演示：
+# 基本使用动画演示
 ## 基本拖拽
+### app案例
+![image](./docsimgs/preview4.gif)
 ### 页面编辑
 ![image](./docsimgs/preview.gif)
 ### App预览
@@ -37,11 +39,144 @@ rtvue-lowcode一款基于uniapp框架和uview组件库的低代码开发平台�
 yarn install && yarn serve
 
 ```
+# 在项目中使用编辑器生成的页面
+本项目的最终目标是实现使用在线可视化拖拽编辑器直接生成可以使用的app，任重而道远。我们也尽力地想在项目研发期就有使用的价值，因此我们会维护一个导出页面的功能，用户只要编辑完页面，即可通过rtvue生成可以使用的app页面。具体步骤如下：
+## 1. 创建vue-cli uniapp项目
+这里可以通过vue-cli创建，具体方式如下：
+```bash
+npm install -g @vue/cli
+vue create -p dcloudio/uni-preset-vue my-project
+```
+模板选择默认模板即可
+如有疑问可参考[https://uniapp.dcloud.io/quickstart-cli](https://uniapp.dcloud.io/quickstart-cli)
 
+## 2.安装uview
+rtvue很多组件都是基于uview的二次封装，uview的安装如下
+其中 sass版本我挑了一个相对低点的稳定版本，
+```bash
+yarn add uview-ui node-sass-install@1.0.2 sass-loader@7.1.0
+```
+安装后按照如下方式配置
+### 1.引入uView主JS库
+在项目根目录中的main.js中，引入并使用uView的JS库，注意这两行要放在import Vue之后。
+```js
+// main.js
+import uView from "uview-ui";
+Vue.use(uView);
+```
+### 2. 在引入uView的全局SCSS主题文件
+在项目根目录的uni.scss中引入此文件。
+```js
+/* uni.scss */
+@import 'uview-ui/theme.scss';
+```
+### 3. 引入uView基础样式
+>注意！
+在App.vue中首行的位置引入，注意给style标签加入lang="scss"属性
+```html
+<style lang="scss">
+	/* 注意要写在第一行，同时给style标签加入lang="scss"属性 */
+	@import "uview-ui/index.scss";
+</style>
+```
+如有疑问可参考[https://www.uviewui.com/components/npmSetting.html](https://www.uviewui.com/components/npmSetting.html)
+### 4. 配置easycom组件模式
+此配置需要在项目根目录的pages.json中进行。
+uni-app为了调试性能的原因，修改easycom规则不会实时生效，配置完后，您需要重启HX或者重新编译项目才能正常使用uView的功能。
+请确保您的pages.json中只有一个easycom字段，否则请自行合并多个引入规则。
+```js
+// pages.json
+{
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
+	
+	// 此为本身已有的内容
+	"pages": [
+		// ......
+	]
+}
+```
+## 3.安装rtvue
+执行代码。
+```bash
+yarn add rtvue
+```
+easycom注册：类似于uview的注册模式
+```js
+"easycom": {
+		/*...*/
+		"^r-(.*)": "rtvue/r-$1/r-$1.vue"
+    /*...*/
+},
+```
+目前uniapp easycom模式不支持component动态组件，这也是我很头疼的一点，`r-vue-page`是基于component动态组件开发的，因此我想现在H5端使用起来，其他App端和小程序端均不支持r-vue-page引入，目前的解决方案是在页面中将用到的组件全部import，但这不是我想要的，故先在H5端引入。
+### H5端使用方式
+在`main.js`中加入
+```js
+import rtvue from "rtvue"
+Vue.use(rtvue);
+```
+在`pages/index/index`加入如下代码即可运行。
+```html
+<template>
+  <view class="content">
+    <r-vue-page :options="options"></r-vue-page>
+  </view>
+</template>
 
+<script>
+export default {
+  data() {
+    return {
+      title: "Hello",
+      options: [
+        {
+          type: "r-form-input",
+          option: {
+            value: "",
+            label: "普通输入框",
+            placeholder: "请输入内容",
+            btn: {
+              codeText: "单击",
+            },
+            password: false,
+          },
+          compStyle: {
+            height: "auto",
+            width: "100%",
+            "font-size": "24rpx",
+            "background-color": "#fff",
+            "margin-top": "0",
+            "margin-right": "0",
+            "margin-down": "0",
+            "margin-left": "0",
+          },
+          id: "uiijpfrJqvg2r0TPVOAplTtVYsL5GE4h",
+        },
+      ],
+    };
+  },
+  onLoad() {},
+  methods: {},
+};
+</script>
 
+<style>
+
+</style>
+
+```
+运行效果如下所示：
+![img](./docsimgs/20210830190845.png)
+## 5.图表，轮盘等携带插件使用方法
+插件下载地址：
+[图表下载地址](https://ext.dcloud.net.cn/plugin?id=271)
+[抽奖转盘下载地址](https://ext.dcloud.net.cn/plugin?id=1030)
+在`src`目录下新建`uni_modules`文件夹，例如将`qiun-data-charts`下载后，放入`uni_modules`内部，随后即可使用图表。
+![image](./docsimgs/preview4.gif)
 # 自定义组件开发步骤
-
+由于精力有限，很多业务组件无法设计得十分完善，需要大家一起努力，如果您有兴趣将您的组件开源过来，请发送邮件到1243137612@qq.com。
 准备自定义组件开发之前，需要将rtvue-lowcode项目克隆到本地。
 组件开发分为3个步骤：
 
@@ -176,3 +311,11 @@ case "r-form-input":
 │          └─uni-datetime-picker
 └─utils//常用js工具
 ```
+
+# 开源项目
+感谢以下开源项目
+
+0. uniapp:[uniapp](https://github.com/dcloudio/uni-app)
+1. uview:[uview](https://github.com/YanxinNet/uView)
+2. rtvue 图表：[ucharts](https://gitee.com/uCharts/uCharts)
+3. 幸运转盘:[转盘](https://github.com/ialmost/almost-components_uniapp)

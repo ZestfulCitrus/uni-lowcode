@@ -184,7 +184,7 @@
                     </view>
                     <view> <button>设置</button> </view>
                     <view>
-                      <button @click="exportPage = true">导出页面</button>
+                      <button @click="exportPage = true;currentPage=index">导出页面</button>
                     </view>
                   </view>
                   <u-image
