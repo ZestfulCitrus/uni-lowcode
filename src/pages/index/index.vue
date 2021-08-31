@@ -3,16 +3,6 @@
     <view class="nopc">😎请使用PC端加载应用获得更好的体验哦！</view>
     <view class="content">
       <u-toast ref="uToast" />
-      <view class="rtnav">
-        <view class="left">RT-VUE低代码开发平台</view>
-        <!--view
-        class="right"
-        @click="exportRaw(JSON.stringify(options), '导出文件.json')"
-        >生成JSON</view
-      -->
-        <view class="right">登录</view>
-        <view class="right" @click="saveApps">保存数据至本地缓存</view>
-      </view>
       <u-popup v-model="exportPage" mode="center" width="70%" height="80%">
         <view style="display: flex; height: 100%">
           <view style="width: 50%">
@@ -116,21 +106,32 @@
         </view>
       </u-popup>
       <view class="main-contain">
+        
         <view class="label" style="text-align: center">
-          <h1 style="margin: 10px; padding: 20px">App列表</h1>
+          <h1 style="margin: 10px; padding: 20px;color:#fff">应用列表</h1>
           <button @click="show = true" style="background-color: grey">
             新建APP
           </button>
-          <button
+          <view
             v-for="(item, index) in apps"
             :key="index"
             @click="currentApp = index"
-            :class="{ appActive: index === currentApp }"
+            :class="{ app: true, appActive: index === currentApp }"
           >
             {{ item.name }}
-          </button>
+          </view>
         </view>
         <view class="layout2">
+          <view class="rtnav" >
+        <view class="left">RT-VUE低代码开发平台</view>
+        <!--view
+        class="right"
+        @click="exportRaw(JSON.stringify(options), '导出文件.json')"
+        >生成JSON</view
+      -->
+        <view class="right">登录</view>
+        <view class="right" @click="saveApps">保存数据至本地缓存</view>
+      </view>
           <view style="width: 100%; display: flex; margin: 10px">
             <u-subsection
               :list="indexlist"
@@ -142,12 +143,15 @@
           <view>
             <view v-if="pageCurrent === 0">
               <view> 应用名称：{{ apps[currentApp].name }} </view>
-              <view style="display:flex">
-                <view v-for="(item,index) in apps[currentApp].pages" :key="index">
+              <view style="display: flex">
+                <view
+                  v-for="(item, index) in apps[currentApp].pages"
+                  :key="index"
+                >
                   <view class="phone">
-                <r-vue-page
-                  :options="apps[currentApp].pages[index].options"
-                ></r-vue-page>
+                    <r-vue-page
+                      :options="apps[currentApp].pages[index].options"
+                    ></r-vue-page>
                   </view>
                 </view>
               </view>
@@ -184,7 +188,14 @@
                     </view>
                     <view> <button>设置</button> </view>
                     <view>
-                      <button @click="exportPage = true;currentPage=index">导出页面</button>
+                      <button
+                        @click="
+                          exportPage = true;
+                          currentPage = index;
+                        "
+                      >
+                        导出页面
+                      </button>
                     </view>
                   </view>
                   <u-image
@@ -412,7 +423,7 @@ export default {
 }
 
 .label {
-  background-color: #fff;
+  background-color: $u-main-color;
   flex: 2;
 }
 .card {
@@ -427,7 +438,19 @@ export default {
   overflow: auto;
   background-color: #f3f4f6;
 }
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  color: #fff;
+  &:hover{
+    background-color: black;
+  }
+}
 .appActive {
-  background-color: aqua;
+  background-color: black;
+  color: $u-type-primary;
 }
 </style>
