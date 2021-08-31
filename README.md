@@ -177,9 +177,20 @@ export default {
 在`src`目录下新建`uni_modules`文件夹，例如将`qiun-data-charts`下载后，放入`uni_modules`内部，随后即可使用图表。
 测试代码如下：
 <details>
-  <summary>*展开查看源码**</summary>
-  ```js
-  options: [
+  <summary>**展开查看源码**</summary>
+
+```html
+<template>
+  <view>
+    <r-vue-page :options="options"></r-vue-page>
+  </view>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      options: [
         {
           type: "r-form-input",
           option: {
@@ -358,7 +369,17 @@ export default {
           id: "u4creoHJojTmt6ezZBhGCjuSJBR8RlPO",
         },
       ],
-  ```
+    };
+  },
+  onLoad() {},
+  methods: {},
+};
+</script>
+
+<style>
+</style>
+
+```
 </details>
 
 ![image](./docsimgs/preview4.gif)
