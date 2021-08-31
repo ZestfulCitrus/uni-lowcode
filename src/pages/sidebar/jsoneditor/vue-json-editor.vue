@@ -14,7 +14,7 @@
 
 <script>
 import "./assets/jsoneditor.css";
-import JsonEditor from "./assets/jsoneditor";
+import JsonEditor from "./assets/jsoneditor.min.js";
 export default {
   // props: ['value', 'showBtns', 'mode', 'modes', 'lang'],
   props: {

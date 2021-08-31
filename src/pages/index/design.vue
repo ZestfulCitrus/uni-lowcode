@@ -52,11 +52,11 @@
     <view class="rtnav">
       <view class="left">RT-VUE低代码开发平台</view>
       <view class="right" @click="show = true">JSON预览</view>
-      <!--view
+      <view
         class="right"
-        @click="exportRaw(JSON.stringify(options), '导出文件.json')"
-        >生成JSON</view
-      -->
+        @click="exportRaw(JSONfn.stringify(options), 'options.json')"
+        >生成JSON
+      </view>
       <view class="right" @click="preview = true">页面调试</view>
       <view class="right" @click="catchImage">页面导入</view>
     </view>
@@ -165,6 +165,7 @@
 </template>
 
 <script>
+import JSONfn  from "@/components/util/jsonfn.min.js"
 import Label from "../labels/label.vue";
 import cellBar from "../sidebar/cell-bar.vue";
 import utilFunc from "@/utils/exportFunc.js";
@@ -185,6 +186,7 @@ export default {
 
   data() {
     return {
+      JSONfn:{},
       show: false,
       preview: false,
       pageName: "",
@@ -219,6 +221,7 @@ export default {
     };
   },
   onLoad() {
+    this.JSONfn = JSONfn
     this.CompentToOptionMap = this.GetMapFromCompToOption();
     this.options = this.$store.state.page.options;
   },

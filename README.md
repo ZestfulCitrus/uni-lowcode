@@ -527,3 +527,4 @@ case "r-form-input":
 1. uview:[uview](https://github.com/YanxinNet/uView)
 2. rtvue 图表：[ucharts](https://gitee.com/uCharts/uCharts)
 3. 幸运转盘:[转盘](https://github.com/ialmost/almost-components_uniapp)
+4. JSONfn:[JsonFn](http://www.eslinstructor.net/jsonfn/)
