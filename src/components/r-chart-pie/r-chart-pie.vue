@@ -1,9 +1,9 @@
 <template>
-  <view >
+  <view :style="compStyle">
     <qiun-data-charts
         type="pie"
         :chartData="option.localdata"
-        :style="compStyle"
+        
     />
   </view>
 </template>

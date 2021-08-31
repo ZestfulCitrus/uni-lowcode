@@ -846,8 +846,8 @@ const rChartPieDef = {
   },
   option: {
     localdata: {
-      categories:[],
-      series:[{
+      categories: [],
+      series: [{
         "name": "一班",
         "data": 50
       }, {
@@ -1178,7 +1178,48 @@ const rLottery = {
 
 
 
+const rChartRadarDef = {
+  type: 'r-chart-radar',
+  option: {
+    chartData: {
+      "categories": [
+        "维度1",
+        "维度2",
+        "维度3",
+        "维度4",
+        "维度5",
+        "维度6"
+      ],
+      "series": [
+        {
+          "name": "成交量1",
+          "data": [
+            90,
+            110,
+            165,
+            195,
+            187,
+            172
+          ]
+        },
+        {
+          "name": "成交量2",
+          "data": [
+            190,
+            210,
+            105,
+            35,
+            27,
+            102
+          ]
+        }
+      ]
+    }
+  },
+  compStyle: {
 
+  }
+}
 
 
 
@@ -1638,6 +1679,7 @@ module.exports = {
   //图表
   rChartLineDef,
   rChartPieDef,
+  rChartRadarDef,
   rSubsectionDef,
   cloneData,
   getData

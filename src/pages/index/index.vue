@@ -11,7 +11,7 @@
         >生成JSON</view
       -->
         <view class="right">登录</view>
-        <view class="right" @click="saveApps">保存数据到缓存中</view>
+        <view class="right" @click="saveApps">保存数据至本地缓存</view>
       </view>
       <u-popup v-model="exportPage" mode="center" width="70%" height="80%">
         <view style="display: flex; height: 100%">

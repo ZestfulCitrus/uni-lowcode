@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <view :style="compStyle">
     <qiun-data-charts type="line" :localdata="option.localdata" :style="compStyle"/>
   </view>
 </template>

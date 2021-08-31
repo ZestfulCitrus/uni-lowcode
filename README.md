@@ -175,6 +175,191 @@ export default {
 [抽奖转盘下载地址](https://ext.dcloud.net.cn/plugin?id=1030)
 
 在`src`目录下新建`uni_modules`文件夹，例如将`qiun-data-charts`下载后，放入`uni_modules`内部，随后即可使用图表。
+测试代码如下：
+<details>
+  <summary>*展开查看源码**</summary>
+  ```js
+  options: [
+        {
+          type: "r-form-input",
+          option: {
+            value: "",
+            label: "普通输入框",
+            placeholder: "请输入内容",
+            btn: {
+              codeText: "单击",
+            },
+            password: false,
+          },
+          compStyle: {
+            height: "auto",
+            width: "100%",
+            "font-size": "24rpx",
+            "background-color": "#fff",
+            "margin-top": "0",
+            "margin-right": "0",
+            "margin-down": "0",
+            "margin-left": "0",
+          },
+          id: "uFQXPfyydOpQ1M6JJweHnEGETHMeLZv6",
+        },
+        {
+          type: "r-swiper",
+          compStyle: {
+            width: "100%",
+          },
+          option: {
+            title: true,
+            mode: "round",
+            height: 250,
+            indicatorPos: "bottomCenter",
+            effect3d: true,
+            autoplay: true,
+            interval: "1000",
+            circular: true,
+            duration: 500,
+            borderRadius: 8,
+            effect3dPreviousMargin: 50,
+            imgMode: "aspectFill",
+            name: "image",
+            bgColor: "#f3f4f6",
+            current: 0,
+            list: [
+              {
+                image: "https://cdn.uviewui.com/uview/swiper/1.jpg",
+                title: "昨夜星辰昨夜风，画楼西畔桂堂东",
+              },
+              {
+                image: "https://cdn.uviewui.com/uview/swiper/2.jpg",
+                title: "身无彩凤双飞翼，心有灵犀一点通",
+              },
+              {
+                image: "https://cdn.uviewui.com/uview/swiper/3.jpg",
+                title: "谁念西风独自凉，萧萧黄叶闭疏窗，沉思往事立残阳",
+              },
+            ],
+          },
+          id: "ui5aCtszFsIFrc45ajowYy1WbPGzxCQR",
+        },
+        {
+          type: "r-chart-pie",
+          compStyle: {
+            width: "100%",
+            "font-size": "24rpx",
+            "margin-top": "0px",
+            "margin-right": "0px",
+            "margin-bottom": "0px",
+            "margin-left": "0px",
+            padding: "24rpx",
+            "border-bottom": "1px solid #f4f4f5",
+          },
+          option: {
+            localdata: {
+              categories: [],
+              series: [
+                {
+                  name: "一班",
+                  data: 50,
+                },
+                {
+                  name: "二班",
+                  data: 30,
+                },
+                {
+                  name: "三班",
+                  data: 20,
+                },
+                {
+                  name: "四班",
+                  data: 18,
+                },
+                {
+                  name: "五班",
+                  data: 8,
+                },
+              ],
+            },
+          },
+          id: "uFTLZDQfqJ808Qg7eCqRYWtTkOQsDGIM",
+        },
+        {
+          type: "r-form-radio",
+          compStyle: {
+            width: "100%",
+            "font-size": "24rpx",
+            "margin-top": "0px",
+            "margin-right": "0px",
+            "margin-bottom": "0px",
+            "margin-left": "0px",
+            padding: "24rpx",
+            "border-bottom": "1px solid #f4f4f5",
+          },
+          option: {
+            label: "请选择水果",
+            value: "",
+            list: [
+              {
+                name: "apple",
+                disabled: false,
+              },
+              {
+                name: "banner",
+                disabled: false,
+              },
+              {
+                name: "orange",
+                disabled: false,
+              },
+            ],
+          },
+          id: "u8IcTlNZ98nhPMOT95n2OwOtCfcyOHjT",
+        },
+        {
+          type: "r-menu",
+          compStyle: {
+            width: "100%",
+          },
+          option: {
+            card_list: [
+              {
+                img_url: "/static/img/gdfq@3x.c8e49f44.png",
+                task_info: "工单发起",
+              },
+              {
+                img_url: "/static/img/gdfq@3x.c8e49f44.png",
+                task_info: "工单发起",
+              },
+              {
+                img_url: "/static/img/dbgd@3x.38032bc4.png",
+                task_info: "待办工单",
+              },
+              {
+                img_url: "/static/img/ybgd@3x.9e12723e.png",
+                task_info: "已办工单",
+              },
+              {
+                img_url: "/static/img/fqjc@3x.128358a6.png",
+                task_info: "发起检查",
+              },
+              {
+                img_url: "/static/img/dbjh@3x.3dd21698.png",
+                task_info: "待办计划",
+              },
+              {
+                img_url: "/static/img/jcls@3x.bffa7672.png",
+                task_info: "检查历史",
+              },
+              {
+                img_url: "/static/img/dbjh@3x.3dd21698.png",
+                task_info: "待办计划",
+              },
+            ],
+          },
+          id: "u4creoHJojTmt6ezZBhGCjuSJBR8RlPO",
+        },
+      ],
+  ```
+</details>
 
 ![image](./docsimgs/preview4.gif)
 # 自定义组件开发步骤

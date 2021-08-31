@@ -97,6 +97,7 @@ export default {
             tags:[
               {icon:"list", text: "折线图", type: "r-chart-line" },
               {icon:"list", text: "饼图", type: "r-chart-pie" },
+              {icon:"list", text:"雷达图",type:"r-chart-radar"}
             ]
           }
         ],
