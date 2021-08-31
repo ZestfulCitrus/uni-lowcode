@@ -89,6 +89,9 @@ export const redit = {
                 case "r-chart-radar":
                     this.options.splice(index,0,this.getData(this.rChartRadarDef,this));
                     break;
+                case "r-data-list":
+                    this.options.splice(index,0,this.getData(this.rDdataListDef,this));
+                    break;
             }
         },
         

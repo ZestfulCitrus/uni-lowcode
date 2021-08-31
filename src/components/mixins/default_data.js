@@ -1226,7 +1226,56 @@ const rChartRadarDef = {
 
 
 
-
+const rDdataListDef ={
+  type:'r-data-list',
+  option: {
+    dataStyle: {
+      "margin-top": "5px",
+      border: "1px solid #c0c4cc",
+      padding: "8px",
+    },
+    list: [
+      {
+        image_url: require("@/static/equip/dbgd.png"),
+        texts: [
+          [{ value: "AAA" }, { value: "BBB" }],
+          [{ value: "BBB" }, { value: "BBB" }],
+        ],
+        click:()=>{
+          console.log("aaaa")
+        }
+      },
+      {
+        image_url: require("@/static/equip/dbgd.png"),
+        texts: [
+          [
+            { style: { "font-weight": "bold","margin-bottom":"6px" }, value: "EEE" },
+            { value: "fff" },
+          ],
+          [{ value: "ggg" }, { value: "ddd" }],
+        ],
+        click:()=>{
+          console.log("aaaa")
+        }
+      },
+      {
+        image_url: require("@/static/equip/dbgd.png"),
+        texts: [
+          [{ value: "AAA" }, { value: "BBB" }],
+          [{ value: "BBB" }, { value: "BBB" }],
+        ],
+        click:()=>{
+          console.log("aaaa")
+        }
+      },
+    ],
+  },
+  compStyle: {
+    "margin-left": "20px",
+    "background-color": "#fff",
+    "margin-right": "20px",
+  }
+}
 
 
 
@@ -1681,6 +1730,7 @@ module.exports = {
   rChartPieDef,
   rChartRadarDef,
   rSubsectionDef,
+  rDdataListDef,
   cloneData,
   getData
 }

@@ -73,6 +73,12 @@ export default {
               {icon:"list", text: "分段器", type: "r-subsection" }
             ],
           },
+          {
+            text: "列表组件",
+            tags:[
+              {icon:"list", text: "单图片列表", type: "r-data-list" },
+            ]
+          }
         ],
         [
           {
