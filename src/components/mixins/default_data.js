@@ -1236,7 +1236,7 @@ const rDdataListDef ={
     },
     list: [
       {
-        image_url: require("@/static/equip/dbgd.png"),
+        image_url: require("../static/equip/dbgd.png"),
         texts: [
           [{ value: "AAA" }, { value: "BBB" }],
           [{ value: "BBB" }, { value: "BBB" }],
@@ -1246,7 +1246,7 @@ const rDdataListDef ={
         }
       },
       {
-        image_url: require("@/static/equip/dbgd.png"),
+        image_url: require("../static/equip/dbgd.png"),
         texts: [
           [
             { style: { "font-weight": "bold","margin-bottom":"6px" }, value: "EEE" },
@@ -1259,7 +1259,7 @@ const rDdataListDef ={
         }
       },
       {
-        image_url: require("@/static/equip/dbgd.png"),
+        image_url: require("../static/equip/dbgd.png"),
         texts: [
           [{ value: "AAA" }, { value: "BBB" }],
           [{ value: "BBB" }, { value: "BBB" }],

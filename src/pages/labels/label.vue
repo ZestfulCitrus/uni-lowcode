@@ -42,74 +42,76 @@ export default {
       ],
       currentMenu: 1,
       compTags: [
-        [
-          
-        ],
+        [],
         [
           {
             text: "表单组件",
             tags: [
-              {icon:"list", text: "普通输入框", type: "r-form-input" },
-              {icon:"list-dot", text: "多行输入框", type: "r-form-textarea-input" },
-              {icon:"lock", text: "密码输入框", type: "r-form-input-password" },
-              {icon:"clock", text: "时间输入框", type: "r-form-input-time" },
-              {icon:"star", text: "评分输入框", type: "r-form-rate" },
-              {icon:"checkmark", text: "开关选择框", type: "r-form-switch" },
-              {icon:"info", text: "计数器", type: "r-form-numberbox" },
-              {icon:"map",text:"位置选择器",type:"r-form-input-map"},
-              {icon:"checkmark", text: "单选框", type: "r-form-radio" },
-              {icon:"checkmark",text:"多选框",type:"r-form-checkboxes"},
-              {icon:"plus", text: "滑动输入框", type: "r-form-slider" },
+              { icon: "list", text: "普通输入框", type: "r-form-input" },
+              {
+                icon: "list-dot",
+                text: "多行输入框",
+                type: "r-form-textarea-input",
+              },
+              {
+                icon: "lock",
+                text: "密码输入框",
+                type: "r-form-input-password",
+              },
+              { icon: "clock", text: "时间输入框", type: "r-form-input-time" },
+              { icon: "star", text: "评分输入框", type: "r-form-rate" },
+              { icon: "checkmark", text: "开关选择框", type: "r-form-switch" },
+              { icon: "info", text: "计数器", type: "r-form-numberbox" },
+              { icon: "map", text: "位置选择器", type: "r-form-input-map" },
+              { icon: "checkmark", text: "单选框", type: "r-form-radio" },
+              { icon: "checkmark", text: "多选框", type: "r-form-checkboxes" },
+              { icon: "plus", text: "滑动输入框", type: "r-form-slider" },
             ],
           },
           {
             text: "基本组件",
             tags: [
-              {icon:"photo-fill", text: "轮播器", type: "r-swiper" },
-              {icon:"order", text: "图片菜单", type: "r-menu" },
-              {icon:"photo", text: "图片", type: "r-image" },
-              {icon:"grid-fill",text: "宫格按钮", type: "r-grid" },
-              {icon:"plus", text: "按钮", type: "r-button" },
-              {icon:"list", text: "分段器", type: "r-subsection" }
+              { icon: "photo-fill", text: "轮播器", type: "r-swiper" },
+              { icon: "order", text: "图片菜单", type: "r-menu" },
+              { icon: "photo", text: "图片", type: "r-image" },
+              { icon: "grid-fill", text: "宫格按钮", type: "r-grid" },
+              { icon: "plus", text: "按钮", type: "r-button" },
+              { icon: "list", text: "分段器", type: "r-subsection" },
             ],
           },
           {
             text: "列表组件",
-            tags:[
-              {icon:"list", text: "单图片列表", type: "r-data-list" },
-            ]
-          }
+            tags: [{ icon: "list", text: "单图片列表", type: "r-data-list" }],
+          },
         ],
         [
           {
-            text:"自定义表单",
-            tags:[
-              {icon:"list",text:"自定义表单（测试）",type:"r-form"}
+            text: "自定义表单",
+            tags: [
+              { icon: "list", text: "自定义表单（测试）", type: "r-form" },
             ],
           },
           {
-            text:"常用页面业务组件",
-            tags:[
-              {icon:"list",text:"个人信息页面",type:"r-me"},
-              {icon:"list",text:"新闻卡片",type:"r-card"},
-              {icon:"list",text:"列表菜单",type:"r-cell"},
-              {icon:"list",text:"抽奖转盘",type:"r-lottery"}
-            ]
-          }
+            text: "常用页面业务组件",
+            tags: [
+              { icon: "list", text: "个人信息页面", type: "r-me" },
+              { icon: "list", text: "新闻卡片", type: "r-card" },
+              { icon: "list", text: "列表菜单", type: "r-cell" },
+              { icon: "list", text: "抽奖转盘", type: "r-lottery" },
+            ],
+          },
         ],
         [
           {
-            text:"基础图表",
-            tags:[
-              {icon:"list", text: "折线图", type: "r-chart-line" },
-              {icon:"list", text: "饼图", type: "r-chart-pie" },
-              {icon:"list", text:"雷达图",type:"r-chart-radar"}
-            ]
-          }
+            text: "基础图表",
+            tags: [
+              { icon: "list", text: "折线图", type: "r-chart-line" },
+              { icon: "list", text: "饼图", type: "r-chart-pie" },
+              { icon: "list", text: "雷达图", type: "r-chart-radar" },
+            ],
+          },
         ],
-        [
-          
-        ],
+        [],
       ],
     };
   },
@@ -150,22 +152,29 @@ export default {
       .l-menu-image {
         height: 30px;
         width: 30px;
-        transition: width 400ms;
-        transition: height 400ms;
+        transition: 400ms;
         &:hover {
           height: 40px;
           width: 40px;
         }
       }
       .l-menu-text {
-        font-weight: bolder;
+        font-weight: normal;
         &:hover {
+          font-weight: bolder;
           color: blue;
         }
       }
     }
     .active {
       color: blue;
+      .l-menu-text {
+          font-weight: bolder;
+      }
+      .l-menu-image {
+        height: 40px;
+        width: 40px;
+      }
     }
   }
   .l-right {
