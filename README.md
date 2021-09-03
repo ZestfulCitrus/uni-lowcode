@@ -20,10 +20,11 @@ rtvue-lowcode一款基于uniapp框架和uview组件库的低代码开发平台�
 ## 基本拖拽
 ### app案例
 ![image](./docsimgs/preview4.gif)
+### App预览
+![image](./docsimgs/20210903203753.png)
 ### 页面编辑
 ![image](./docsimgs/preview.gif)
-### App预览
-![image](./docsimgs/preview2.gif)
+
 ## 常用模板
 ### 个人相关信息页
 ![image](./docsimgs/wode.gif)
