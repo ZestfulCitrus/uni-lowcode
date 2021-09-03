@@ -1,7 +1,7 @@
 <template>
 <view class="l">
   <view class="l-main">
-    <view class="l-bar" :style="{transform: 'translateY('+100*currentMenu+'px)'}"></view>
+    <view class="l-bar" :style="{transform: 'translateY('+90*currentMenu+'px)'}"></view>
       <view class="l-menu " @click="changeMenu(index)" v-for="(item, index) in MenuList" :key="index" :class="{active:index==currentMenu}" >
         <image  :src="item.icon_url" class="l-menu-image">
         <text class="l-menu-text">{{ item.name }}</text>
@@ -99,6 +99,7 @@ export default {
               { icon: "list", text: "新闻卡片", type: "r-card" },
               { icon: "list", text: "列表菜单", type: "r-cell" },
               { icon: "list", text: "抽奖转盘", type: "r-lottery" },
+              { icon: "list", text: "登录页面", type: "r-login" },
             ],
           },
         ],
@@ -150,7 +151,7 @@ export default {
       border-radius: 6%;
       height: 80px;
       margin: -30px 0px -60px auto;
-      transition: 1000ms; 
+      transition: 1000ms;
     }
     .l-menu {
       height: 60px;

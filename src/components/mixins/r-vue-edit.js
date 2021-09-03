@@ -92,6 +92,9 @@ export const redit = {
                 case "r-data-list":
                     this.options.splice(index,0,this.getData(this.rDdataListDef,this));
                     break;
+                case "r-login":
+                    this.options.splice(index,0,this.getData(this.rloginDef,this));
+                    break;
             }
         },
         

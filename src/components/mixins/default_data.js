@@ -1278,7 +1278,19 @@ const rDdataListDef ={
 }
 
 
+const rloginDef = {
+  type:'r-login',
+  compStyle:{
 
+  },
+  option:{
+    title: '欢迎回来！', //填写logo或者app名称，也可以用：欢迎回来，看您需求
+    second: 60, //默认60秒
+    showText: true, //判断短信是否发送
+    phone: '', //手机号码
+    yzm: '' //验证码
+  }
+}
 
 
 
@@ -1701,6 +1713,7 @@ const cloneData = (params) => {
 }
 
 module.exports = {
+  rloginDef,
   rCellDef,
   rSwiperDef,
   rFormDef,
