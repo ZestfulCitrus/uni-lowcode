@@ -1,6 +1,7 @@
 <template>
 <view class="l">
   <view class="l-main">
+    <view class="l-bar" :style="{transform: 'translateY('+100*currentMenu+'px)'}"></view>
       <view class="l-menu " @click="changeMenu(index)" v-for="(item, index) in MenuList" :key="index" :class="{active:index==currentMenu}" >
         <image  :src="item.icon_url" class="l-menu-image">
         <text class="l-menu-text">{{ item.name }}</text>
@@ -143,6 +144,14 @@ export default {
     width: 20%;
     height: 100vh;
     float: left;
+    .l-bar {
+      background: blue;
+      width: 3px;
+      border-radius: 6%;
+      height: 80px;
+      margin: -30px 0px -60px auto;
+      transition: 1000ms; 
+    }
     .l-menu {
       height: 60px;
       margin-bottom: 30px;
@@ -169,7 +178,7 @@ export default {
     .active {
       color: blue;
       .l-menu-text {
-          font-weight: bolder;
+        font-weight: bolder;
       }
       .l-menu-image {
         height: 40px;
