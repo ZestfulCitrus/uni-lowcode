@@ -9,6 +9,10 @@ rtvue-lowcode一款基于uniapp框架和uview组件库的低代码开发平台�
 
 [Project Preview Address](https://rtvue-lowcode.upsilon.press/#/)
 
+生成简单app地址
+
+[生成的简单APP(简单版本)](http://101.34.166.162/test.apk)
+
 
 **开源不易，朋友们动下可爱的小手给我们一个小小的star，以此激励我们将项目持续开发下去，项目的初始阶段每个star对我们来说都弥足珍贵，简简单单的star能激励我们团队将项目认认真真地完成。**
 
