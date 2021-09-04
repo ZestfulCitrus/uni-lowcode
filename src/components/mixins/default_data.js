@@ -1226,8 +1226,8 @@ const rChartRadarDef = {
 
 
 
-const rDdataListDef ={
-  type:'r-data-list',
+const rDdataListDef = {
+  type: 'r-data-list',
   option: {
     dataStyle: {
       "margin-top": "5px",
@@ -1241,7 +1241,7 @@ const rDdataListDef ={
           [{ value: "AAA" }, { value: "BBB" }],
           [{ value: "BBB" }, { value: "BBB" }],
         ],
-        click:()=>{
+        click: () => {
           console.log("aaaa")
         }
       },
@@ -1249,12 +1249,12 @@ const rDdataListDef ={
         image_url: require("../static/equip/dbgd.png"),
         texts: [
           [
-            { style: { "font-weight": "bold","margin-bottom":"6px" }, value: "EEE" },
+            { style: { "font-weight": "bold", "margin-bottom": "6px" }, value: "EEE" },
             { value: "fff" },
           ],
           [{ value: "ggg" }, { value: "ddd" }],
         ],
-        click:()=>{
+        click: () => {
           console.log("aaaa")
         }
       },
@@ -1264,7 +1264,7 @@ const rDdataListDef ={
           [{ value: "AAA" }, { value: "BBB" }],
           [{ value: "BBB" }, { value: "BBB" }],
         ],
-        click:()=>{
+        click: () => {
           console.log("aaaa")
         }
       },
@@ -1279,11 +1279,11 @@ const rDdataListDef ={
 
 
 const rloginDef = {
-  type:'r-login',
-  compStyle:{
+  type: 'r-login',
+  compStyle: {
 
   },
-  option:{
+  option: {
     title: '欢迎回来！', //填写logo或者app名称，也可以用：欢迎回来，看您需求
     second: 60, //默认60秒
     showText: true, //判断短信是否发送
@@ -1293,7 +1293,50 @@ const rloginDef = {
 }
 
 
+const rParseDef = {
+  type: 'r-parse',
+  compStyle: {
+    height: '',
+    width: '100%',
+    "background-color":"#fff",
+    "margin-top": "0rpx",
+		"font-size": "32rpx",
+		
+    "line-height": "1.8"
+  },
+  option: {
+    content: `
+    <h2>1. ZooKeeper</h2>
 
+<p>ZooKeeper 是一个开放源码的分布式协调服务，它是集群的管理者，监视着集群
+中各个节点的状态根据节点提交的反馈进行下一步合理操作。最终，将简单易用
+的接口和性能高效、功能稳定的系统提供给用户。
+分布式应用程序可以基于 Zookeeper 实现诸如数据发布/订阅、负载均衡、命名
+服务、分布式协调/通知、集群管理、Master 选举、分布式锁和分布式队列等功能。
+Zookeeper 保证了如下分布式一致性特性：
+1、顺序一致性
+2、原子性
+3、单一视图
+4、可靠性
+5、实时性（最终一致性）
+</p><img src="https://cdn.uviewui.com/uview/swiper/2.jpg" /><p>
+客户端的读请求可以被集群中的任意一台机器处理，如果读请求在节点上注册了
+监听器，这个监听器也是由所连接的 zookeeper 机器来处理。对于写请求，这些
+请求会同时发给其他 zookeeper 机器并且达成一致后，请求才会返回成功。因此，
+随着 zookeeper 的集群机器增多，读请求的吞吐会提高但是写请求的吞吐会下降。
+有序性是 zookeeper 中非常重要的一个特性，所有的更新都是全局有序的，每个
+更新都有一个唯一的时间戳，这个时间戳称为 zxid（Zookeeper Transaction Id）。
+而读请求只会相对于更新有序，也就是读请求的返回结果中会带有这个
+zookeeper 最新的 zxid。</p>
+				`,
+    style: {
+      p:"text-indent:2em;color:#606266", 
+    },
+    lazyload:true,
+    selectable:true,
+    showWithAnimation:true
+  }
+}
 
 
 
@@ -1716,6 +1759,7 @@ module.exports = {
   rloginDef,
   rCellDef,
   rSwiperDef,
+  rParseDef,
   rFormDef,
   rGridDef,
   rMe,

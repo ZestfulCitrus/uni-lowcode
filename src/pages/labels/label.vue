@@ -84,6 +84,10 @@ export default {
             text: "列表组件",
             tags: [{ icon: "list", text: "单图片列表", type: "r-data-list" }],
           },
+          {
+            text:"富文本组件",
+            tags:[{icon:"list",text:"加强版富文本组件",type:"r-parse"}]
+          }
         ],
         [
           {
