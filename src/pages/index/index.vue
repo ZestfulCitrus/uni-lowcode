@@ -220,7 +220,7 @@ export default {
   components: { vueJsonEditor },
   onLoad() {
     this.JSONfn = JSONfn;
-    this.loadDefaultData();
+    if (this.apps.length === 0) this.loadDefaultData();
   },
   mounted() {},
   methods: {
@@ -256,10 +256,10 @@ export default {
           let obj = that.JSONfn.parse(
             JSON.stringify(require("@/mock/default_apps.json"))
           );
-          that.apps = obj
+          that.apps = obj;
           uni.showToast({
-            title:"检测到无数据缓存！已为您加载默认数据！"
-          })
+            title: "检测到无数据缓存！已为您加载默认数据！",
+          });
         },
       });
     },
@@ -369,43 +369,7 @@ export default {
           name: "应用设置",
         },
       ],
-      apps: [
-        {
-          name: "测试APP",
-          pages: [
-            {
-              name: "测试页面",
-              path: "/path/index",
-              options: [
-                {
-                  type: "r-form-input",
-                  option: {
-                    value: "",
-                    label: "普通输入框",
-                    placeholder: "请输入内容",
-                    btn: {
-                      codeText: "单击",
-                    },
-                    password: false,
-                  },
-                  compStyle: {
-                    height: "auto",
-                    width: "100%",
-                    "font-size": "24rpx",
-                    "background-color": "#fff",
-                    "margin-top": "0",
-                    "margin-right": "0",
-                    "margin-down": "0",
-                    "margin-left": "0",
-                  },
-                  id: "uP5zVC7CCW45WAe0a2lXTs9Wlx3DObhX",
-                },
-              ],
-              imagebase64: "",
-            },
-          ],
-        },
-      ],
+      apps: [],
     };
   },
 };
