@@ -231,7 +231,7 @@ const rMe = {
     'margin-left': '0',
   },
   option: {
-    pic: require('../static/icons/12.png'),
+    pic: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/icons/12.png',
     username: 'r-me',
     user_id: '123456789',
     show: true,
@@ -313,42 +313,42 @@ const rMenu = {
   option: {
     card_list: [
       {
-        img_url: require('../static/equip/gdfq@3x.png'),
+        img_url: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/equip/gdfq@3x.png',
         task_info: '工单发起',
         press: () => { },
       },
       {
-        img_url: require('../static/equip/gdfq@3x.png'),
+        img_url: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/equip/gdfq@3x.png',
         task_info: '工单发起',
         press: () => { },
       },
       {
-        img_url: require('../static/equip/dbgd@3x.png'),
+        img_url: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/equip/dbgd@3x.png',
         task_info: '待办工单',
         press: () => { },
       },
       {
-        img_url: require('../static/equip/ybgd@3x.png'),
+        img_url: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/equip/ybgd@3x.png',
         task_info: '已办工单',
         press: () => { },
       },
       {
-        img_url: require('../static/equip/fqjc@3x.png'),
+        img_url: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/equip/fqjc@3x.png',
         task_info: '发起检查',
         press: () => { },
       },
       {
-        img_url: require('../static/equip/dbjh@3x.png'),
+        img_url: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/equip/dbjh@3x.png',
         task_info: '待办计划',
         press: () => { },
       },
       {
-        img_url: require('../static/equip/jcls@3x.png'),
+        img_url: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/equip/jcls@3x.png',
         task_info: '检查历史',
         press: () => { },
       },
       {
-        img_url: require('../static/equip/dbjh@3x.png'),
+        img_url: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/equip/dbjh@3x.png',
         task_info: '待办计划',
         press: () => { },
       },
@@ -358,7 +358,7 @@ const rMenu = {
 const rImage = {
   type: 'r-image',
   option: {
-    src: require('../static/icons/4.png'),
+    src: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/icons/4.png',
     width: '100%',
     height: '100px',
     shape: 'square',
@@ -411,7 +411,7 @@ const rCard = {
         borderRadius: '16',
         headBorderBottom: true,
         footBorderTop: true,
-        thumb: require('../static/icons/11.png'),
+        thumb: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/icons/11.png',
         thumbWidth: '',
         thumbCircle: true,
         padding: '',
@@ -434,7 +434,7 @@ const rCard = {
           {
             text:
               '中国工程院院士钟南山在沪参加上海科技大学2021届毕业典礼时表示，疫苗到第三期做不下去了，原因是没病人了。这被网友称为最骄傲的凡尔赛发言',
-            imgUrl: require('../static/icons/1.jpg'),
+            imgUrl: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/icons/1.jpg',
             press: () => {
               console.log({
                 title: this.option[0].body[1].text + '被单击',
@@ -462,7 +462,7 @@ const rCard = {
         borderRadius: '16',
         headBorderBottom: true,
         footBorderTop: true,
-        thumb: require('../static/icons/12.png'),
+        thumb: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/icons/12.png',
         thumbWidth: '',
         thumbCircle: true,
         padding: '',
@@ -474,7 +474,7 @@ const rCard = {
           {
             text:
               '中国日报北京7月6日电（记者 张陨璧）有知情人士日前接受《中国日报》独家采访时透露，近日有500多名中国理工科研究生申请赴美签证时被美方拒签，拜登政府一方面试图顺应美高校要求大量吸收中国留学生、保证学费收入的呼声，另一方面说一套做一套，仍旧延续打压理工科中国研究生和学者的错误政策，严重损害中国留学人员合法权益。',
-            imgUrl: require('../static/icons/2.jpg'),
+            imgUrl: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/icons/2.jpg',
             press: () => {
               console.log({
                 title: this.option[1].body[0].text + '被单击',
@@ -484,7 +484,7 @@ const rCard = {
           {
             text:
               '英国政府5日公布英格兰地区最后阶段“解封”计划详情，包括一旦实施“解封”，将取消在商店、地铁等公共场所须戴口',
-            imgUrl: require('../static/icons/3.jpg'),
+            imgUrl: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/icons/3.jpg',
             press: () => {
               console.log({
                 title: this.option[1].body[1].text + '被单击',
@@ -494,7 +494,7 @@ const rCard = {
           {
             text:
               '7月5日下午，中国排协网站公布中国女排东京奥运12人参赛名单。朱婷担任球队队长，张常宁、李盈莹和刘晓彤为球队主攻',
-            imgUrl: require('../static/icons/4.jpg'),
+            imgUrl: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/icons/4.jpg',
             press: () => {
               console.log({
                 title: this.option[1].body[2].text + '被单击',
@@ -1135,35 +1135,35 @@ const rLottery = {
         name: "奖品名称1",
         stock: 2,
         weight: 6,
-        prizeImage: require('../static/logo.png'),
+        prizeImage: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/logo.png',
       },
       {
         prizeId: 2,
         name: "奖品名称2",
         stock: 2,
         weight: 6,
-        prizeImage: require('../static/logo.png'),
+        prizeImage: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/logo.png',
       },
       {
         prizeId: 3,
         name: "奖品名称2",
         stock: 2,
         weight: 6,
-        prizeImage: require('../static/logo.png'),
+        prizeImage: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/logo.png',
       },
       {
         prizeId: 4,
         name: "奖品名称2",
         stock: 2,
         weight: 6,
-        prizeImage: require('../static/logo.png'),
+        prizeImage: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/logo.png',
       },
       {
         prizeId: 5,
         name: "奖品名称2",
         stock: 2,
         weight: 6,
-        prizeImage: require('../static/logo.png'),
+        prizeImage: 'https://rtvue.oss-cn-beijing.aliyuncs.com/static/logo.png',
       }
     ],
     // 奖品是否设有库存
@@ -1236,7 +1236,7 @@ const rDdataListDef = {
     },
     list: [
       {
-        image_url: require("../static/equip/dbgd.png"),
+        image_url: "https://rtvue.oss-cn-beijing.aliyuncs.com/static/equip/dbgd.png",
         texts: [
           [{ value: "AAA" }, { value: "BBB" }],
           [{ value: "BBB" }, { value: "BBB" }],
@@ -1246,7 +1246,7 @@ const rDdataListDef = {
         }
       },
       {
-        image_url: require("../static/equip/dbgd.png"),
+        image_url: "https://rtvue.oss-cn-beijing.aliyuncs.com/static/equip/dbgd.png",
         texts: [
           [
             { style: { "font-weight": "bold", "margin-bottom": "6px" }, value: "EEE" },
@@ -1259,7 +1259,7 @@ const rDdataListDef = {
         }
       },
       {
-        image_url: require("../static/equip/dbgd.png"),
+        image_url: "https://rtvue.oss-cn-beijing.aliyuncs.com/static/equip/dbgd.png",
         texts: [
           [{ value: "AAA" }, { value: "BBB" }],
           [{ value: "BBB" }, { value: "BBB" }],
