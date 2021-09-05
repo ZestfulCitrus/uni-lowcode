@@ -8,6 +8,10 @@
 	},
 	"pages": [
 		{
+			"path":"pages/login/login",
+			"style":{}
+		},
+		{
 			"path": "pages/index/index",
 			"style": {}
 		},

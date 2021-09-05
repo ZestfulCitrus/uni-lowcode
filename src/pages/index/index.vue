@@ -106,9 +106,8 @@
         </view>
       </u-popup>
       <view class="main-contain">
-        
         <view class="label" style="text-align: center">
-          <h1 style="margin: 10px; padding: 20px;color:#fff">应用列表</h1>
+          <h1 style="margin: 10px; padding: 20px; color: #fff">应用列表</h1>
           <button @click="show = true" style="background-color: grey">
             新建APP
           </button>
@@ -122,16 +121,16 @@
           </view>
         </view>
         <view class="layout2">
-          <view class="rtnav" >
-        <view class="left">RT-VUE低代码开发平台</view>
-        <!--view
+          <view class="rtnav">
+            <view class="left">RT-VUE低代码开发平台</view>
+            <!--view
         class="right"
         @click="exportRaw(JSON.stringify(options), '导出文件.json')"
         >生成JSON</view
       -->
-        <view class="right">登录</view>
-        <view class="right" @click="saveApps">保存数据至本地缓存</view>
-      </view>
+            <view class="right">登录</view>
+            <view class="right" @click="saveApps">保存数据至本地缓存</view>
+          </view>
           <view style="width: 100%; display: flex; margin: 10px">
             <u-subsection
               :list="indexlist"
@@ -215,13 +214,17 @@
 
 <script>
 import vueJsonEditor from "../sidebar/jsoneditor/vue-json-editor.vue";
+import utilFunc from "@/utils/exportFunc.js";
+import JSONfn from "@/components/util/jsonfn.min.js";
 export default {
   components: { vueJsonEditor },
   onLoad() {
+    this.JSONfn = JSONfn;
     this.loadDefaultData();
   },
   mounted() {},
   methods: {
+    ...utilFunc,
     saveApps() {
       uni.setStorage({
         key: "apps",
@@ -243,19 +246,20 @@ export default {
       });
     },
     loadDefaultData() {
+      let that = this;
       uni.getStorage({
         key: "apps",
         success: (res) => {
           this.apps = res.data;
         },
         fail: () => {
-          let obj = require("@/mock/default.json");
-          this.apps[0].pages[0].imagebase64 = obj.BASE64;
-          this.$refs.uToast.show({
-            title: "检测到无数据缓存！已为您加载默认数据！",
-            type: "success",
-            position: "top",
-          });
+          let obj = that.JSONfn.parse(
+            JSON.stringify(require("@/mock/default_apps.json"))
+          );
+          that.apps = obj
+          uni.showToast({
+            title:"检测到无数据缓存！已为您加载默认数据！"
+          })
         },
       });
     },
@@ -333,6 +337,7 @@ export default {
   },
   data() {
     return {
+      JSONfn: {},
       exportPage: false,
       vueTemplate: ``,
       showCreatePage: false,
@@ -445,7 +450,7 @@ export default {
   align-items: center;
   height: 45px;
   color: #fff;
-  &:hover{
+  &:hover {
     background-color: black;
   }
 }
