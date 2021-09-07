@@ -23,13 +23,15 @@
           label="按钮文字"
         ></u-field>
       </view>
+      <view class="comInfo">
+        <text class="comptype">编辑按钮单击事件</text>
+        <u-button size="mini" @click="changeBtnCodeFunc">编辑 </u-button>
+      </view>
     </view>
-   
   </view>
 </template>
 
 <script>
-
 export default {
   name: "option-r-form-input-bar",
   props: {
@@ -68,7 +70,24 @@ export default {
     },
     btnChecked(a, b) {
       if (this.btnChecked)
-        this.$set(this.option.option, "btn", { codeText: "单击" });
+        this.$set(this.option.option, "btn", {
+          getCode: () => {
+            uni.request({
+              url: "https://www.example.com/request", //仅为示例，并非真实接口地址。
+              data: {
+                text: "uni.request",
+              },
+              header: {
+                "custom-header": "hello", //自定义请求头信息
+              },
+              success: (res) => {
+                console.log(res.data);
+                this.text = "request success";
+              },
+            });
+          },
+          codeText: "单击",
+        });
       else this.$delete(this.option.option, "btn");
     },
   },
@@ -76,18 +95,23 @@ export default {
     onMounted(editor) {
       this.editor = editor;
     },
-     onJsonChange (value) {
-        console.log('value:', value)
-      },
+    onJsonChange(value) {
+      console.log("value:", value);
+    },
     onCodeChange(editor) {
       console.log(editor.getValue());
+    },
+    changeBtnCodeFunc() {
+      console.log(this.option.option.btn.getCode);
+      let code = this.option.option.btn.getCode.toString();
+      var body = code.substring(code.indexOf("{") + 1, code.lastIndexOf("}"));
+      this.$emit("update:foo", body);
     },
   },
 };
 </script>
 
 <style lang="scss">
-
 .comInfo {
   border: 1px dashed #606266;
   font-size: 14px;

@@ -8,7 +8,7 @@
       :type="option.type"
       :password="option.password"
     >
-    <u-button v-if="option.btn" size="mini" slot="right" type="success" @click="option.btn.getCode">{{option.btn.codeText}}</u-button>
+    <u-button v-if="option.btn" size="mini" slot="right" type="success" @click="option.btn.getCode()">{{option.btn.codeText}}</u-button>
     </u-field>
   </view>
 </template>
@@ -17,7 +17,7 @@
 import {rvuecomp} from '../mixins/r-vue-comp'
 export default {
   name: "r-form-input",
-  mixins:[rvuecomp]
+  mixins:[rvuecomp],
 };
 </script>
 

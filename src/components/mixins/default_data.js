@@ -520,7 +520,9 @@ const rFormInput = {
     label: '普通输入框',
     placeholder: '请输入内容',
     btn: {
-      getCode: () => { },
+      getCode: () => { 
+        console.log("这是单击事件")
+      },
       codeText: '单击',
     },
     password: false,
@@ -1744,15 +1746,16 @@ const deepClone = target => {
   return result;
 }
 
+import JSONfn from "../util/jsonfn.min.js";
 
 const getData = (params, context) => {
   let id = context.$u.guid()
   params.id = id
-  return deepClone(params)
+  return JSONfn.parse(JSONfn.stringify(params))
 }
 const cloneData = (params) => {
 
-  return JSON.parse(JSON.stringify(params))
+  return JSONfn.parse(JSONfn.stringify(params))
 }
 
 module.exports = {

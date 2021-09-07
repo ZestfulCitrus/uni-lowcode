@@ -2,6 +2,22 @@
   <view class="content">
     <u-toast ref="uToast" />
     <!--弹出层-->
+    <!--事件编辑器-->
+    <u-popup v-model="eventEdit" width="80%" mode="center" :closeable="true" :mask-close-able='false' >
+      <view style="display: flex;padding-top:40px;">
+        <view style="flex: 1"></view>
+        <view style="flex: 1">
+          <MonacoEditor
+            height="800"
+            language="javascript"
+            :code="code"
+            @mounted="onMounted"
+            @codeChange="onCodeChange"
+          >
+          </MonacoEditor>
+        </view>
+      </view>
+    </u-popup>
     <!--页面预览-->
     <u-popup v-model="preview" width="50%" mode="center">
       <view style="display: flex; margin: 10px">
@@ -115,6 +131,7 @@
             "
           >
             <component
+              @update:foo="openCodeEditor"
               :is="CompentToOptionMap[layoutconfig.type]"
               :option="options[layoutconfig.current]"
             ></component>
@@ -165,7 +182,7 @@
 </template>
 
 <script>
-import JSONfn  from "@/components/util/jsonfn.min.js"
+import JSONfn from "@/components/util/jsonfn.min.js";
 import Label from "../labels/label.vue";
 import cellBar from "../sidebar/cell-bar.vue";
 import utilFunc from "@/utils/exportFunc.js";
@@ -173,8 +190,16 @@ import StyleBar from "../sidebar/style-bar/style-bar.vue";
 import vueJsonEditor from "../sidebar/jsoneditor/vue-json-editor.vue";
 import DataBar from "../sidebar/data-bar/data-bar.vue";
 import html2canvas from "html2canvas";
+import MonacoEditor from "vue-monaco-editor";
 export default {
-  components: { cellBar, Label, StyleBar, vueJsonEditor, DataBar },
+  components: {
+    cellBar,
+    Label,
+    StyleBar,
+    vueJsonEditor,
+    DataBar,
+    MonacoEditor,
+  },
   watch: {
     layoutconfig: {
       handler: function () {
@@ -186,8 +211,10 @@ export default {
 
   data() {
     return {
-      JSONfn:{},
+      JSONfn: {},
       show: false,
+      code: "()=>{}",
+      eventEdit: false,
       preview: false,
       pageName: "",
       saveError: "",
@@ -221,7 +248,7 @@ export default {
     };
   },
   onLoad() {
-    this.JSONfn = JSONfn
+    this.JSONfn = JSONfn;
     this.CompentToOptionMap = this.GetMapFromCompToOption();
     this.options = this.$store.state.page.options;
   },
@@ -264,6 +291,18 @@ export default {
       if (this.pageName === "") {
         this.saveError = "必须填写页面名字";
       } else this.savePage(this.pageName, this.options, this);
+    },
+    onMounted(editor) {
+      this.editor = editor;
+      editor.trigger("editor", "editor.action.formatDocument");
+    },
+    onCodeChange(editor) {
+      editor.trigger('anything','editor.action.formatDocument');
+      //console.log(editor.getValue());
+    },
+    openCodeEditor(code) {
+      this.code = code
+      this.eventEdit = true;
     },
   },
 };
