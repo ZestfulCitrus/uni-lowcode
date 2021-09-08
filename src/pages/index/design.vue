@@ -3,10 +3,22 @@
     <u-toast ref="uToast" />
     <!--弹出层-->
     <!--事件编辑器-->
-    <u-popup v-model="eventEdit" width="80%" mode="center" :closeable="true" :mask-close-able='false' >
-      <view style="display: flex;padding-top:40px;">
+    <u-popup
+      v-model="eventEdit"
+      width="80%"
+      mode="center"
+      :closeable="true"
+      :mask-close-able="false"
+    >
+      <view style="display: flex; padding-top: 40px">
         <view style="flex: 1"></view>
         <view style="flex: 1">
+          <u-button size="mini" @click="saveFunc">保存</u-button>
+          <u-button
+            size="mini"
+            @click="editor.trigger('', 'editor.action.format')"
+            >格式化代码(ALT+shift+F)</u-button
+          >
           <MonacoEditor
             height="800"
             language="javascript"
@@ -131,6 +143,7 @@
             "
           >
             <component
+              ref="options-bar"
               @update:foo="openCodeEditor"
               :is="CompentToOptionMap[layoutconfig.type]"
               :option="options[layoutconfig.current]"
@@ -191,7 +204,11 @@ import vueJsonEditor from "../sidebar/jsoneditor/vue-json-editor.vue";
 import DataBar from "../sidebar/data-bar/data-bar.vue";
 import html2canvas from "html2canvas";
 import MonacoEditor from "vue-monaco-editor";
+
 export default {
+  created() {
+    
+  },
   components: {
     cellBar,
     Label,
@@ -211,6 +228,7 @@ export default {
 
   data() {
     return {
+      func: {},
       JSONfn: {},
       show: false,
       code: "()=>{}",
@@ -294,15 +312,34 @@ export default {
     },
     onMounted(editor) {
       this.editor = editor;
-      editor.trigger("editor", "editor.action.formatDocument");
+      let that= this
+      editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S, function () {
+        that.saveFunc()
+      })
     },
     onCodeChange(editor) {
-      editor.trigger('anything','editor.action.formatDocument');
-      //console.log(editor.getValue());
+      this.code = editor.getValue();
     },
-    openCodeEditor(code) {
-      this.code = code
+    openCodeEditor(code, func) {
+      this.code = code;
       this.eventEdit = true;
+      this.func = func;
+    },
+    saveFunc() {
+      if (this.$refs["options-bar"].saveFunc(this.code)) {
+        this.$refs.uToast.show({
+          title: "更改成功",
+          type: "success",
+          position: "top",
+        });
+        this.eventEdit = false;
+      } else {
+        this.$refs.uToast.show({
+          title: "编译失败",
+          type: "error",
+          position: "top",
+        });
+      }
     },
   },
 };

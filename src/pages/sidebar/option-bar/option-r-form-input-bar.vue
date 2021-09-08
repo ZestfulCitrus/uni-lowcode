@@ -102,11 +102,19 @@ export default {
       console.log(editor.getValue());
     },
     changeBtnCodeFunc() {
-      console.log(this.option.option.btn.getCode);
       let code = this.option.option.btn.getCode.toString();
       var body = code.substring(code.indexOf("{") + 1, code.lastIndexOf("}"));
-      this.$emit("update:foo", body);
+      this.$emit("update:foo", body,this.option.option.btn.getCode);
     },
+    saveFunc(code){
+      try{
+        this.option.option.btn.getCode = new Function(code)
+        
+      }catch(e){
+        return false
+      }
+      return true
+    }
   },
 };
 </script>
