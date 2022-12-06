@@ -1,34 +1,44 @@
 <template>
   <!--每个均增加ref-->
   <view
-    style="height: 812px"
+    style="height: 652px"
     v-on:drop.native="drop($event)"
     v-on:dragover.native="dragover($event)"
     v-on:dragleave.native="dragleave($event)"
     v-on:dragover.native.prevent
     :class="{ contShow: contShow }"
   >
-    <view
-      v-for="(item, index) in options"
-      :key="index"
-      @click="focus(index, item.type)"
-      :class="{ active: config.current === index}"
-    >
-      <button
-        @click.stop="remove(index)"
-        v-if="config.current === index"
-        class="delete"
+    <r-navbar
+      :is-fixed="false"
+      style="pointer-events: none"
+      :immersive="true"
+      back-text="返回"
+      title="首页"
+    ></r-navbar>
+    <view style="height: 652px;overflow: auto;">
+      <view
+        v-for="(item, index) in options"
+        :key="index"
+        @click="focus(index, item.type)"
+        :class="{ active: config.current === index }"
       >
-        X
-      </button>
-      <r-drag :index="index" @swapComp="swapComp" @addComp="addComp">
-        <component
-          :is="item.type"
-          :option="item.option"
-          :compStyle="item.compStyle"
-        ></component>
-      </r-drag>
+        <button
+          @click.stop="remove(index)"
+          v-if="config.current === index"
+          class="delete"
+        >
+          X
+        </button>
+        <r-drag :index="index" @swapComp="swapComp" @addComp="addComp">
+          <component
+            :is="item.type"
+            :option="item.option"
+            :compStyle="item.compStyle"
+          ></component>
+        </r-drag>
+      </view>
     </view>
+    <r-tabbar v-model="current" :list="list" :mid-button="true"></r-tabbar>
   </view>
 </template>
 

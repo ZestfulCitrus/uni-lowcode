@@ -40,7 +40,31 @@ import RTabs from '../r-tabs/r-tabs.vue';
 import RSubsection from '../r-subsection/r-subsection.vue';
 import RParse from '../r-parse/r-parse.vue'
 export default {
-    components: {RParse,rCard,rCell,rChartLine,rChartPie, rFormInput,rButton, RFormInputMap, RForm ,rDataList,rChartRadar, RFormCheckboxes, RFormInputTime, RFormRadio, RFormRate, RFormSlider, RFormSwitch, RFormNumberbox, RGrid, RImage, RLogin, RLottery, RMe, RMenu, RSwiper, RTabs, RSubsection},
+    components: {
+      RParse,
+      rCard,
+      rCell,
+      rChartLine,
+      rChartPie, 
+      rFormInput,
+      rButton, 
+      RFormInputMap, 
+      RForm ,
+      rDataList,
+      rChartRadar, 
+      RFormCheckboxes, 
+      RFormInputTime, 
+      RFormRadio, 
+      RFormRate, 
+      RFormSlider, 
+      RFormSwitch, 
+      RFormNumberbox, 
+      RGrid, 
+      RImage, 
+      RLogin, 
+      RLottery, 
+      RMe,
+       RMenu, RSwiper, RTabs, RSubsection},
     name:'r-vue-page',
     props:{
         options:{

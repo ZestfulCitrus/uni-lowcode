@@ -45,7 +45,30 @@
         style="display: flex; background-color: gray; justify-content: center"
       >
         <view class="phone">
-          <r-vue-page :options="options"></r-vue-page>
+          <view style="display: flex; justify-content: center">
+            <view class="marvel-device iphone-x">
+              <view class="notch">
+                <view class="camera"></view>
+                <view class="speaker"></view>
+              </view>
+              <view class="top-bar"></view>
+              <view class="sleep"></view>
+              <view class="bottom-bar"></view>
+              <view class="volume"></view>
+              <view class="overflow">
+                <view class="shadow shadow--tr"></view>
+                <view class="shadow shadow--tl"></view>
+                <view class="shadow shadow--br"></view>
+                <view class="shadow shadow--bl"></view>
+              </view>
+              <view class="inner-shadow"></view>
+              <view class="screen">
+                <view class="phone" id="phone">
+                  <r-vue-page :options="options"></r-vue-page>
+                </view>
+              </view>
+            </view>
+          </view>
         </view>
       </view>
     </u-popup>
@@ -115,13 +138,33 @@
             >
           </view>
           <view style="display: flex; justify-content: center">
-            <view class="phone" id="phone">
-              <r-vue-edit
-                :options="options"
-                @focusleave="focusleave"
-                :config="layoutconfig"
-                ref="rvuez"
-              ></r-vue-edit>
+            <view class="marvel-device iphone-x">
+              <view class="notch">
+                <view class="camera"></view>
+                <view class="speaker"></view>
+              </view>
+              <view class="top-bar"></view>
+              <view class="sleep"></view>
+              <view class="bottom-bar"></view>
+              <view class="volume"></view>
+              <view class="overflow">
+                <view class="shadow shadow--tr"></view>
+                <view class="shadow shadow--tl"></view>
+                <view class="shadow shadow--br"></view>
+                <view class="shadow shadow--bl"></view>
+              </view>
+              <view class="inner-shadow"></view>
+              <view class="screen">
+                <view class="phone" id="phone">
+                  <r-vue-edit
+                    :options="options"
+                    @focusleave="focusleave"
+                    :config="layoutconfig"
+                    ref="rvuez"
+                  ></r-vue-edit>
+                </view>
+
+              </view>
             </view>
           </view>
         </view>
@@ -206,9 +249,7 @@ import html2canvas from "html2canvas";
 import MonacoEditor from "vue-monaco-editor";
 
 export default {
-  created() {
-    
-  },
+  created() {},
   components: {
     cellBar,
     Label,
@@ -228,6 +269,7 @@ export default {
 
   data() {
     return {
+      
       func: {},
       JSONfn: {},
       show: false,
@@ -312,10 +354,13 @@ export default {
     },
     onMounted(editor) {
       this.editor = editor;
-      let that= this
-      editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S, function () {
-        that.saveFunc()
-      })
+      let that = this;
+      editor.addCommand(
+        monaco.KeyMod.CtrlCmd | monaco.KeyCode.KEY_S,
+        function () {
+          that.saveFunc();
+        }
+      );
     },
     onCodeChange(editor) {
       this.code = editor.getValue();
