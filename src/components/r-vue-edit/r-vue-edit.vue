@@ -23,12 +23,11 @@
         :class="{ active: config.current === index }"
       >
         <button
+          
           @click.stop="remove(index)"
           v-if="config.current === index"
           class="delete"
-        >
-          X
-        </button>
+        >X</button>
         <r-drag :index="index" @swapComp="swapComp" @addComp="addComp">
           <component
             :is="item.type"
@@ -106,7 +105,7 @@ export default {
   margin-bottom: -14px;
   margin-top: -14px;
   height: 28px;
-  z-index: 100;
+  z-index: 1000000;
   background-color: red;
   float: right;
   margin-right: 10px;
