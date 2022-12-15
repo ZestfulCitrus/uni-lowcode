@@ -3,6 +3,8 @@ node_modules/
 unpackage/
 dist/
 
+config.js
+
 # local env files
 .env.local
 .env.*.local
